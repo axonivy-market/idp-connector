@@ -34,7 +34,7 @@ public enum SampleFile {
 	public File getFile() {
 		try {
 			String filePath = "/Files/" + this.toString();
-			File file = new File(filePath + ".pdf");
+			File file = new File(filePath + ".pdf", true);
 			if(!file.exists()) {
 				return IDPDemoService.exportIvyFileFromCMS(filePath, "pdf");
 			} else {
