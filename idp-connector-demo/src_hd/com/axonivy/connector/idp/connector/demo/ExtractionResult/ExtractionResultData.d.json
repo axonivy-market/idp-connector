@@ -1,0 +1,39 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "ExtractionResultData",
+  "namespace" : "com.axonivy.connector.idp.connector.demo.ExtractionResult",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "processingId",
+    "type" : "java.util.UUID",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "resultNode",
+    "type" : "com.fasterxml.jackson.databind.JsonNode",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "extractionsNode",
+    "type" : "com.fasterxml.jackson.databind.JsonNode",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "prettyJson",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "extractions",
+    "type" : "java.util.List<com.axonivy.connector.idp.demo.dto.Extraction>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "lineItemHeader",
+    "type" : "java.util.List<String>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "lineItems",
+    "type" : "java.util.List<java.util.Map>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "selectedSampleFile",
+    "type" : "com.axonivy.connector.idp.demo.SampleFile",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

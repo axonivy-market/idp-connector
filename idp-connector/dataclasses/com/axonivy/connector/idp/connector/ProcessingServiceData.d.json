@@ -1,0 +1,52 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "ProcessingServiceData",
+  "namespace" : "com.axonivy.connector.idp.connector",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "workflowId",
+    "type" : "String"
+  }, {
+    "name" : "file",
+    "type" : "java.io.File"
+  }, {
+    "name" : "fileName",
+    "type" : "String"
+  }, {
+    "name" : "include",
+    "type" : "java.util.List<String>"
+  }, {
+    "name" : "processingId",
+    "type" : "java.util.UUID"
+  }, {
+    "name" : "jsonNode",
+    "type" : "com.fasterxml.jackson.databind.JsonNode"
+  }, {
+    "name" : "response",
+    "type" : "javax.ws.rs.core.Response"
+  }, {
+    "name" : "waitFor",
+    "type" : "Integer"
+  }, {
+    "name" : "statusCode",
+    "type" : "Integer"
+  }, {
+    "name" : "error",
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+  }, {
+    "name" : "subDocuments",
+    "type" : "java.util.List<com.axonivy.connector.idp.connector.model.SubDocument>"
+  }, {
+    "name" : "index",
+    "type" : "Integer"
+  }, {
+    "name" : "expires_at",
+    "type" : "String"
+  }, {
+    "name" : "docShareTokenInfo",
+    "type" : "com.axonivy.connector.idp.connector.model.DocShareTokenInfo"
+  }, {
+    "name" : "tokenUUID",
+    "type" : "java.util.UUID"
+  } ]
+}

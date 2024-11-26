@@ -1,0 +1,27 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "FileSelectionData",
+  "namespace" : "com.axonivy.connector.idp.connector.demo.FileSelection",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "demo",
+    "type" : "com.axonivy.connector.idp.demo.Demo",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "uploadedFile",
+    "type" : "org.primefaces.model.file.UploadedFile",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "sampleFiles",
+    "type" : "java.util.List<com.axonivy.connector.idp.demo.SampleFile>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "file",
+    "type" : "File",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "selectedSampleFile",
+    "type" : "com.axonivy.connector.idp.demo.SampleFile",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

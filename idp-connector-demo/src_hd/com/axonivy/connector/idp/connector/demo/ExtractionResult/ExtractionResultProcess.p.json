@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "192137ABF29DDCCE",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,12 +10,12 @@
       "type" : "HtmlDialogStart",
       "name" : "start(UUID,JsonNode,SampleFile)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "processingId", "type" : "java.util.UUID" },
-            { "name" : "resultNode", "type" : "com.fasterxml.jackson.databind.JsonNode" },
-            { "name" : "sampleFile", "type" : "com.axonivy.connector.idp.demo.SampleFile" }
+            { "name" : "processingId", "type" : "java.util.UUID", "desc" : "" },
+            { "name" : "resultNode", "type" : "com.fasterxml.jackson.databind.JsonNode", "desc" : "" },
+            { "name" : "sampleFile", "type" : "com.axonivy.connector.idp.demo.SampleFile", "desc" : "" }
           ],
           "map" : {
             "out.processingId" : "param.#processingId",
@@ -40,7 +40,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f7", "to" : "f6" }
+      "connect" : [
+        { "id" : "f7", "to" : "f6" }
+      ]
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
@@ -57,7 +59,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 160 }
       },
-      "connect" : { "id" : "f5", "to" : "f4" }
+      "connect" : [
+        { "id" : "f5", "to" : "f4" }
+      ]
     }, {
       "id" : "f4",
       "type" : "HtmlDialogExit",
@@ -82,6 +86,8 @@
       "visual" : {
         "at" : { "x" : 256, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     } ]
 }
