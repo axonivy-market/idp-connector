@@ -1,0 +1,17 @@
+RestClients:
+  IDP (Document Capturing API):
+    UUID: c316f4d1-daa6-4ca2-b3e0-68133e54eb99
+    Url: ${ivy.var.idpConnector.apiProxyUrl}/api
+    Icon: res:/webContent/icons/BlueFilesIcon.png
+    Features:
+    - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
+    - org.glassfish.jersey.media.multipart.MultiPartFeature
+    - com.axonivy.connector.idp.connector.auth.IDPAuthFeature
+    Properties:
+      AUTH.apiKey: ${ivy.var.idpConnector.apiKeySecret}
+      JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES: 'false'
+      JSON.Deserialization.FAIL_ON_INVALID_SUBTYPE: 'false'
+      JSON.Deserialization.FAIL_ON_IGNORED_PROPERTIES: 'false'
+    OpenAPI:
+      Namespace: com.axonivy.connector.idp.connector.model
+      ResolveFully: true

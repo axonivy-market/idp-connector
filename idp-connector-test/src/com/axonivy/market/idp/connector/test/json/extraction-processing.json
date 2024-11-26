@@ -1,0 +1,1931 @@
+{
+	"processing_id": "11111111-1111-1111-1111-111111111111",
+	"workflow_id": "11111111-1111-1111-1111-111111111111",
+	"workflow_name": "Invoice",
+	"available_results": [
+		"extractions",
+		"ocr",
+		"page-images",
+		"thumbnail",
+		"pdf",
+		"hocr"
+	],
+	"extractions": {
+		"schema_version": 1,
+		"document_type": "custom_extraction",
+		"vendor": {
+			"name": {
+				"validation_problem": false,
+				"note": "",
+				"confidence": 0.9871962904930115,
+				"bbox_refs": [
+					{
+						"page_num": 1,
+						"bbox_id": 143
+					},
+					{
+						"page_num": 1,
+						"bbox_id": 89
+					},
+					{
+						"page_num": 1,
+						"bbox_id": 61
+					},
+					{
+						"page_num": 1,
+						"bbox_id": 62
+					},
+					{
+						"page_num": 1,
+						"bbox_id": 27
+					}
+				],
+				"value": "Environmental Dynamics Group , Inc."
+			},
+			"number": null,
+			"company_code": null,
+			"vendor_notes": null
+		},
+		"invoice_number": {
+			"validation_problem": false,
+			"note": "",
+			"confidence": 0.7906499703725179,
+			"bbox_refs": [
+				{
+					"page_num": 1,
+					"bbox_id": 116
+				},
+				{
+					"page_num": 1,
+					"bbox_id": 117
+				},
+				{
+					"page_num": 1,
+					"bbox_id": 118
+				}
+			],
+			"value": -330114.0
+		},
+		"invoice_date": {
+			"validation_problem": false,
+			"note": "",
+			"confidence": 0.9932256937026978,
+			"bbox_refs": [
+				{
+					"page_num": 1,
+					"bbox_id": 119
+				},
+				{
+					"page_num": 1,
+					"bbox_id": 120
+				},
+				{
+					"page_num": 1,
+					"bbox_id": 121
+				},
+				{
+					"page_num": 1,
+					"bbox_id": 122
+				},
+				{
+					"page_num": 1,
+					"bbox_id": 123
+				}
+			],
+			"value": "2024-05-31"
+		},
+		"branch": null,
+		"business_unit": null,
+		"drop_ship": null,
+		"sub_total": null,
+		"disc_amount": null,
+		"misc_amount": null,
+		"pallet_amount": null,
+		"tax": null,
+		"freight": null,
+		"total": {
+			"validation_problem": false,
+			"note": "",
+			"confidence": 0.9039669632911682,
+			"bbox_refs": [
+				{
+					"page_num": 1,
+					"bbox_id": 112
+				}
+			],
+			"value": 2245.76
+		},
+		"imaging_id": null,
+		"line_count": null,
+		"rebate": [
+		],
+		"line_items": [
+			{
+				"invoice_line_number": null,
+				"po_line_number": null,
+				"material_number_usn": null,
+				"item_description": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9944930235544841,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 26
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 9
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 17
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 11
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 6
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 47
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 48
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 32
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 101
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 102
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 24
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 25
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 2
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 94
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 77
+						}
+					],
+					"value": "16 X 25 X 1 LPD , HD FRAME , W / 3 MEDIA PADS"
+				},
+				"vendor_item_id": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.5825560688972473,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 111
+						}
+					],
+					"value": "3LP1625"
+				},
+				"qty": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9451172351837158,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 21
+						}
+					],
+					"value": 10.0
+				},
+				"unit_price": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9559963345527649,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 84
+						}
+					],
+					"value": 214.0
+				},
+				"line_total": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9800728559494019,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 97
+						}
+					],
+					"value": 2140.0
+				},
+				"status": null,
+				"gl_account": null,
+				"cost_center": null,
+				"internal_order": null,
+				"gl_notes": null,
+				"unit_of_measure": null
+			},
+			{
+				"invoice_line_number": null,
+				"po_line_number": null,
+				"material_number_usn": null,
+				"item_description": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9895160623959133,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 114
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 13
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 75
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 98
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 90
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 91
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 142
+						}
+					],
+					"value": "SOLACE & FedEx Tracking Number : 723149993749"
+				},
+				"vendor_item_id": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.42356905341148376,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 135
+						}
+					],
+					"value": "SHIPPING"
+				},
+				"qty": null,
+				"unit_price": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9473602771759033,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 72
+						}
+					],
+					"value": 52.88
+				},
+				"line_total": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9732181429862976,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 71
+						}
+					],
+					"value": 52.88
+				},
+				"status": null,
+				"gl_account": null,
+				"cost_center": null,
+				"internal_order": null,
+				"gl_notes": null,
+				"unit_of_measure": null
+			},
+			{
+				"invoice_line_number": null,
+				"po_line_number": null,
+				"material_number_usn": null,
+				"item_description": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9892831444740295,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 10
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 87
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 99
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 105
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 106
+						},
+						{
+							"page_num": 1,
+							"bbox_id": 159
+						}
+					],
+					"value": "& FedEx Tracking Number : 723149993750"
+				},
+				"vendor_item_id": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.41855257749557495,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 136
+						}
+					],
+					"value": "SHIPPING"
+				},
+				"qty": {
+					"validation_problem": true,
+					"note": "Could not recognize what number is I. Please check manually.",
+					"confidence": 0.49958348274230957,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 1
+						}
+					],
+					"value": "I"
+				},
+				"unit_price": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9480844736099243,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 73
+						}
+					],
+					"value": 52.88
+				},
+				"line_total": {
+					"validation_problem": false,
+					"note": "",
+					"confidence": 0.9724097847938538,
+					"bbox_refs": [
+						{
+							"page_num": 1,
+							"bbox_id": 67
+						}
+					],
+					"value": 52.88
+				},
+				"status": null,
+				"gl_account": null,
+				"cost_center": null,
+				"internal_order": null,
+				"gl_notes": null,
+				"unit_of_measure": null
+			}
+		],
+		"validation_check": null,
+		"workflow_status": null,
+		"scan_batch": null,
+		"validation_user_id": null,
+		"po_number": {
+			"validation_problem": false,
+			"note": "",
+			"confidence": 0.864432692527771,
+			"bbox_refs": [
+				{
+					"page_num": 1,
+					"bbox_id": 104
+				}
+			],
+			"value": "7858486"
+		},
+		"type_of_document": {
+			"validation_problem": false,
+			"note": "",
+			"confidence": 0.9611656665802002,
+			"bbox_refs": [
+				{
+					"page_num": 1,
+					"bbox_id": 81
+				}
+			],
+			"value": "Invoice"
+		},
+		"invoice_status": null
+	},
+	"ocr": {
+		"pages": [
+			{
+				"width": 1869,
+				"height": 2420,
+				"bboxes": [
+					{
+						"id": 1,
+						"x1": 971,
+						"y1": 1182,
+						"x2": 980,
+						"y2": 1198,
+						"text": "I",
+						"text_entropy": 0.31787109375
+					},
+					{
+						"id": 2,
+						"x1": 739,
+						"y1": 1012,
+						"x2": 759,
+						"y2": 1037,
+						"text": "3",
+						"text_entropy": 0.01474761962890625
+					},
+					{
+						"id": 3,
+						"x1": 1685,
+						"y1": 228,
+						"x2": 1705,
+						"y2": 252,
+						"text": "#",
+						"text_entropy": 0.024261474609375
+					},
+					{
+						"id": 4,
+						"x1": 1214,
+						"y1": 617,
+						"x2": 1236,
+						"y2": 642,
+						"text": "E",
+						"text_entropy": 0.0162200927734375
+					},
+					{
+						"id": 5,
+						"x1": 1192,
+						"y1": 1012,
+						"x2": 1214,
+						"y2": 1037,
+						"text": "0",
+						"text_entropy": 0.0142822265625
+					},
+					{
+						"id": 6,
+						"x1": 457,
+						"y1": 1012,
+						"x2": 476,
+						"y2": 1037,
+						"text": "1",
+						"text_entropy": 0.05633544921875
+					},
+					{
+						"id": 7,
+						"x1": 558,
+						"y1": 2194,
+						"x2": 579,
+						"y2": 2219,
+						"text": "#",
+						"text_entropy": 0.041717529296875
+					},
+					{
+						"id": 8,
+						"x1": 314,
+						"y1": 2194,
+						"x2": 335,
+						"y2": 2219,
+						"text": "#",
+						"text_entropy": 0.041717529296875
+					},
+					{
+						"id": 9,
+						"x1": 370,
+						"y1": 1012,
+						"x2": 393,
+						"y2": 1037,
+						"text": "X",
+						"text_entropy": 0.0108489990234375
+					},
+					{
+						"id": 10,
+						"x1": 262,
+						"y1": 1173,
+						"x2": 287,
+						"y2": 1198,
+						"text": "&",
+						"text_entropy": 0.0030460357666015625
+					},
+					{
+						"id": 11,
+						"x1": 430,
+						"y1": 1012,
+						"x2": 455,
+						"y2": 1037,
+						"text": "X",
+						"text_entropy": 0.0078887939453125
+					},
+					{
+						"id": 12,
+						"x1": 1681,
+						"y1": 901,
+						"x2": 1710,
+						"y2": 926,
+						"text": "Pt",
+						"text_entropy": 0.0178070068359375
+					},
+					{
+						"id": 13,
+						"x1": 262,
+						"y1": 1142,
+						"x2": 289,
+						"y2": 1165,
+						"text": "&",
+						"text_entropy": 0.149169921875
+					},
+					{
+						"id": 14,
+						"x1": 265,
+						"y1": 388,
+						"x2": 299,
+						"y2": 413,
+						"text": "NJ",
+						"text_entropy": 0.0203857421875
+					},
+					{
+						"id": 15,
+						"x1": 1178,
+						"y1": 617,
+						"x2": 1211,
+						"y2": 642,
+						"text": "36",
+						"text_entropy": 5.488395690917969E-4
+					},
+					{
+						"id": 16,
+						"x1": 509,
+						"y1": 901,
+						"x2": 542,
+						"y2": 926,
+						"text": "30",
+						"text_entropy": 0.00875091552734375
+					},
+					{
+						"id": 17,
+						"x1": 395,
+						"y1": 1012,
+						"x2": 428,
+						"y2": 1037,
+						"text": "25",
+						"text_entropy": 0.0032558441162109375
+					},
+					{
+						"id": 18,
+						"x1": 1328,
+						"y1": 1015,
+						"x2": 1360,
+						"y2": 1037,
+						"text": "10",
+						"text_entropy": 0.001827239990234375
+					},
+					{
+						"id": 19,
+						"x1": 1009,
+						"y1": 651,
+						"x2": 1046,
+						"y2": 675,
+						"text": "St.",
+						"text_entropy": 0.13720703125
+					},
+					{
+						"id": 20,
+						"x1": 335,
+						"y1": 651,
+						"x2": 372,
+						"y2": 675,
+						"text": "FL",
+						"text_entropy": 0.0022983551025390625
+					},
+					{
+						"id": 21,
+						"x1": 953,
+						"y1": 1015,
+						"x2": 988,
+						"y2": 1037,
+						"text": "10",
+						"text_entropy": 0.005931854248046875
+					},
+					{
+						"id": 22,
+						"x1": 1099,
+						"y1": 530,
+						"x2": 1138,
+						"y2": 555,
+						"text": "To",
+						"text_entropy": 0.0012464523315429688
+					},
+					{
+						"id": 23,
+						"x1": 258,
+						"y1": 530,
+						"x2": 296,
+						"y2": 555,
+						"text": "To",
+						"text_entropy": 0.00289154052734375
+					},
+					{
+						"id": 24,
+						"x1": 704,
+						"y1": 1012,
+						"x2": 717,
+						"y2": 1037,
+						"text": "W",
+						"text_entropy": 0.0020351409912109375
+					},
+					{
+						"id": 25,
+						"x1": 720,
+						"y1": 1012,
+						"x2": 730,
+						"y2": 1037,
+						"text": "/",
+						"text_entropy": 0.0020351409912109375
+					},
+					{
+						"id": 26,
+						"x1": 330,
+						"y1": 1012,
+						"x2": 368,
+						"y2": 1037,
+						"text": "16",
+						"text_entropy": 7.958412170410156E-4
+					},
+					{
+						"id": 27,
+						"x1": 640,
+						"y1": 301,
+						"x2": 693,
+						"y2": 330,
+						"text": "Inc.",
+						"text_entropy": 0.0146331787109375
+					},
+					{
+						"id": 28,
+						"x1": 211,
+						"y1": 530,
+						"x2": 256,
+						"y2": 555,
+						"text": "Bill",
+						"text_entropy": 0.060333251953125
+					},
+					{
+						"id": 29,
+						"x1": 1389,
+						"y1": 833,
+						"x2": 1435,
+						"y2": 857,
+						"text": "Via",
+						"text_entropy": 0.1484375
+					},
+					{
+						"id": 30,
+						"x1": 270,
+						"y1": 833,
+						"x2": 316,
+						"y2": 857,
+						"text": "No.",
+						"text_entropy": 0.035491943359375
+					},
+					{
+						"id": 31,
+						"x1": 462,
+						"y1": 901,
+						"x2": 507,
+						"y2": 926,
+						"text": "Net",
+						"text_entropy": 0.09130859375
+					},
+					{
+						"id": 32,
+						"x1": 542,
+						"y1": 1012,
+						"x2": 588,
+						"y2": 1037,
+						"text": "HD",
+						"text_entropy": 0.004924774169921875
+					},
+					{
+						"id": 33,
+						"x1": 143,
+						"y1": 358,
+						"x2": 184,
+						"y2": 380,
+						"text": "PO",
+						"text_entropy": 0.0028705596923828125
+					},
+					{
+						"id": 34,
+						"x1": 184,
+						"y1": 617,
+						"x2": 226,
+						"y2": 640,
+						"text": "PO",
+						"text_entropy": 9.341239929199219E-4
+					},
+					{
+						"id": 35,
+						"x1": 890,
+						"y1": 833,
+						"x2": 949,
+						"y2": 862,
+						"text": "Rep",
+						"text_entropy": 0.005107879638671875
+					},
+					{
+						"id": 36,
+						"x1": 228,
+						"y1": 617,
+						"x2": 277,
+						"y2": 642,
+						"text": "Box",
+						"text_entropy": 8.816719055175781E-4
+					},
+					{
+						"id": 37,
+						"x1": 508,
+						"y1": 2194,
+						"x2": 556,
+						"y2": 2219,
+						"text": "Fax",
+						"text_entropy": -7.18235969543457E-5
+					},
+					{
+						"id": 38,
+						"x1": 1036,
+						"y1": 530,
+						"x2": 1097,
+						"y2": 560,
+						"text": "Ship",
+						"text_entropy": 0.068359375
+					},
+					{
+						"id": 39,
+						"x1": 1326,
+						"y1": 833,
+						"x2": 1387,
+						"y2": 862,
+						"text": "Ship",
+						"text_entropy": 0.1475830078125
+					},
+					{
+						"id": 40,
+						"x1": 1392,
+						"y1": 2083,
+						"x2": 1482,
+						"y2": 2124,
+						"text": "Due",
+						"text_entropy": 0.052825927734375
+					},
+					{
+						"id": 41,
+						"x1": 1109,
+						"y1": 651,
+						"x2": 1159,
+						"y2": 675,
+						"text": "MN",
+						"text_entropy": 4.792213439941406E-4
+					},
+					{
+						"id": 42,
+						"x1": 1061,
+						"y1": 833,
+						"x2": 1124,
+						"y2": 862,
+						"text": "Ship",
+						"text_entropy": 0.06787109375
+					},
+					{
+						"id": 43,
+						"x1": 348,
+						"y1": 124,
+						"x2": 698,
+						"y2": 264,
+						"text": "mamic",
+						"text_entropy": 0.10797119140625
+					},
+					{
+						"id": 44,
+						"x1": 187,
+						"y1": 358,
+						"x2": 238,
+						"y2": 380,
+						"text": "Box",
+						"text_entropy": 0.001117706298828125
+					},
+					{
+						"id": 45,
+						"x1": 1049,
+						"y1": 651,
+						"x2": 1090,
+						"y2": 678,
+						"text": "Paul",
+						"text_entropy": 0.04107666015625
+					},
+					{
+						"id": 46,
+						"x1": 1092,
+						"y1": 651,
+						"x2": 1102,
+						"y2": 678,
+						"text": ",",
+						"text_entropy": 0.04107666015625
+					},
+					{
+						"id": 47,
+						"x1": 482,
+						"y1": 1012,
+						"x2": 521,
+						"y2": 1039,
+						"text": "LPD",
+						"text_entropy": 0.01450347900390625
+					},
+					{
+						"id": 48,
+						"x1": 524,
+						"y1": 1012,
+						"x2": 535,
+						"y2": 1039,
+						"text": ",",
+						"text_entropy": 0.01450347900390625
+					},
+					{
+						"id": 49,
+						"x1": 240,
+						"y1": 355,
+						"x2": 299,
+						"y2": 380,
+						"text": "1258",
+						"text_entropy": 0.041748046875
+					},
+					{
+						"id": 50,
+						"x1": 652,
+						"y1": 833,
+						"x2": 710,
+						"y2": 857,
+						"text": "Due",
+						"text_entropy": 0.007106781005859375
+					},
+					{
+						"id": 51,
+						"x1": 1009,
+						"y1": 617,
+						"x2": 1070,
+						"y2": 642,
+						"text": "1727",
+						"text_entropy": 0.021392822265625
+					},
+					{
+						"id": 52,
+						"x1": 194,
+						"y1": 958,
+						"x2": 255,
+						"y2": 983,
+						"text": "Item",
+						"text_entropy": 0.10638427734375
+					},
+					{
+						"id": 53,
+						"x1": 1137,
+						"y1": 587,
+						"x2": 1192,
+						"y2": 609,
+						"text": "Bros",
+						"text_entropy": 0.01184844970703125
+					},
+					{
+						"id": 54,
+						"x1": 1411,
+						"y1": 228,
+						"x2": 1474,
+						"y2": 252,
+						"text": "Date",
+						"text_entropy": 0.046661376953125
+					},
+					{
+						"id": 55,
+						"x1": 279,
+						"y1": 617,
+						"x2": 343,
+						"y2": 642,
+						"text": "2317",
+						"text_entropy": 0.0740966796875
+					},
+					{
+						"id": 56,
+						"x1": 1611,
+						"y1": 833,
+						"x2": 1674,
+						"y2": 857,
+						"text": "FOB",
+						"text_entropy": 0.00295257568359375
+					},
+					{
+						"id": 57,
+						"x1": 1126,
+						"y1": 833,
+						"x2": 1190,
+						"y2": 857,
+						"text": "Date",
+						"text_entropy": 0.006671905517578125
+					},
+					{
+						"id": 58,
+						"x1": 713,
+						"y1": 833,
+						"x2": 776,
+						"y2": 857,
+						"text": "Date",
+						"text_entropy": 0.005229949951171875
+					},
+					{
+						"id": 59,
+						"x1": 204,
+						"y1": 833,
+						"x2": 267,
+						"y2": 857,
+						"text": "P.O.",
+						"text_entropy": 0.042327880859375
+					},
+					{
+						"id": 60,
+						"x1": 1190,
+						"y1": 1917,
+						"x2": 1275,
+						"y2": 1949,
+						"text": "Total",
+						"text_entropy": 0.04998779296875
+					},
+					{
+						"id": 61,
+						"x1": 533,
+						"y1": 301,
+						"x2": 609,
+						"y2": 337,
+						"text": "Group",
+						"text_entropy": 0.038604736328125
+					},
+					{
+						"id": 62,
+						"x1": 611,
+						"y1": 301,
+						"x2": 625,
+						"y2": 337,
+						"text": ",",
+						"text_entropy": 0.038604736328125
+					},
+					{
+						"id": 63,
+						"x1": 888,
+						"y1": 901,
+						"x2": 953,
+						"y2": 926,
+						"text": "DHH",
+						"text_entropy": 0.0013904571533203125
+					},
+					{
+						"id": 64,
+						"x1": 1435,
+						"y1": 958,
+						"x2": 1501,
+						"y2": 983,
+						"text": "Rate",
+						"text_entropy": 0.018951416015625
+					},
+					{
+						"id": 65,
+						"x1": 429,
+						"y1": 587,
+						"x2": 489,
+						"y2": 609,
+						"text": "PRO",
+						"text_entropy": 7.495880126953125E-4
+					},
+					{
+						"id": 66,
+						"x1": 184,
+						"y1": 587,
+						"x2": 245,
+						"y2": 609,
+						"text": "THE",
+						"text_entropy": 0.0020427703857421875
+					},
+					{
+						"id": 67,
+						"x1": 1681,
+						"y1": 1175,
+						"x2": 1749,
+						"y2": 1200,
+						"text": "52.88",
+						"text_entropy": 0.0036907196044921875
+					},
+					{
+						"id": 68,
+						"x1": 1195,
+						"y1": 587,
+						"x2": 1205,
+						"y2": 614,
+						"text": "(",
+						"text_entropy": 0.114013671875
+					},
+					{
+						"id": 69,
+						"x1": 1207,
+						"y1": 587,
+						"x2": 1248,
+						"y2": 614,
+						"text": "SLA",
+						"text_entropy": 0.114013671875
+					},
+					{
+						"id": 70,
+						"x1": 1251,
+						"y1": 587,
+						"x2": 1262,
+						"y2": 614,
+						"text": ")",
+						"text_entropy": 0.114013671875
+					},
+					{
+						"id": 71,
+						"x1": 1681,
+						"y1": 1142,
+						"x2": 1752,
+						"y2": 1167,
+						"text": "52.88",
+						"text_entropy": 0.061859130859375
+					},
+					{
+						"id": 72,
+						"x1": 1494,
+						"y1": 1142,
+						"x2": 1564,
+						"y2": 1167,
+						"text": "52.88",
+						"text_entropy": 0.1043701171875
+					},
+					{
+						"id": 73,
+						"x1": 1494,
+						"y1": 1175,
+						"x2": 1564,
+						"y2": 1200,
+						"text": "52.88",
+						"text_entropy": 0.0478515625
+					},
+					{
+						"id": 74,
+						"x1": 301,
+						"y1": 388,
+						"x2": 374,
+						"y2": 413,
+						"text": "08542",
+						"text_entropy": 0.0310821533203125
+					},
+					{
+						"id": 75,
+						"x1": 330,
+						"y1": 1140,
+						"x2": 410,
+						"y2": 1167,
+						"text": "FedEx",
+						"text_entropy": 0.013641357421875
+					},
+					{
+						"id": 76,
+						"x1": 1379,
+						"y1": 901,
+						"x2": 1472,
+						"y2": 931,
+						"text": "Express",
+						"text_entropy": 0.038909912109375
+					},
+					{
+						"id": 77,
+						"x1": 333,
+						"y1": 1045,
+						"x2": 408,
+						"y2": 1070,
+						"text": "PADS",
+						"text_entropy": 0.00473785400390625
+					},
+					{
+						"id": 78,
+						"x1": 1161,
+						"y1": 651,
+						"x2": 1238,
+						"y2": 675,
+						"text": "55109",
+						"text_entropy": 0.06524658203125
+					},
+					{
+						"id": 79,
+						"x1": 1672,
+						"y1": 2024,
+						"x2": 1682,
+						"y2": 2046,
+						"text": "$",
+						"text_entropy": 0.1492919921875
+					},
+					{
+						"id": 80,
+						"x1": 1684,
+						"y1": 2024,
+						"x2": 1724,
+						"y2": 2046,
+						"text": "0.00",
+						"text_entropy": 0.1492919921875
+					},
+					{
+						"id": 81,
+						"x1": 1474,
+						"y1": 126,
+						"x2": 1722,
+						"y2": 191,
+						"text": "Invoice",
+						"text_entropy": 0.003093719482421875
+					},
+					{
+						"id": 82,
+						"x1": 1073,
+						"y1": 617,
+						"x2": 1176,
+						"y2": 647,
+						"text": "Highway",
+						"text_entropy": 0.03485107421875
+					},
+					{
+						"id": 83,
+						"x1": 457,
+						"y1": 833,
+						"x2": 542,
+						"y2": 857,
+						"text": "Terms",
+						"text_entropy": 0.119140625
+					},
+					{
+						"id": 84,
+						"x1": 1479,
+						"y1": 1012,
+						"x2": 1564,
+						"y2": 1037,
+						"text": "214.00",
+						"text_entropy": 0.034820556640625
+					},
+					{
+						"id": 85,
+						"x1": 228,
+						"y1": 2194,
+						"x2": 312,
+						"y2": 2219,
+						"text": "Phone",
+						"text_entropy": 0.01947021484375
+					},
+					{
+						"id": 86,
+						"x1": 1572,
+						"y1": 901,
+						"x2": 1679,
+						"y2": 931,
+						"text": "Shipping",
+						"text_entropy": 0.04974365234375
+					},
+					{
+						"id": 87,
+						"x1": 333,
+						"y1": 1175,
+						"x2": 410,
+						"y2": 1198,
+						"text": "FedEx",
+						"text_entropy": 0.001110076904296875
+					},
+					{
+						"id": 88,
+						"x1": 1289,
+						"y1": 901,
+						"x2": 1377,
+						"y2": 926,
+						"text": "Federal",
+						"text_entropy": 0.089111328125
+					},
+					{
+						"id": 89,
+						"x1": 369,
+						"y1": 298,
+						"x2": 523,
+						"y2": 337,
+						"text": "Dynamics",
+						"text_entropy": 0.058013916015625
+					},
+					{
+						"id": 90,
+						"x1": 521,
+						"y1": 1140,
+						"x2": 601,
+						"y2": 1167,
+						"text": "Number",
+						"text_entropy": 0.0701904296875
+					},
+					{
+						"id": 91,
+						"x1": 603,
+						"y1": 1140,
+						"x2": 613,
+						"y2": 1167,
+						"text": ":",
+						"text_entropy": 0.0701904296875
+					},
+					{
+						"id": 92,
+						"x1": 1620,
+						"y1": 955,
+						"x2": 1722,
+						"y2": 983,
+						"text": "Amount",
+						"text_entropy": 0.09564208984375
+					},
+					{
+						"id": 93,
+						"x1": 1591,
+						"y1": 228,
+						"x2": 1683,
+						"y2": 252,
+						"text": "Invoice",
+						"text_entropy": 0.057220458984375
+					},
+					{
+						"id": 94,
+						"x1": 761,
+						"y1": 1012,
+						"x2": 854,
+						"y2": 1037,
+						"text": "MEDIA",
+						"text_entropy": 0.1400146484375
+					},
+					{
+						"id": 95,
+						"x1": 248,
+						"y1": 587,
+						"x2": 333,
+						"y2": 609,
+						"text": "HOME",
+						"text_entropy": 0.032928466796875
+					},
+					{
+						"id": 96,
+						"x1": 1618,
+						"y1": 2104,
+						"x2": 1735,
+						"y2": 2134,
+						"text": "$2,245.76",
+						"text_entropy": 0.0078887939453125
+					},
+					{
+						"id": 97,
+						"x1": 1645,
+						"y1": 1012,
+						"x2": 1749,
+						"y2": 1039,
+						"text": "2,140.00",
+						"text_entropy": 0.11065673828125
+					},
+					{
+						"id": 98,
+						"x1": 412,
+						"y1": 1142,
+						"x2": 515,
+						"y2": 1169,
+						"text": "Tracking",
+						"text_entropy": 0.0303192138671875
+					},
+					{
+						"id": 99,
+						"x1": 412,
+						"y1": 1175,
+						"x2": 515,
+						"y2": 1202,
+						"text": "Tracking",
+						"text_entropy": 0.147705078125
+					},
+					{
+						"id": 100,
+						"x1": 915,
+						"y1": 955,
+						"x2": 1022,
+						"y2": 983,
+						"text": "Ordered",
+						"text_entropy": 0.029754638671875
+					},
+					{
+						"id": 101,
+						"x1": 594,
+						"y1": 1012,
+						"x2": 677,
+						"y2": 1039,
+						"text": "FRAME",
+						"text_entropy": 0.003589630126953125
+					},
+					{
+						"id": 102,
+						"x1": 679,
+						"y1": 1012,
+						"x2": 689,
+						"y2": 1039,
+						"text": ",",
+						"text_entropy": 0.003589630126953125
+					},
+					{
+						"id": 103,
+						"x1": 1192,
+						"y1": 2083,
+						"x2": 1377,
+						"y2": 2124,
+						"text": "Balance",
+						"text_entropy": 0.1461181640625
+					},
+					{
+						"id": 104,
+						"x1": 209,
+						"y1": 901,
+						"x2": 311,
+						"y2": 926,
+						"text": "7858486",
+						"text_entropy": 0.0164794921875
+					},
+					{
+						"id": 105,
+						"x1": 524,
+						"y1": 1173,
+						"x2": 602,
+						"y2": 1198,
+						"text": "Number",
+						"text_entropy": 0.0307769775390625
+					},
+					{
+						"id": 106,
+						"x1": 604,
+						"y1": 1173,
+						"x2": 613,
+						"y2": 1198,
+						"text": ":",
+						"text_entropy": 0.0307769775390625
+					},
+					{
+						"id": 107,
+						"x1": 335,
+						"y1": 587,
+						"x2": 427,
+						"y2": 609,
+						"text": "DEPOT",
+						"text_entropy": -2.1636486053466797E-5
+					},
+					{
+						"id": 108,
+						"x1": 150,
+						"y1": 388,
+						"x2": 243,
+						"y2": 415,
+						"text": "Princeton",
+						"text_entropy": 0.05035400390625
+					},
+					{
+						"id": 109,
+						"x1": 245,
+						"y1": 388,
+						"x2": 255,
+						"y2": 415,
+						"text": ",",
+						"text_entropy": 0.05035400390625
+					},
+					{
+						"id": 110,
+						"x1": 1238,
+						"y1": 955,
+						"x2": 1348,
+						"y2": 980,
+						"text": "Invoiced",
+						"text_entropy": 0.021484375
+					},
+					{
+						"id": 111,
+						"x1": 128,
+						"y1": 1012,
+						"x2": 238,
+						"y2": 1037,
+						"text": "3LP1625",
+						"text_entropy": 0.14794921875
+					},
+					{
+						"id": 112,
+						"x1": 1630,
+						"y1": 1934,
+						"x2": 1752,
+						"y2": 1961,
+						"text": "$2,245.76",
+						"text_entropy": 0.0728759765625
+					},
+					{
+						"id": 113,
+						"x1": 1080,
+						"y1": 955,
+						"x2": 1204,
+						"y2": 983,
+						"text": "Backord...",
+						"text_entropy": 0.10748291015625
+					},
+					{
+						"id": 114,
+						"x1": 330,
+						"y1": 1109,
+						"x2": 445,
+						"y2": 1134,
+						"text": "SOLACE",
+						"text_entropy": 8.220672607421875E-4
+					},
+					{
+						"id": 115,
+						"x1": 1009,
+						"y1": 587,
+						"x2": 1135,
+						"y2": 614,
+						"text": "McQuillan",
+						"text_entropy": 0.02783203125
+					},
+					{
+						"id": 116,
+						"x1": 1594,
+						"y1": 296,
+						"x2": 1607,
+						"y2": 321,
+						"text": "D",
+						"text_entropy": 0.0112762451171875
+					},
+					{
+						"id": 117,
+						"x1": 1610,
+						"y1": 296,
+						"x2": 1618,
+						"y2": 321,
+						"text": "-",
+						"text_entropy": 0.0112762451171875
+					},
+					{
+						"id": 118,
+						"x1": 1620,
+						"y1": 296,
+						"x2": 1696,
+						"y2": 321,
+						"text": "330114",
+						"text_entropy": 0.0112762451171875
+					},
+					{
+						"id": 119,
+						"x1": 1387,
+						"y1": 296,
+						"x2": 1395,
+						"y2": 321,
+						"text": "5",
+						"text_entropy": 0.02740478515625
+					},
+					{
+						"id": 120,
+						"x1": 1397,
+						"y1": 296,
+						"x2": 1405,
+						"y2": 321,
+						"text": "/",
+						"text_entropy": 0.02740478515625
+					},
+					{
+						"id": 121,
+						"x1": 1407,
+						"y1": 296,
+						"x2": 1430,
+						"y2": 321,
+						"text": "31",
+						"text_entropy": 0.02740478515625
+					},
+					{
+						"id": 122,
+						"x1": 1432,
+						"y1": 296,
+						"x2": 1440,
+						"y2": 321,
+						"text": "/",
+						"text_entropy": 0.02740478515625
+					},
+					{
+						"id": 123,
+						"x1": 1442,
+						"y1": 296,
+						"x2": 1489,
+						"y2": 321,
+						"text": "2024",
+						"text_entropy": 0.02740478515625
+					},
+					{
+						"id": 124,
+						"x1": 523,
+						"y1": 955,
+						"x2": 669,
+						"y2": 985,
+						"text": "Description",
+						"text_entropy": 0.126708984375
+					},
+					{
+						"id": 125,
+						"x1": 1071,
+						"y1": 901,
+						"x2": 1079,
+						"y2": 926,
+						"text": "5",
+						"text_entropy": 0.00937652587890625
+					},
+					{
+						"id": 126,
+						"x1": 1081,
+						"y1": 901,
+						"x2": 1089,
+						"y2": 926,
+						"text": "/",
+						"text_entropy": 0.00937652587890625
+					},
+					{
+						"id": 127,
+						"x1": 1091,
+						"y1": 901,
+						"x2": 1113,
+						"y2": 926,
+						"text": "30",
+						"text_entropy": 0.00937652587890625
+					},
+					{
+						"id": 128,
+						"x1": 1115,
+						"y1": 901,
+						"x2": 1124,
+						"y2": 926,
+						"text": "/",
+						"text_entropy": 0.00937652587890625
+					},
+					{
+						"id": 129,
+						"x1": 1126,
+						"y1": 901,
+						"x2": 1173,
+						"y2": 926,
+						"text": "2024",
+						"text_entropy": 0.00937652587890625
+					},
+					{
+						"id": 130,
+						"x1": 660,
+						"y1": 901,
+						"x2": 668,
+						"y2": 926,
+						"text": "6",
+						"text_entropy": 0.028564453125
+					},
+					{
+						"id": 131,
+						"x1": 670,
+						"y1": 901,
+						"x2": 678,
+						"y2": 926,
+						"text": "/",
+						"text_entropy": 0.028564453125
+					},
+					{
+						"id": 132,
+						"x1": 680,
+						"y1": 901,
+						"x2": 702,
+						"y2": 926,
+						"text": "30",
+						"text_entropy": 0.028564453125
+					},
+					{
+						"id": 133,
+						"x1": 704,
+						"y1": 901,
+						"x2": 713,
+						"y2": 926,
+						"text": "/",
+						"text_entropy": 0.028564453125
+					},
+					{
+						"id": 134,
+						"x1": 715,
+						"y1": 901,
+						"x2": 762,
+						"y2": 926,
+						"text": "2024",
+						"text_entropy": 0.028564453125
+					},
+					{
+						"id": 135,
+						"x1": 128,
+						"y1": 1137,
+						"x2": 257,
+						"y2": 1167,
+						"text": "SHIPPING",
+						"text_entropy": 0.02032470703125
+					},
+					{
+						"id": 136,
+						"x1": 128,
+						"y1": 1173,
+						"x2": 260,
+						"y2": 1198,
+						"text": "SHIPPING",
+						"text_entropy": 0.001926422119140625
+					},
+					{
+						"id": 137,
+						"x1": 185,
+						"y1": 651,
+						"x2": 314,
+						"y2": 678,
+						"text": "Jacksonville",
+						"text_entropy": 0.10186767578125
+					},
+					{
+						"id": 138,
+						"x1": 316,
+						"y1": 651,
+						"x2": 326,
+						"y2": 678,
+						"text": ",",
+						"text_entropy": 0.10186767578125
+					},
+					{
+						"id": 139,
+						"x1": 377,
+						"y1": 651,
+						"x2": 438,
+						"y2": 675,
+						"text": "32203",
+						"text_entropy": 0.04644775390625
+					},
+					{
+						"id": 140,
+						"x1": 440,
+						"y1": 651,
+						"x2": 449,
+						"y2": 675,
+						"text": "-",
+						"text_entropy": 0.04644775390625
+					},
+					{
+						"id": 141,
+						"x1": 451,
+						"y1": 651,
+						"x2": 501,
+						"y2": 675,
+						"text": "2317",
+						"text_entropy": 0.04644775390625
+					},
+					{
+						"id": 142,
+						"x1": 620,
+						"y1": 1140,
+						"x2": 793,
+						"y2": 1167,
+						"text": "723149993749",
+						"text_entropy": 0.12310791015625
+					},
+					{
+						"id": 143,
+						"x1": 143,
+						"y1": 298,
+						"x2": 362,
+						"y2": 330,
+						"text": "Environmental",
+						"text_entropy": 0.07611083984375
+					},
+					{
+						"id": 144,
+						"x1": 1013,
+						"y1": 684,
+						"x2": 1050,
+						"y2": 708,
+						"text": "651",
+						"text_entropy": 0.101806640625
+					},
+					{
+						"id": 145,
+						"x1": 1052,
+						"y1": 684,
+						"x2": 1061,
+						"y2": 708,
+						"text": "-",
+						"text_entropy": 0.101806640625
+					},
+					{
+						"id": 146,
+						"x1": 1064,
+						"y1": 684,
+						"x2": 1099,
+						"y2": 708,
+						"text": "641",
+						"text_entropy": 0.101806640625
+					},
+					{
+						"id": 147,
+						"x1": 1102,
+						"y1": 684,
+						"x2": 1110,
+						"y2": 708,
+						"text": "-",
+						"text_entropy": 0.101806640625
+					},
+					{
+						"id": 148,
+						"x1": 1112,
+						"y1": 684,
+						"x2": 1163,
+						"y2": 708,
+						"text": "5955",
+						"text_entropy": 0.101806640625
+					},
+					{
+						"id": 149,
+						"x1": 465,
+						"y1": 2262,
+						"x2": 501,
+						"y2": 2287,
+						"text": "609",
+						"text_entropy": 0.076416015625
+					},
+					{
+						"id": 150,
+						"x1": 503,
+						"y1": 2262,
+						"x2": 511,
+						"y2": 2287,
+						"text": "-",
+						"text_entropy": 0.076416015625
+					},
+					{
+						"id": 151,
+						"x1": 513,
+						"y1": 2262,
+						"x2": 549,
+						"y2": 2287,
+						"text": "924",
+						"text_entropy": 0.076416015625
+					},
+					{
+						"id": 152,
+						"x1": 551,
+						"y1": 2262,
+						"x2": 561,
+						"y2": 2287,
+						"text": "-",
+						"text_entropy": 0.076416015625
+					},
+					{
+						"id": 153,
+						"x1": 563,
+						"y1": 2262,
+						"x2": 611,
+						"y2": 2287,
+						"text": "8524",
+						"text_entropy": 0.076416015625
+					},
+					{
+						"id": 154,
+						"x1": 202,
+						"y1": 2262,
+						"x2": 241,
+						"y2": 2287,
+						"text": "609",
+						"text_entropy": 0.10870361328125
+					},
+					{
+						"id": 155,
+						"x1": 243,
+						"y1": 2262,
+						"x2": 251,
+						"y2": 2287,
+						"text": "-",
+						"text_entropy": 0.10870361328125
+					},
+					{
+						"id": 156,
+						"x1": 253,
+						"y1": 2262,
+						"x2": 288,
+						"y2": 2287,
+						"text": "924",
+						"text_entropy": 0.10870361328125
+					},
+					{
+						"id": 157,
+						"x1": 290,
+						"y1": 2262,
+						"x2": 299,
+						"y2": 2287,
+						"text": "-",
+						"text_entropy": 0.10870361328125
+					},
+					{
+						"id": 158,
+						"x1": 301,
+						"y1": 2262,
+						"x2": 351,
+						"y2": 2287,
+						"text": "4489",
+						"text_entropy": 0.10870361328125
+					},
+					{
+						"id": 159,
+						"x1": 620,
+						"y1": 1173,
+						"x2": 795,
+						"y2": 1198,
+						"text": "723149993750",
+						"text_entropy": 0.01934814453125
+					},
+					{
+						"id": 160,
+						"x1": 1192,
+						"y1": 2005,
+						"x2": 1356,
+						"y2": 2044,
+						"text": "Payments",
+						"text_entropy": 0.075439453125
+					},
+					{
+						"id": 161,
+						"x1": 1358,
+						"y1": 2005,
+						"x2": 1372,
+						"y2": 2044,
+						"text": "/",
+						"text_entropy": 0.075439453125
+					},
+					{
+						"id": 162,
+						"x1": 1374,
+						"y1": 2005,
+						"x2": 1489,
+						"y2": 2044,
+						"text": "Credits",
+						"text_entropy": 0.075439453125
+					}
+				],
+				"fulltext": "mamic\nInvoice\nDate\nInvoice #\n5 / 31 / 2024\nD - 330114\nEnvironmental Dynamics Group , Inc.\nPO Box 1258\nPrinceton , NJ 08542\nBill To\nShip To\nTHE HOME DEPOT PRO\nPO Box 2317\nJacksonville , FL 32203 - 2317\nMcQuillan Bros ( SLA )\n1727 Highway 36 E\nSt. Paul , MN 55109\n651 - 641 - 5955\nP.O. No.\nTerms\nDue Date\nRep\nShip Date\nShip Via\nFOB\n7858486\nNet 30\n6 / 30 / 2024\nDHH\n5 / 30 / 2024\nFederal Express\nShipping Pt\nDescription\nOrdered\nBackord...\nInvoiced\nAmount\nItem\nRate\n3LP1625\n16 X 25 X 1 LPD , HD FRAME , W / 3 MEDIA\nPADS\n0\n214.00\n2,140.00\n10\n10\nSOLACE\nFedEx Tracking Number : 723149993749\nFedEx Tracking Number : 723149993750\nSHIPPING &\nSHIPPING &\n52.88\n52.88\n52.88\n52.88\nI\nTotal\n$2,245.76\nPayments / Credits\nBalance Due\n$ 0.00\n$2,245.76\nPhone #\nFax #\n609 - 924 - 4489\n609 - 924 - 8524"
+			}
+		]
+	},
+	"page_images": [
+		"/processing/results/d284f1aa-3f67-4b52-8933-f0a305f44127/page-images/1"
+	],
+	"thumbnail": "/processing/results/d284f1aa-3f67-4b52-8933-f0a305f44127/thumbnail",
+	"pdf": "/processing/results/d284f1aa-3f67-4b52-8933-f0a305f44127/pdf",
+	"hocr": "/processing/results/d284f1aa-3f67-4b52-8933-f0a305f44127/hocr"
+}

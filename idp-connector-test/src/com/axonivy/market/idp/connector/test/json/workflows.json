@@ -1,0 +1,141 @@
+[ {
+    "workflow_id" : "ocr_with_handwriting",
+    "category" : "prebuilt",
+    "name" : "Optical Character Recognition (printed + handwritten text)",
+    "description" : "Our Deep-OCR (printed + handwritten text) has the remarkable capability to decipher both printed and handwritten text from your document images. Harness its power to automate processes such as form processing effortlessly.",
+    "long_description" : "<p>Optical Character Recognition (OCR) lays the foundation for automating document processes. In documents, you often encounter a mix of printed and handwritten text. Our OCR (printed + handwritten text) harnesses advanced deep learning technology to efficiently provide high-quality results for both text types.</p><p>Even in challenging scenarios like noisy scans of crumpled documents, our OCR excels in providing pinpoint accuracy. When you use our workflow, you gain access to:</p><ul><li>The complete text recognized on the document</li><li>Individual bounding boxes and their corresponding text, available in our JSON format or as hOCR</li><li>Entropy scores, offering insights into the AI's confidence level for each part of the text</li><li>A PDF enriched with a high-quality text layer</li></ul><p>Ready to elevate your follow-up processes through superior text recognition? Try it out now!</p>",
+    "image" : "/processing/workflows/ocr_with_handwriting/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "ocr_ja",
+    "category" : "prebuilt",
+    "name" : "Optical Character Recognition (Japanese)",
+    "description" : "Our cutting-edge Deep-OCR technology for Japanese language swiftly and accurately interprets the printed text within your document images, all in a matter of milliseconds. This forms a robust foundation for all your subsequent automation endeavors.",
+    "long_description" : "<p>Optical Character Recognition (OCR) serves as the cornerstone for automating document workflows within organizations. Our OCR leverages cutting-edge deep learning technology to meticulously interpret printed text, delivering superior results with remarkable efficiency.</p><p>It's not just about clean documents—our OCR excels in deciphering even the most challenging scans of wrinkled and noisy documents with exceptional precision. Our workflow offers:</p><ul><li>The complete text recognized on the document</li><li>Individual bounding boxes and their corresponding text, available in our JSON format or as hOCR</li><li>Entropy scores, providing insights into the AI's confidence level for each part of the text</li><li>A PDF enriched with high-quality text layers</li></ul><p>Experience it firsthand and elevate your follow-up processes with enhanced text recognition!</p>",
+    "image" : "/processing/workflows/ocr_ja/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "accounting_workflow",
+    "category" : "prebuilt",
+    "name" : "Accounting Workflow",
+    "description" : "Empower your bookkeeping with our advanced Accounting Workflow: effortlessly upload any document and watch as we automatically discern whether it's a receipt, invoice, or credit note, seamlessly extracting all pertinent information on your behalf.",
+    "long_description" : "<p>Our <em>Accounting Workflow</em> streamlines Deep-OCR, document classification, and extraction into a single API call. Simply upload any document. Our AI recognizes if it is a receipt, invoice, credit note, or something else. </p><p>Depending on the document type, all relevant data is extracted automatically:</p><ul><li>For receipts, we extract the same fields as in the Receipt Extraction API</li><li>For invoices, we extract the same fields as in the Invoice Extraction API</li><li>For credit notes, we extract fields like the customer, vendor, the amount received, line items, or tax calculations</li><li>For other documents, we extract generic data like subject, sender, and receiver</li></ul><p>Overall, the API was designed to automate the complete workflow of an accountant, where any document can be uploaded, is classified, and the corresponding fields are extracted.</p>",
+    "image" : "/processing/workflows/accounting_workflow/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "extractions", "classifications", "language", "ner", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "ocr",
+    "category" : "prebuilt",
+    "name" : "Optical Character Recognition (printed text)",
+    "description" : "Our cutting-edge Deep-OCR technology swiftly and accurately interprets the printed text within your document images, all in a matter of milliseconds. This forms a robust foundation for all your subsequent automation endeavors.",
+    "long_description" : "<p>Optical Character Recognition (OCR) serves as the cornerstone for automating document workflows within organizations. Our OCR leverages cutting-edge deep learning technology to meticulously interpret printed text, delivering superior results with remarkable efficiency.</p><p>It's not just about clean documents—our OCR excels in deciphering even the most challenging scans of wrinkled and noisy documents with exceptional precision. Our workflow offers:</p><ul><li>The complete text recognized on the document</li><li>Individual bounding boxes and their corresponding text, available in our JSON format or as hOCR</li><li>Entropy scores, providing insights into the AI's confidence level for each part of the text</li><li>A PDF enriched with high-quality text layers</li></ul><p>Experience it firsthand and elevate your follow-up processes with enhanced text recognition!</p>",
+    "image" : "/processing/workflows/ocr/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "receipt_extraction",
+    "category" : "prebuilt",
+    "name" : "Receipt Extraction",
+    "description" : "Experience the power of our Receipt Extraction Workflow, which effortlessly captures all pertinent information from printed receipts in real time. It then presents you with user-friendly output, including detailed breakdowns of individual articles.",
+    "long_description" : "<p>Processing receipts can be tedious, but thanks to our AI, those days are over. Our groundbreaking technology seamlessly handles your receipts, swiftly extracting all the relevant information in real time. Introducing the natif.ai Receipt Extraction Workflow, a powerhouse that extracts essential details from your receipts:</p><ul><li>Crucial head data, including invoice numbers and dates</li><li>Comprehensive vendor information, encompassing names, addresses, tax numbers, and bank account details</li><li>Customer-specific information, such as names, addresses, or customer numbers</li><li>Line item data that seamlessly integrates with your accounting software, enabling direct creation of accounting records</li><li>Precise tax calculations that reveal the exact tax paid at various tax rates</li></ul><p>Our workflow is designed to streamline your bookkeeping system, facilitate expense tracking in a housekeeping book, or support any other receipt-related use case you may have.</p>",
+    "image" : "/processing/workflows/receipt_extraction/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "extractions", "language", "ner", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "correspondence_automation",
+    "category" : "prebuilt",
+    "name" : "Correspondence Automation",
+    "description" : "natif.ai's Correspondence Automation Workflow is your solution for efficiently classifying and extracting vital information from any document that lands in your inbox.",
+    "long_description" : "<p>Overwhelmed by a deluge of incoming documents?</p>With natif.ai's Correspondence Automation, you can breathe easily. Our solution not only extracts critical information from any incoming document but also categorizes it for you, including:<ul><li>Data such as the document's subject, receiver, sender, or payment details</li><li>Classifying the document's content into predefined categories</li><li>Classifying the document's sender into predefined categories</li></ul>Simply put, our API equips you to effortlessly comprehend incoming documents. Whether you need to direct them to the right person within your organization or automate specific document types for streamlined follow-up processes, we've got you covered.",
+    "image" : "/processing/workflows/correspondence_automation/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "extractions", "classifications", "ner", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "generic_splitting",
+    "category" : "prebuilt",
+    "name" : "Generic Document Splitting",
+    "description" : "Easily upload extensive PDFs generated from your feed-in scanner and let our Document Splitting AI seamlessly break them down into individual sub-PDFs for your convenience.",
+    "long_description" : "<p>Imagine the common scenario where document processes kick off with a lengthy PDF, housing numerous individual documents within a single file. For instance, incoming physical mail is routinely batch-scanned, resulting in a single, extensive PDF file.</p><p>Yet, as the journey unfolds, tasks such as accurate categorization for proper storage or efficient extraction for automated processing demand that these files be transformed into distinct, meaningful units. This essential operation is known as 'document splitting' or, more precisely, 'page stream segmentation'.</p><p>Enter our cutting-edge generic Document Splitting AI - it does the heavy lifting for you! Say goodbye to the days of manually scanning each document one by one or applying barcodes and similar page separators before scanning.</p><p>With our API, you gain access to:</p><ul><li>Precise split positions</li><li>Confidence scores for each split position</li><li>Individual PDFs available for download</li></ul><p>Moreover, our validation interface empowers you to review the automated splitting and make adjustments if necessary. Why wait? Try it now to streamline manual splitting and supercharge your document automation capabilities!</p>",
+    "image" : "/processing/workflows/generic_splitting/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "document-splitting", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "vehicle_registration_extraction",
+    "category" : "prebuilt",
+    "name" : "Vehicle Registration Extraction",
+    "description" : "Utilize our Vehicle Registration Extraction Workflow to seamlessly crop uploaded files and extract every pertinent piece of information.",
+    "long_description" : "<p>Escape the time-consuming and error-prone task of manually copying car information from vehicle registrations. Embrace a seamless solution that automates your business processes with our Vehicle Registration Extraction Workflow! Introducing the natif.ai Vehicle Registration Extraction API, a versatile tool that not only crops your documents (if needed) but also extracts all relevant details, including:</p><ul><li>The registration number</li><li>The license plate</li><li>Vehicle owner information</li><li>Vehicle model details</li></ul><p>This workflow opens the door to a world of possibilities, enabling automation for use cases such as suggesting spare parts compatible with a specific vehicle, facilitating vehicle sales and purchases, and much more. Please note that currently the workflow supports only German vehicle registrations.</p>",
+    "image" : "/processing/workflows/vehicle_registration_extraction/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "extractions", "ner", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "delivery_note_extraction",
+    "category" : "prebuilt",
+    "name" : "Delivery Note Extraction",
+    "description" : "Tired of the hassle of manually comparing delivered items to previous orders? Our Delivery Note Extraction Workflow excels at extracting all essential data from your documents.",
+    "long_description" : "<p>Tired of the hassle of manually comparing delivered items to previous orders? Our AI is here to change that. With our groundbreaking technology, you can now automate the processing of your delivery notes and extract all relevant information in real-time. Introducing the natif.ai Delivery Note Extraction Workflow, which excels at extracting essential data from your documents:</p><ul><li>Crucial delivery note header information, such as delivery note numbers and delivery dates.</li><li>Comprehensive sender details, including names, addresses, tax numbers, and bank account information.</li><li>Receiver-related data, covering names, addresses, and customer numbers.</li><li>Line item specifics that seamlessly integrate with your business software, enabling effortless comparison with your order system.</li><li>Accurate tax calculations that reveal the precise amount of tax paid at different tax rates.</li></ul><p>Overall, our workflow streamlines your inventory control and simplifies any delivery note-related task, making your workflow more efficient and effective.</p>",
+    "image" : "/processing/workflows/delivery_note_extraction/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "extractions", "ner", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "invoice_extraction",
+    "category" : "prebuilt",
+    "name" : "Invoice Extraction",
+    "description" : " Experience the magic of our Invoice Extraction Workflow as it effortlessly converts PDFs and images of invoices into a user-friendly JSON format. Within this format, you'll discover a wealth of essential information, including comprehensive tax calculations and detailed individual line items.",
+    "long_description" : "<p>Bid farewell to the time-consuming and error-prone task of manually copying information from invoices into your system, which has long hindered the automation of business processes. It's time to overcome these challenges! Introducing the natif.ai Invoice Extraction Workflow, your ultimate solution for effortlessly extracting all the crucial elements from your invoices:</p><ul><li>Invoice header data, including invoice numbers and dates</li><li>Vendor details, encompassing names, addresses, tax numbers, and bank account information</li><li>Customer-specific information, such as names, addresses, and customer numbers</li><li>Individual line items featuring names, numbers, unit prices, discounts, tax rates, and total prices</li><li>Precise tax calculations that reveal the exact tax paid at various tax rates</li></ul><p>Our workflow is designed to empower you to automate your bookkeeping system, streamline invoice comparisons with orders and deliveries, and support a multitude of other use cases.</p>",
+    "image" : "/processing/workflows/invoice_extraction/image",
+    "visibility" : "public",
+    "permissions" : [ "process", "read" ],
+    "retrievable_results" : [ "extractions", "language", "ner", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "cc4a5889-f90b-4861-8936-9e5bf07c7196",
+    "category" : "custom_extraction",
+    "name" : "HD Supply Invoice DEV",
+    "description" : "<p></p>",
+    "long_description" : null,
+    "image" : null,
+    "visibility" : "custom",
+    "permissions" : [ "process", "manage", "read" ],
+    "retrievable_results" : [ "extractions", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "9d704366-d00a-43f0-b42b-10d3a355ee2f",
+    "category" : "custom_document_classification",
+    "name" : "Kim1",
+    "description" : "<p></p>",
+    "long_description" : null,
+    "image" : null,
+    "visibility" : "custom",
+    "permissions" : [ "process", "manage", "read" ],
+    "retrievable_results" : [ "classifications", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "a246a38c-8e6f-4358-8e04-bc25ecafe0d6",
+    "category" : "fine_tuned_entity_classification",
+    "name" : "Kim HDS 20.8",
+    "description" : "<p></p>",
+    "long_description" : null,
+    "image" : null,
+    "visibility" : "custom",
+    "permissions" : [ "process", "manage", "read" ],
+    "retrievable_results" : [ "extractions", "ocr", "page-images", "thumbnail", "pdf" ]
+  }, {
+    "workflow_id" : "d47a2d2e-f1dc-4cb6-b23f-ddecfa4c2983",
+    "category" : "fine_tuned_entity_classification",
+    "name" : "Axon Ivy HD Supply Extractions",
+    "description" : "<p></p>",
+    "long_description" : null,
+    "image" : null,
+    "visibility" : "custom",
+    "permissions" : [ "process", "manage", "read" ],
+    "retrievable_results" : [ "extractions", "ocr", "page-images", "thumbnail", "pdf" ]
+  } ]

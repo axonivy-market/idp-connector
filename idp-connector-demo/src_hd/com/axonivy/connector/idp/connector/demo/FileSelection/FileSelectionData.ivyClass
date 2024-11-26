@@ -1,0 +1,12 @@
+FileSelectionData #class
+com.axonivy.connector.idp.connector.demo.FileSelection #namespace
+demo com.axonivy.connector.idp.demo.Demo #field
+demo PERSISTENT #fieldModifier
+uploadedFile org.primefaces.model.file.UploadedFile #field
+uploadedFile PERSISTENT #fieldModifier
+sampleFiles java.util.List<com.axonivy.connector.idp.demo.SampleFile> #field
+sampleFiles PERSISTENT #fieldModifier
+file File #field
+file PERSISTENT #fieldModifier
+selectedSampleFile com.axonivy.connector.idp.demo.SampleFile #field
+selectedSampleFile PERSISTENT #fieldModifier

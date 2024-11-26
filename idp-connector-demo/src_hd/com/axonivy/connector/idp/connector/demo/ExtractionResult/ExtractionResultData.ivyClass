@@ -1,0 +1,18 @@
+ExtractionResultData #class
+com.axonivy.connector.idp.connector.demo.ExtractionResult #namespace
+processingId java.util.UUID #field
+processingId PERSISTENT #fieldModifier
+resultNode com.fasterxml.jackson.databind.JsonNode #field
+resultNode PERSISTENT #fieldModifier
+extractionsNode com.fasterxml.jackson.databind.JsonNode #field
+extractionsNode PERSISTENT #fieldModifier
+prettyJson String #field
+prettyJson PERSISTENT #fieldModifier
+extractions java.util.List<com.axonivy.connector.idp.demo.dto.Extraction> #field
+extractions PERSISTENT #fieldModifier
+lineItemHeader java.util.List<String> #field
+lineItemHeader PERSISTENT #fieldModifier
+lineItems java.util.List<java.util.Map> #field
+lineItems PERSISTENT #fieldModifier
+selectedSampleFile com.axonivy.connector.idp.demo.SampleFile #field
+selectedSampleFile PERSISTENT #fieldModifier

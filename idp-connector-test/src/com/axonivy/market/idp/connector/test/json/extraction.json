@@ -1,0 +1,455 @@
+{
+    "processing_id": "11111111-1111-1111-1111-111111111111",
+    "workflow_id": "invoice-extraction",
+    "workflow_name": "Invoice",
+    "available_results": [
+        "extractions",
+        "ocr",
+        "page-images",
+        "thumbnail",
+        "pdf",
+        "hocr"
+    ],
+    "extractions": {
+        "schema_version": 1,
+        "document_type": "invoice_extraction",
+        "vendor": {
+            "name": {
+                "validation_problem": false,
+                "note": "",
+                "confidence": 0.9871962904930115,
+                "bbox_refs": [
+                    {
+                        "page_num": 1,
+                        "bbox_id": 143
+                    },
+                    {
+                        "page_num": 1,
+                        "bbox_id": 89
+                    },
+                    {
+                        "page_num": 1,
+                        "bbox_id": 61
+                    },
+                    {
+                        "page_num": 1,
+                        "bbox_id": 62
+                    },
+                    {
+                        "page_num": 1,
+                        "bbox_id": 27
+                    }
+                ],
+                "value": "Environmental Dynamics Group , Inc."
+            },
+            "number": null,
+            "company_code": null,
+            "vendor_notes": null
+        },
+        "invoice_number": {
+            "validation_problem": false,
+            "note": "",
+            "confidence": 0.7906499703725179,
+            "bbox_refs": [
+                {
+                    "page_num": 1,
+                    "bbox_id": 116
+                },
+                {
+                    "page_num": 1,
+                    "bbox_id": 117
+                },
+                {
+                    "page_num": 1,
+                    "bbox_id": 118
+                }
+            ],
+            "value": -330114.0
+        },
+        "invoice_date": {
+            "validation_problem": false,
+            "note": "",
+            "confidence": 0.9932256937026978,
+            "bbox_refs": [
+                {
+                    "page_num": 1,
+                    "bbox_id": 119
+                },
+                {
+                    "page_num": 1,
+                    "bbox_id": 120
+                },
+                {
+                    "page_num": 1,
+                    "bbox_id": 121
+                },
+                {
+                    "page_num": 1,
+                    "bbox_id": 122
+                },
+                {
+                    "page_num": 1,
+                    "bbox_id": 123
+                }
+            ],
+            "value": "2024-05-31"
+        },
+        "branch": null,
+        "business_unit": null,
+        "drop_ship": null,
+        "sub_total": null,
+        "disc_amount": null,
+        "misc_amount": null,
+        "pallet_amount": null,
+        "tax": null,
+        "freight": null,
+        "total": {
+            "validation_problem": false,
+            "note": "",
+            "confidence": 0.9039669632911682,
+            "bbox_refs": [
+                {
+                    "page_num": 1,
+                    "bbox_id": 112
+                }
+            ],
+            "value": 2245.76
+        },
+        "imaging_id": null,
+        "line_count": null,
+        "rebate": [],
+        "line_items": [
+            {
+                "invoice_line_number": null,
+                "po_line_number": null,
+                "material_number_usn": null,
+                "item_description": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9944930235544841,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 26
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 9
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 17
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 11
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 6
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 47
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 48
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 32
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 101
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 102
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 24
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 25
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 2
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 94
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 77
+                        }
+                    ],
+                    "value": "16 X 25 X 1 LPD , HD FRAME , W / 3 MEDIA PADS"
+                },
+                "vendor_item_id": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.5825560688972473,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 111
+                        }
+                    ],
+                    "value": "3LP1625"
+                },
+                "qty": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9451172351837158,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 21
+                        }
+                    ],
+                    "value": 10.0
+                },
+                "unit_price": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9559963345527649,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 84
+                        }
+                    ],
+                    "value": 214.0
+                },
+                "line_total": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9800728559494019,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 97
+                        }
+                    ],
+                    "value": 2140.0
+                },
+                "status": null,
+                "gl_account": null,
+                "cost_center": null,
+                "internal_order": null,
+                "gl_notes": null,
+                "unit_of_measure": null
+            },
+            {
+                "invoice_line_number": null,
+                "po_line_number": null,
+                "material_number_usn": null,
+                "item_description": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9895160623959133,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 114
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 13
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 75
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 98
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 90
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 91
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 142
+                        }
+                    ],
+                    "value": "SOLACE & FedEx Tracking Number : 723149993749"
+                },
+                "vendor_item_id": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.42356905341148376,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 135
+                        }
+                    ],
+                    "value": "SHIPPING"
+                },
+                "qty": null,
+                "unit_price": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9473602771759033,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 72
+                        }
+                    ],
+                    "value": 52.88
+                },
+                "line_total": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9732181429862976,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 71
+                        }
+                    ],
+                    "value": 52.88
+                },
+                "status": null,
+                "gl_account": null,
+                "cost_center": null,
+                "internal_order": null,
+                "gl_notes": null,
+                "unit_of_measure": null
+            },
+            {
+                "invoice_line_number": null,
+                "po_line_number": null,
+                "material_number_usn": null,
+                "item_description": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9892831444740295,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 10
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 87
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 99
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 105
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 106
+                        },
+                        {
+                            "page_num": 1,
+                            "bbox_id": 159
+                        }
+                    ],
+                    "value": "& FedEx Tracking Number : 723149993750"
+                },
+                "vendor_item_id": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.41855257749557495,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 136
+                        }
+                    ],
+                    "value": "SHIPPING"
+                },
+                "qty": {
+                    "validation_problem": true,
+                    "note": "Could not recognize what number is I. Please check manually.",
+                    "confidence": 0.49958348274230957,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 1
+                        }
+                    ],
+                    "value": "I"
+                },
+                "unit_price": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9480844736099243,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 73
+                        }
+                    ],
+                    "value": 52.88
+                },
+                "line_total": {
+                    "validation_problem": false,
+                    "note": "",
+                    "confidence": 0.9724097847938538,
+                    "bbox_refs": [
+                        {
+                            "page_num": 1,
+                            "bbox_id": 67
+                        }
+                    ],
+                    "value": 52.88
+                },
+                "status": null,
+                "gl_account": null,
+                "cost_center": null,
+                "internal_order": null,
+                "gl_notes": null,
+                "unit_of_measure": null
+            }
+        ],
+        "validation_check": null,
+        "workflow_status": null,
+        "scan_batch": null,
+        "validation_user_id": null,
+        "po_number": {
+            "validation_problem": false,
+            "note": "",
+            "confidence": 0.864432692527771,
+            "bbox_refs": [
+                {
+                    "page_num": 1,
+                    "bbox_id": 104
+                }
+            ],
+            "value": "7858486"
+        },
+        "type_of_document": {
+            "validation_problem": false,
+            "note": "",
+            "confidence": 0.9611656665802002,
+            "bbox_refs": [
+                {
+                    "page_num": 1,
+                    "bbox_id": 81
+                }
+            ],
+            "value": "Invoice"
+        },
+        "invoice_status": null
+    }
+}
