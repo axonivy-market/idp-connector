@@ -1,0 +1,20 @@
+SplittingResultData #class
+com.axonivy.connector.idp.connector.demo.SplittingResult #namespace
+processingId java.util.UUID #field
+processingId PERSISTENT #fieldModifier
+subDocuments java.util.List<com.axonivy.connector.idp.demo.dto.SubDocument> #field
+subDocuments PERSISTENT #fieldModifier
+file java.io.File #field
+file PERSISTENT #fieldModifier
+subDocument com.axonivy.connector.idp.connector.model.SubDocument #field
+subDocument PERSISTENT #fieldModifier
+streamedContent org.primefaces.model.StreamedContent #field
+streamedContent PERSISTENT #fieldModifier
+prettyJson String #field
+prettyJson PERSISTENT #fieldModifier
+processingResult com.fasterxml.jackson.databind.JsonNode #field
+processingResult PERSISTENT #fieldModifier
+genericSplitting com.axonivy.connector.idp.connector.model.GenericSplittingProcessingCompleted #field
+genericSplitting PERSISTENT #fieldModifier
+selectedSubDocumentIndex Integer #field
+selectedSubDocumentIndex PERSISTENT #fieldModifier

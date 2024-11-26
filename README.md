@@ -1,7 +1,5 @@
-# MY-PRODUCT-NAME
+# Axon Ivy IDP Connector
 
-[![CI Build](https://github.com/axonivy-market/REPO-NAME/actions/workflows/ci.yml/badge.svg)](https://github.com/axonivy-market/REPO-NAME/actions/workflows/ci.yml)
+Axon Ivy Intelligent Document Processing
 
-"YOUR SHORT DESCRIPTION GOES HERE"
-
-Read our [documentation](MY-PRODUCT-NAME-product/README.md).
+Read our [documentation](idp-connector-product/README.md).

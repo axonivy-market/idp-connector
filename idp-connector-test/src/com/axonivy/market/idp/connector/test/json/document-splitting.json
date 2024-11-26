@@ -1,0 +1,14 @@
+{
+	"processing_id": "79dacbd9-b191-4ba4-a248-7580e7321b67",
+	"workflow_id": "generic_splitting",
+	"workflow_name": "Generic Document Splitting",
+	"available_results": [
+	],
+	"document_splitting": null,
+	"ocr": null,
+	"page_images": null,
+	"thumbnail": null,
+	"pdf": null,
+	"hocr": null,
+	"sub_pdfs": null
+}

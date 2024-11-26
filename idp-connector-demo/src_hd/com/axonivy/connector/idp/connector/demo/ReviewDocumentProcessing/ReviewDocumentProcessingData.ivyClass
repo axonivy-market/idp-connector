@@ -1,0 +1,9 @@
+ReviewDocumentProcessingData #class
+com.axonivy.connector.idp.connector.demo.ReviewDocumentProcessing #namespace
+processingId java.util.UUID #field
+processingId PERSISTENT #fieldModifier
+sharingUrl String #field
+sharingUrl PERSISTENT #fieldModifier
+workflowType com.axonivy.connector.idp.connector.WorkflowType #field
+workflowType 'document-splitting or extraction' #fieldComment
+workflowType PERSISTENT #fieldModifier

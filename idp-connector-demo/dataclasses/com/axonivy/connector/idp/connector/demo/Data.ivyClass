@@ -1,0 +1,18 @@
+Data #class
+com.axonivy.connector.idp.connector.demo #namespace
+workflowId String #field
+workflowId PERSISTENT #fieldModifier
+statusCode Integer #field
+file java.io.File #field
+processingId java.util.UUID #field
+processingId PERSISTENT #fieldModifier
+sharingUrl String #field
+sharingUrl 'Sharing URL from share token, documentId' #fieldComment
+processingResultNode com.fasterxml.jackson.databind.JsonNode #field
+subDocuments java.util.List<com.axonivy.connector.idp.connector.model.SubDocument> #field
+docShareToken String #field
+workflows java.util.List<com.axonivy.connector.idp.connector.model.AvailableWorkflowResponse> #field
+confidenceMinValue Double #field
+error ch.ivyteam.ivy.bpm.error.BpmError #field
+sampleFile com.axonivy.connector.idp.demo.SampleFile #field
+sampleFile PERSISTENT #fieldModifier
