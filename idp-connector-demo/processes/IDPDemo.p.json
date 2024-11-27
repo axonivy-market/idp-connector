@@ -24,7 +24,7 @@
           "code" : [
             "// set taskname",
             "import com.axonivy.connector.idp.demo.IDPDemoService;",
-            "IDPDemoService.setDemoTaskName(\"3.Splitting Result\"); "
+            "IDPDemoService.setDemoTaskName(\"3. Splitting Result\"); "
           ]
         }
       },
@@ -46,8 +46,7 @@
           }
         },
         "request" : {
-          "name" : "Document Splitting",
-          "description" : "Select a file, then do Splitting"
+          "name" : "Document Splitting"
         },
         "task" : {
           "name" : "Document Splitting"
@@ -75,7 +74,7 @@
           "code" : [
             "// set taskname",
             "import com.axonivy.connector.idp.demo.IDPDemoService;",
-            "IDPDemoService.setDemoTaskName(\"1.File to be splitted\"); "
+            "IDPDemoService.setDemoTaskName(\"1. File to be splitted\"); "
           ]
         },
         "output" : {
@@ -133,7 +132,7 @@
           "code" : [
             "// set taskname",
             "import com.axonivy.connector.idp.demo.IDPDemoService;",
-            "IDPDemoService.setDemoTaskName(\"2.Document Splitting\"); "
+            "IDPDemoService.setDemoTaskName(\"2. Document Splitting\"); "
           ]
         }
       },
@@ -154,8 +153,7 @@
           "code" : "out.workflowId = \"39a96761-93c4-4100-856f-36e7a90453ff\";"
         },
         "request" : {
-          "name" : "Extraction",
-          "description" : "Select a file, then Extraction"
+          "name" : "Document Extraction"
         }
       },
       "tags" : [
@@ -209,7 +207,7 @@
             "// set taskname",
             "// set taskname",
             "import com.axonivy.connector.idp.demo.IDPDemoService;",
-            "IDPDemoService.setDemoTaskName(\"3.Extraction Result\");"
+            "IDPDemoService.setDemoTaskName(\"3. Extraction Result\");"
           ]
         }
       },
@@ -243,7 +241,7 @@
           "code" : [
             "// set taskname",
             "import com.axonivy.connector.idp.demo.IDPDemoService;",
-            "IDPDemoService.setDemoTaskName(\"2.Extraction\"); "
+            "IDPDemoService.setDemoTaskName(\"2. Extraction\"); "
           ]
         }
       },
@@ -294,7 +292,7 @@
           "code" : [
             "// set taskname",
             "import com.axonivy.connector.idp.demo.IDPDemoService;",
-            "IDPDemoService.setDemoTaskName(\"1.File selection\");"
+            "IDPDemoService.setDemoTaskName(\"1. File selection\");"
           ]
         },
         "output" : {
@@ -319,7 +317,8 @@
         "signature" : "workflows",
         "request" : {
           "name" : "Log Workflow names",
-          "description" : "Fetch workflows of this IDP instance and log them to the log file."
+          "description" : "Fetch workflows of this IDP instance and log them to the log file.",
+          "isVisibleOnStartList" : false
         }
       },
       "tags" : [

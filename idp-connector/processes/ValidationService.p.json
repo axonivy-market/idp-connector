@@ -17,7 +17,7 @@
             { "name" : "confidenceMinValue", "type" : "Double", "desc" : "" }
           ],
           "map" : {
-            "out.confidenceMinValue" : "param.#confidenceMinValue == null ? Double.parseDouble(ivy.var.idpConnector_confidenceMinValue) : param.confidenceMinValue",
+            "out.confidenceMinValue" : "param.#confidenceMinValue == null ? Double.parseDouble(ivy.var.get(\"idpConnector.confidenceMinValue\")) : param.confidenceMinValue",
             "out.processingId" : "param.processingId"
           }
         },
