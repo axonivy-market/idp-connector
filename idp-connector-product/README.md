@@ -52,7 +52,4 @@ Before any interaction between the Axon Ivy Engine and the IDP services can take
       # API Key for "IDP Document Capturing API"
       apiKeySecret: ''
    ```
-   
-   When you use IDP via another proxy server, you need to set `apiProxyUrl`.
-   Run `workflows.ivp` of the IDPDemo demo process to test your setup.
 
