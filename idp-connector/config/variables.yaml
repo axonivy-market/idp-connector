@@ -1,5 +1,6 @@
+# yaml-language-server: $schema=https://json-schema.axonivy.com/app/12.0.0/variables.json
 # == Variables ==
-# 
+#
 # You can define here your project Variables.
 # If you want to define/override a Variable for a specific Environment, 
 # add an additional ‘variables.yaml’ file in a subdirectory in the ‘Config’ folder: 
@@ -8,10 +9,11 @@
 Variables:
   idpConnector:
     # The proxy server URL
-    apiProxyUrl: 'https://idp.api.axonivy.com'
+    apiProxyUrl: https://idp.api.axonivy.com
     # API Key for "IDP Document Capturing API"
-    apiKeySecret: ''
+    #[password]
+    apiKeySecret: ${decrypt:}
     # Number of seconds to wait for the completion of document processing. If processing doesn't finish in this time, a URL for retrieving the results will be returned.
-    waitFor: 120
+    waitFor: "120"
     # The default value for validation processing result's confidence values  
-    confidenceMinValue: 0.8
+    confidenceMinValue: "0.8"

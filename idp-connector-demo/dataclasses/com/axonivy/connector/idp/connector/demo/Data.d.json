@@ -1,0 +1,47 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "Data",
+  "namespace" : "com.axonivy.connector.idp.connector.demo",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "workflowId",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "statusCode",
+    "type" : "Integer"
+  }, {
+    "name" : "file",
+    "type" : "java.io.File"
+  }, {
+    "name" : "processingId",
+    "type" : "java.util.UUID",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "sharingUrl",
+    "type" : "String",
+    "comment" : "Sharing URL from share token, documentId"
+  }, {
+    "name" : "processingResultNode",
+    "type" : "com.fasterxml.jackson.databind.JsonNode"
+  }, {
+    "name" : "subDocuments",
+    "type" : "java.util.List<com.axonivy.connector.idp.connector.model.SubDocument>"
+  }, {
+    "name" : "docShareToken",
+    "type" : "String"
+  }, {
+    "name" : "workflows",
+    "type" : "java.util.List<com.axonivy.connector.idp.connector.model.AvailableWorkflowResponse>"
+  }, {
+    "name" : "confidenceMinValue",
+    "type" : "Double"
+  }, {
+    "name" : "error",
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+  }, {
+    "name" : "sampleFile",
+    "type" : "com.axonivy.connector.idp.demo.SampleFile",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

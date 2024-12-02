@@ -1,0 +1,43 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "simpleName" : "SplittingResultData",
+  "namespace" : "com.axonivy.connector.idp.connector.demo.SplittingResult",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "processingId",
+    "type" : "java.util.UUID",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "subDocuments",
+    "type" : "java.util.List<com.axonivy.connector.idp.demo.dto.SubDocument>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "file",
+    "type" : "java.io.File",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "subDocument",
+    "type" : "com.axonivy.connector.idp.connector.model.SubDocument",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "streamedContent",
+    "type" : "org.primefaces.model.StreamedContent",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "prettyJson",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "processingResult",
+    "type" : "com.fasterxml.jackson.databind.JsonNode",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "genericSplitting",
+    "type" : "com.axonivy.connector.idp.connector.model.GenericSplittingProcessingCompleted",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "selectedSubDocumentIndex",
+    "type" : "Integer",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

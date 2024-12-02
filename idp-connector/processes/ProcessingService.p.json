@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "191351D442CAD7E7",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,11 +10,11 @@
       "type" : "CallSubStart",
       "name" : "processing(String,File)",
       "config" : {
-        "callSignature" : "processing",
+        "signature" : "processing",
         "input" : {
           "params" : [
-            { "name" : "workfowId", "type" : "String" },
-            { "name" : "file", "type" : "java.io.File" }
+            { "name" : "workfowId", "type" : "String", "desc" : "" },
+            { "name" : "file", "type" : "java.io.File", "desc" : "" }
           ],
           "map" : {
             "out.file" : "param.file",
@@ -23,23 +23,27 @@
         },
         "result" : {
           "params" : [
-            { "name" : "processingId", "type" : "java.util.UUID" },
-            { "name" : "processingResult", "type" : "com.fasterxml.jackson.databind.JsonNode" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "processingId", "type" : "java.util.UUID", "desc" : "" },
+            { "name" : "processingResult", "type" : "com.fasterxml.jackson.databind.JsonNode", "desc" : "" },
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.processingId" : "in.#processingId",
             "result.processingResult" : "in.#jsonNode",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 152 },
         "labelOffset" : { "x" : 33, "y" : 41 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "CallSubEnd",
@@ -51,41 +55,49 @@
       "type" : "RestClientCall",
       "name" : "Document Processing",
       "config" : {
-        "headers" : {
-          "Accept" : "application/json"
-        },
-        "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
         "method" : "POST",
-        "queryParams" : {
-          "include" : "",
-          "wait_for" : "ivy.var.get(\"idpConnector.waitFor\").toNumber()"
+        "target" : {
+          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "path" : "/processing/{workflow_id}",
+          "templateParams" : {
+            "workflow_id" : "in.workflowId"
+          },
+          "queryParams" : {
+            "include" : "",
+            "wait_for" : "ivy.var.get(\"idpConnector.waitFor\").toNumber()"
+          },
+          "headers" : {
+            "Accept" : "application/json"
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectType" : "com.axonivy.connector.idp.connector.model.BodyTProcessingInvoiceExtractionPost",
-        "bodyInputType" : "FORM",
-        "responseCode" : [
-          "import java.util.UUID;",
-          "out.statusCode = response.getStatus();",
-          "",
-          "if(out.statusCode == 200 || out.statusCode == 201 || out.statusCode == 202) {",
-          "  out.processingId = UUID.fromString(result.at(\"/processing_id\").asText());",
-          "  ",
-          "  if(out.statusCode == 200 || out.statusCode == 201) {",
-          "    out.jsonNode = result;",
-          "  }",
-          "}"
-        ],
-        "bodyForm" : {
-          "file" : "in.file",
-          "parameters" : ""
+        "body" : {
+          "type" : "FORM",
+          "mediaType" : "multipart/form-data",
+          "form" : {
+            "file" : [ "in.file" ],
+            "parameters" : [ "" ]
+          },
+          "entity" : {
+            "type" : "com.axonivy.connector.idp.connector.model.BodyTProcessingInvoiceExtractionPost"
+          }
         },
-        "path" : "/processing/{workflow_id}",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "templateParams" : {
-          "workflow_id" : "in.workflowId"
-        },
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "bodyMediaType" : "multipart/form-data"
+        "response" : {
+          "entity" : {
+            "type" : "com.fasterxml.jackson.databind.JsonNode",
+            "code" : [
+              "import java.util.UUID;",
+              "out.statusCode = response.getStatus();",
+              "",
+              "if(out.statusCode == 200 || out.statusCode == 201 || out.statusCode == 202) {",
+              "  out.processingId = UUID.fromString(result.at(\"/processing_id\").asText());",
+              "  ",
+              "  if(out.statusCode == 200 || out.statusCode == 201) {",
+              "    out.jsonNode = result;",
+              "  }",
+              "}"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 152 }
@@ -104,37 +116,45 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 194 }
           },
-          "connect" : { "id" : "f9", "to" : "f1", "via" : [ { "x" : 320, "y" : 296 }, { "x" : 920, "y" : 296 } ] }
+          "connect" : [
+            { "id" : "f9", "to" : "f1", "via" : [ { "x" : 320, "y" : 296 }, { "x" : 920, "y" : 296 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f31", "to" : "f6" }
+      "connect" : [
+        { "id" : "f31", "to" : "f6" }
+      ]
     }, {
       "id" : "f28",
       "type" : "RestClientCall",
       "name" : "Processing Result",
       "config" : {
-        "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
-        "method" : "GET",
-        "queryParams" : {
-          "wait_for" : "in.waitFor",
-          "include" : ""
+        "target" : {
+          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "path" : "/processing/results/{processing_id}",
+          "templateParams" : {
+            "processing_id" : "in.processingId"
+          },
+          "queryParams" : {
+            "wait_for" : "in.waitFor",
+            "include" : ""
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : [
-          "out.statusCode = response.getStatus();",
-          "out.jsonNode = result;"
-        ],
-        "bodyForm" : {
-          "file" : "",
-          "parameters" : ""
+        "body" : {
+          "mediaType" : "multipart/form-data",
+          "form" : {
+            "file" : [ "" ],
+            "parameters" : [ "" ]
+          }
         },
-        "path" : "/processing/results/{processing_id}",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "templateParams" : {
-          "processing_id" : "in.processingId"
-        },
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "bodyMediaType" : "multipart/form-data"
+        "response" : {
+          "entity" : {
+            "type" : "com.fasterxml.jackson.databind.JsonNode",
+            "code" : [
+              "out.statusCode = response.getStatus();",
+              "out.jsonNode = result;"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 560, "y" : 232 }
@@ -153,23 +173,32 @@
           "visual" : {
             "at" : { "x" : 592, "y" : 274 }
           },
-          "connect" : { "id" : "f7", "to" : "f1", "via" : [ { "x" : 888, "y" : 274 } ] }
+          "connect" : [
+            { "id" : "f7", "to" : "f1", "via" : [ { "x" : 888, "y" : 274 } ] }
+          ]
         } ],
-      "connect" : { "id" : "f35", "to" : "f34" }
+      "connect" : [
+        { "id" : "f35", "to" : "f34" }
+      ]
     }, {
       "id" : "f6",
       "type" : "Alternative",
       "name" : "in-progress ?",
+      "config" : {
+        "conditions" : {
+          "f37" : "in.statusCode == 202"
+        }
+      },
       "visual" : {
         "at" : { "x" : 464, "y" : 152 },
-        "labelOffset" : { "x" : 16, "y" : -24 }
+        "labelOffset" : { "y" : -24 }
       },
       "connect" : [
         { "id" : "f37", "to" : "f28", "via" : [ { "x" : 464, "y" : 232 } ], "label" : {
             "name" : "yes",
             "segment" : 1.11,
             "offset" : { "x" : 13, "y" : -50 }
-          }, "condition" : "in.statusCode == 202" },
+          } },
         { "id" : "f32", "to" : "f1", "label" : {
             "name" : "no",
             "offset" : { "x" : -171, "y" : -10 }
@@ -179,6 +208,11 @@
       "id" : "f34",
       "type" : "Alternative",
       "name" : "in-progress ?",
+      "config" : {
+        "conditions" : {
+          "f2" : "in.statusCode == 202"
+        }
+      },
       "visual" : {
         "at" : { "x" : 768, "y" : 232 },
         "labelOffset" : { "x" : 24, "y" : 32 }
@@ -188,7 +222,7 @@
             "name" : "yes",
             "segment" : 1.55,
             "offset" : { "x" : 10, "y" : -10 }
-          }, "condition" : "in.statusCode == 202" },
+          } },
         { "id" : "f36", "to" : "f1", "via" : [ { "x" : 872, "y" : 232 } ], "label" : {
             "name" : "no",
             "segment" : 0.93,
@@ -200,33 +234,37 @@
       "type" : "RestClientCall",
       "name" : "Retrieve sub-pdf for splitting processing result",
       "config" : {
-        "path" : "/processing/results/{processing_id}/sub-pdfs/{index}",
-        "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "queryParams" : {
-          "jpeg_quality" : "",
-          "pdfa_compliant" : "",
-          "image_height" : "",
-          "image_width" : "",
-          "page_height" : "",
-          "page_width" : "",
-          "dpi" : ""
+        "target" : {
+          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "path" : "/processing/results/{processing_id}/sub-pdfs/{index}",
+          "templateParams" : {
+            "processing_id" : "in.processingId",
+            "index" : "in.index"
+          },
+          "queryParams" : {
+            "jpeg_quality" : "",
+            "pdfa_compliant" : "",
+            "image_height" : "",
+            "image_width" : "",
+            "page_height" : "",
+            "page_width" : "",
+            "dpi" : ""
+          }
         },
-        "statusErrorCode" : "ivy:error:rest:client",
-        "templateParams" : {
-          "processing_id" : "in.processingId",
-          "index" : "in.index"
-        },
-        "responseCode" : [
-          "import com.axonivy.connector.idp.connector.utils.IDPUtils;",
-          "import java.io.InputStream;",
-          "",
-          "String fileName = in.fileName + \".\" + IDPUtils.getFileExtensionFromHeaderResponse(response);",
-          "File fileDest = new File(fileName, true);",
-          "InputStream inputStr = response.getEntity().toType(InputStream.class);",
-          "fileDest.writeBinary(new Binary(inputStr.readAllBytes()));",
-          "in.file = fileDest.getJavaFile();"
-        ]
+        "response" : {
+          "entity" : {
+            "code" : [
+              "import com.axonivy.connector.idp.connector.utils.IDPUtils;",
+              "import java.io.InputStream;",
+              "",
+              "String fileName = in.fileName + \".\" + IDPUtils.getFileExtensionFromHeaderResponse(response);",
+              "File fileDest = new File(fileName, true);",
+              "InputStream inputStr = response.getEntity().toType(InputStream.class);",
+              "fileDest.writeBinary(new Binary(inputStr.readAllBytes()));",
+              "in.file = fileDest.getJavaFile();"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 672 }
@@ -246,20 +284,24 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 714 }
           },
-          "connect" : { "id" : "f46", "to" : "f44" }
+          "connect" : [
+            { "id" : "f46", "to" : "f44" }
+          ]
         } ],
-      "connect" : { "id" : "f51", "to" : "f44" }
+      "connect" : [
+        { "id" : "f51", "to" : "f44" }
+      ]
     }, {
       "id" : "f43",
       "type" : "CallSubStart",
       "name" : "getSubPdf(UUID,Integer,String)",
       "config" : {
-        "callSignature" : "getSubPdf",
+        "signature" : "getSubPdf",
         "input" : {
           "params" : [
-            { "name" : "processingId", "type" : "java.util.UUID" },
-            { "name" : "index", "type" : "Integer" },
-            { "name" : "fileName", "type" : "String" }
+            { "name" : "processingId", "type" : "java.util.UUID", "desc" : "" },
+            { "name" : "index", "type" : "Integer", "desc" : "" },
+            { "name" : "fileName", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.fileName" : "param.fileName",
@@ -269,21 +311,25 @@
         },
         "result" : {
           "params" : [
-            { "name" : "file", "type" : "java.io.File" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "file", "type" : "java.io.File", "desc" : "" },
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.file" : "in.#file",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 672 },
         "labelOffset" : { "x" : 57, "y" : 41 }
       },
-      "connect" : { "id" : "f52", "to" : "f41" }
+      "connect" : [
+        { "id" : "f52", "to" : "f41" }
+      ]
     }, {
       "id" : "f44",
       "type" : "CallSubEnd",
@@ -295,11 +341,11 @@
       "type" : "CallSubStart",
       "name" : "shareToken(UUID,String)",
       "config" : {
-        "callSignature" : "shareToken",
+        "signature" : "shareToken",
         "input" : {
           "params" : [
-            { "name" : "processing_id", "type" : "java.util.UUID" },
-            { "name" : "expires_at", "type" : "String" }
+            { "name" : "processing_id", "type" : "java.util.UUID", "desc" : "" },
+            { "name" : "expires_at", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.expires_at" : "param.expires_at",
@@ -308,21 +354,25 @@
         },
         "result" : {
           "params" : [
-            { "name" : "docShareTokenInfo", "type" : "com.axonivy.connector.idp.connector.model.DocShareTokenInfo" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "docShareTokenInfo", "type" : "com.axonivy.connector.idp.connector.model.DocShareTokenInfo", "desc" : "" },
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.docShareTokenInfo" : "in.#docShareTokenInfo",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 872 },
         "labelOffset" : { "x" : 41, "y" : 33 }
       },
-      "connect" : { "id" : "f67", "to" : "f58" }
+      "connect" : [
+        { "id" : "f67", "to" : "f58" }
+      ]
     }, {
       "id" : "f57",
       "type" : "CallSubEnd",
@@ -334,27 +384,35 @@
       "type" : "RestClientCall",
       "name" : "Get Share Token",
       "config" : {
-        "bodyRaw" : [
-          "{",
-          "\"document_id\": \"<%=in.processingId.toString()%>\",",
-          "\"expires_at\": \"<%=in.expires_at%>\"",
-          "}"
-        ],
-        "path" : "/share-tokens/documents",
-        "bodyObjectMapping" : {
-          "param.documentId" : "in.document_id",
-          "param.expiresAt" : "in.expires_at"
-        },
-        "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.docShareTokenInfo" : "result"
+        "target" : {
+          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "path" : "/share-tokens/documents"
         },
-        "bodyObjectType" : "com.axonivy.connector.idp.connector.model.DocShareTokenConfig",
-        "resultType" : "com.axonivy.connector.idp.connector.model.DocShareTokenInfo",
-        "bodyInputType" : "RAW"
+        "body" : {
+          "type" : "RAW",
+          "raw" : [
+            "{",
+            "\"document_id\": \"<%=in.processingId.toString()%>\",",
+            "\"expires_at\": \"<%=in.expires_at%>\"",
+            "}"
+          ],
+          "entity" : {
+            "type" : "com.axonivy.connector.idp.connector.model.DocShareTokenConfig",
+            "map" : {
+              "param.documentId" : "in.document_id",
+              "param.expiresAt" : "in.expires_at"
+            }
+          }
+        },
+        "response" : {
+          "entity" : {
+            "type" : "com.axonivy.connector.idp.connector.model.DocShareTokenInfo",
+            "map" : {
+              "out.docShareTokenInfo" : "result"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 872 }
@@ -373,18 +431,22 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 914 }
           },
-          "connect" : { "id" : "f64", "to" : "f57" }
+          "connect" : [
+            { "id" : "f64", "to" : "f57" }
+          ]
         } ],
-      "connect" : { "id" : "f66", "to" : "f57" }
+      "connect" : [
+        { "id" : "f66", "to" : "f57" }
+      ]
     }, {
       "id" : "f60",
       "type" : "CallSubStart",
       "name" : "revokeToken(UUID)",
       "config" : {
-        "callSignature" : "revokeToken",
+        "signature" : "revokeToken",
         "input" : {
           "params" : [
-            { "name" : "tokenUUID", "type" : "java.util.UUID" }
+            { "name" : "tokenUUID", "type" : "java.util.UUID", "desc" : "" }
           ],
           "map" : {
             "out.tokenUUID" : "param.tokenUUID"
@@ -392,29 +454,35 @@
         },
         "result" : {
           "params" : [
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 1008 },
         "labelOffset" : { "x" : 25, "y" : 41 }
       },
-      "connect" : { "id" : "f68", "to" : "f61" }
+      "connect" : [
+        { "id" : "f68", "to" : "f61" }
+      ]
     }, {
       "id" : "f61",
       "type" : "RestClientCall",
       "name" : "Revoke Token",
       "config" : {
-        "path" : "/share-tokens/documents",
-        "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
         "method" : "DELETE",
-        "queryParams" : {
-          "token_uuid" : "in.tokenUUID"
+        "target" : {
+          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "path" : "/share-tokens/documents",
+          "queryParams" : {
+            "token_uuid" : "in.tokenUUID"
+          }
         }
       },
       "visual" : {
@@ -435,9 +503,13 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 1050 }
           },
-          "connect" : { "id" : "f65", "to" : "f63" }
+          "connect" : [
+            { "id" : "f65", "to" : "f63" }
+          ]
         } ],
-      "connect" : { "id" : "f69", "to" : "f63" }
+      "connect" : [
+        { "id" : "f69", "to" : "f63" }
+      ]
     }, {
       "id" : "f63",
       "type" : "CallSubEnd",
@@ -449,10 +521,10 @@
       "type" : "CallSubStart",
       "name" : "retrieveThumbnail(UUID)",
       "config" : {
-        "callSignature" : "retrieveThumbnail",
+        "signature" : "retrieveThumbnail",
         "input" : {
           "params" : [
-            { "name" : "processingId", "type" : "java.util.UUID" }
+            { "name" : "processingId", "type" : "java.util.UUID", "desc" : "" }
           ],
           "map" : {
             "out.processingId" : "param.processingId"
@@ -460,44 +532,52 @@
         },
         "result" : {
           "params" : [
-            { "name" : "thumbnail", "type" : "java.io.File" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "thumbnail", "type" : "java.io.File", "desc" : "" },
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.thumbnail" : "in.#file",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 544 },
         "labelOffset" : { "x" : 41, "y" : 41 }
       },
-      "connect" : { "id" : "f72", "to" : "f39" }
+      "connect" : [
+        { "id" : "f72", "to" : "f39" }
+      ]
     }, {
       "id" : "f39",
       "type" : "RestClientCall",
       "name" : "thumbnail",
       "config" : {
-        "path" : "/processing/results/{processing_id}/thumbnail",
-        "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "templateParams" : {
-          "processing_id" : "in.processingId"
+        "target" : {
+          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "path" : "/processing/results/{processing_id}/thumbnail",
+          "templateParams" : {
+            "processing_id" : "in.processingId"
+          }
         },
-        "resultType" : "java.io.InputStream",
-        "responseCode" : [
-          "import com.axonivy.connector.idp.connector.utils.IDPUtils;",
-          "import java.io.InputStream;",
-          "String fileName = in.processingId.toString() + \".jpeg\";",
-          "",
-          "File fileDest = new File(fileName, true);",
-          "InputStream inputStr = response.getEntity().toType(InputStream.class);",
-          "fileDest.writeBinary(new Binary(inputStr.readAllBytes()));",
-          "in.file = fileDest.getJavaFile();"
-        ]
+        "response" : {
+          "entity" : {
+            "type" : "java.io.InputStream",
+            "code" : [
+              "import com.axonivy.connector.idp.connector.utils.IDPUtils;",
+              "import java.io.InputStream;",
+              "String fileName = in.processingId.toString() + \".jpeg\";",
+              "",
+              "File fileDest = new File(fileName, true);",
+              "InputStream inputStr = response.getEntity().toType(InputStream.class);",
+              "fileDest.writeBinary(new Binary(inputStr.readAllBytes()));",
+              "in.file = fileDest.getJavaFile();"
+            ]
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 544 }
@@ -517,9 +597,13 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 584 }
           },
-          "connect" : { "id" : "f74", "to" : "f71" }
+          "connect" : [
+            { "id" : "f74", "to" : "f71" }
+          ]
         } ],
-      "connect" : { "id" : "f73", "to" : "f71" }
+      "connect" : [
+        { "id" : "f73", "to" : "f71" }
+      ]
     }, {
       "id" : "f71",
       "type" : "CallSubEnd",
@@ -531,10 +615,10 @@
       "type" : "CallSubStart",
       "name" : "retrieveResult(UUID)",
       "config" : {
-        "callSignature" : "retrieveResult",
+        "signature" : "retrieveResult",
         "input" : {
           "params" : [
-            { "name" : "processingId", "type" : "java.util.UUID" }
+            { "name" : "processingId", "type" : "java.util.UUID", "desc" : "" }
           ],
           "map" : {
             "out.processingId" : "param.processingId"
@@ -542,37 +626,45 @@
         },
         "result" : {
           "params" : [
-            { "name" : "resultsNode", "type" : "com.fasterxml.jackson.databind.JsonNode" },
-            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError" }
+            { "name" : "resultsNode", "type" : "com.fasterxml.jackson.databind.JsonNode", "desc" : "" },
+            { "name" : "error", "type" : "ch.ivyteam.ivy.bpm.error.BpmError", "desc" : "" }
           ],
           "map" : {
             "result.resultsNode" : "in.#jsonNode",
             "result.error" : "in.#error"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 408 },
         "labelOffset" : { "x" : 33, "y" : 41 }
       },
-      "connect" : { "id" : "f29", "to" : "f11" }
+      "connect" : [
+        { "id" : "f29", "to" : "f11" }
+      ]
     }, {
       "id" : "f11",
       "type" : "RestClientCall",
       "name" : "Processing Result",
       "config" : {
-        "path" : "/processing/results/{processing_id}",
-        "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
-        "clientErrorCode" : "ivy:error:rest:client",
-        "statusErrorCode" : "ivy:error:rest:client",
-        "responseMapping" : {
-          "out.jsonNode" : "result"
+        "target" : {
+          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "path" : "/processing/results/{processing_id}",
+          "templateParams" : {
+            "processing_id" : "in.processingId"
+          }
         },
-        "templateParams" : {
-          "processing_id" : "in.processingId"
-        },
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode"
+        "response" : {
+          "entity" : {
+            "type" : "com.fasterxml.jackson.databind.JsonNode",
+            "map" : {
+              "out.jsonNode" : "result"
+            }
+          }
+        }
       },
       "visual" : {
         "at" : { "x" : 280, "y" : 408 }
@@ -592,9 +684,13 @@
           "visual" : {
             "at" : { "x" : 312, "y" : 448 }
           },
-          "connect" : { "id" : "f30", "to" : "f13" }
+          "connect" : [
+            { "id" : "f30", "to" : "f13" }
+          ]
         } ],
-      "connect" : { "id" : "f33", "to" : "f13" }
+      "connect" : [
+        { "id" : "f33", "to" : "f13" }
+      ]
     }, {
       "id" : "f13",
       "type" : "CallSubEnd",

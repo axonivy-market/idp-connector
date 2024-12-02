@@ -1,7 +1,0 @@
-ValidationServiceData #class
-com.axonivy.connector.idp.connector #namespace
-processingId java.util.UUID #field
-confidenceMinValue Double #field
-confidencePassed Boolean #field
-jsonNode com.fasterxml.jackson.databind.JsonNode #field
-error String #field

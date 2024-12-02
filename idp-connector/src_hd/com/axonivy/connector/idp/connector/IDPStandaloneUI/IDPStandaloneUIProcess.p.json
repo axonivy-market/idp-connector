@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "19231D0DED8ACC92",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start(UUID,WorkflowType)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
             { "name" : "documentId", "type" : "java.util.UUID", "desc" : "The document Id" },
@@ -28,7 +28,7 @@
             "  out.workflowType = WorkflowType.EXTRACTION;",
             "}",
             "",
-            "out.apiProxyUrl = ivy.var.idpConnector_apiProxyUrl;"
+            "out.apiProxyUrl = ivy.var.get(\"idpConnector.apiProxyUrl\");"
           ]
         },
         "guid" : "19231D0DEDB737C1"
@@ -36,7 +36,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f7", "to" : "f6" }
+      "connect" : [
+        { "id" : "f7", "to" : "f6" }
+      ]
     }, {
       "id" : "f1",
       "type" : "HtmlDialogEnd",
@@ -53,7 +55,9 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 368 }
       },
-      "connect" : { "id" : "f5", "to" : "f4" }
+      "connect" : [
+        { "id" : "f5", "to" : "f4" }
+      ]
     }, {
       "id" : "f4",
       "type" : "HtmlDialogExit",
@@ -65,11 +69,9 @@
       "type" : "SubProcessCall",
       "name" : "DocumentSharing",
       "config" : {
+        "processCall" : "ProcessingService:shareToken(java.util.UUID,String)",
         "call" : {
-          "params" : [
-            { "name" : "processing_id", "type" : "java.util.UUID" },
-            { "name" : "expires_at", "type" : "String" }
-          ],
+          "map" : { },
           "code" : [
             "import java.time.LocalDate;",
             "import com.axonivy.connector.idp.connector.utils.IDPUtils;",
@@ -78,7 +80,6 @@
             "param.expires_at = IDPUtils.formatDate(LocalDate.now().plusDays(2));  // expired in 2 days"
           ]
         },
-        "processCall" : "ProcessingService:shareToken(java.util.UUID,String)",
         "output" : {
           "map" : {
             "out" : "in",
@@ -96,19 +97,23 @@
       "visual" : {
         "at" : { "x" : 272, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f8",
       "type" : "HtmlDialogMethodStart",
       "name" : "revokeShareToken()",
       "config" : {
-        "callSignature" : "revokeShareToken",
+        "signature" : "revokeShareToken",
         "guid" : "19241F5F1B09FE20"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 176 }
       },
-      "connect" : { "id" : "f12", "to" : "f11" }
+      "connect" : [
+        { "id" : "f12", "to" : "f11" }
+      ]
     }, {
       "id" : "f9",
       "type" : "HtmlDialogEnd",
@@ -122,9 +127,6 @@
       "config" : {
         "processCall" : "ProcessingService:revokeToken(java.util.UUID)",
         "call" : {
-          "params" : [
-            { "name" : "tokenUUID", "type" : "java.util.UUID" }
-          ],
           "map" : {
             "param.tokenUUID" : "in.shareInfo.uuid"
           }
@@ -133,6 +135,8 @@
       "visual" : {
         "at" : { "x" : 272, "y" : 176 }
       },
-      "connect" : { "id" : "f10", "to" : "f9" }
+      "connect" : [
+        { "id" : "f10", "to" : "f9" }
+      ]
     } ]
 }

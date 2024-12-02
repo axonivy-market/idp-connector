@@ -39,7 +39,8 @@ public class IDPDemoService {
 	
 	public static File exportIvyFileFromCMS(String cmsUri, String ext) throws IOException {
 		String file = StringUtils.removeStart(cmsUri, "/") + "." + ext;
-		File tempFile = new File(file);
+		File tempFile = new File(file, true);
+		tempFile.createNewFile();
 		ContentObjectValue cov = Ivy.cms().root().child().file(cmsUri, ext).value().get();
 		tempFile.writeBinary(new Binary(cov.read().bytes()));
 		return tempFile;

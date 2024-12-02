@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "193250C0D191D9A0",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,32 +10,36 @@
       "type" : "CallSubStart",
       "name" : "validate(UUID,Double)",
       "config" : {
-        "callSignature" : "validate",
+        "signature" : "validate",
         "input" : {
           "params" : [
-            { "name" : "processingId", "type" : "java.util.UUID" },
-            { "name" : "confidenceMinValue", "type" : "Double" }
+            { "name" : "processingId", "type" : "java.util.UUID", "desc" : "" },
+            { "name" : "confidenceMinValue", "type" : "Double", "desc" : "" }
           ],
           "map" : {
-            "out.confidenceMinValue" : "param.#confidenceMinValue == null ? Double.parseDouble(ivy.var.idpConnector_confidenceMinValue) : param.confidenceMinValue",
+            "out.confidenceMinValue" : "param.#confidenceMinValue == null ? Double.parseDouble(ivy.var.get(\"idpConnector.confidenceMinValue\")) : param.confidenceMinValue",
             "out.processingId" : "param.processingId"
           }
         },
         "result" : {
           "params" : [
-            { "name" : "passed", "type" : "Boolean" }
+            { "name" : "passed", "type" : "Boolean", "desc" : "" }
           ],
           "map" : {
             "result.passed" : "in.confidencePassed"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 256, "y" : 288 },
         "description" : "validate all values have confident >= confidentThreshold or NOT"
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "CallSubEnd",
@@ -48,25 +52,24 @@
       "name" : "get Processing Result",
       "config" : {
         "processCall" : "ProcessingService:retrieveResult(java.util.UUID)",
+        "call" : {
+          "map" : {
+            "param.processingId" : "in.processingId"
+          }
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.jsonNode" : "result.#resultsNode"
-          }
-        },
-        "call" : {
-          "params" : [
-            { "name" : "processingId", "type" : "java.util.UUID" }
-          ],
-          "map" : {
-            "param.processingId" : "in.processingId"
           }
         }
       },
       "visual" : {
         "at" : { "x" : 424, "y" : 288 }
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f5",
       "type" : "Script",
@@ -89,6 +92,8 @@
       "visual" : {
         "at" : { "x" : 624, "y" : 288 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     } ]
 }
