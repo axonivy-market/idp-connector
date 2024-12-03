@@ -30,7 +30,7 @@ Axon Ivy IDP ist eine Lösung für intelligentes Dokumentenmanagement (Intellige
 4. Überprüfe das letzte Protokoll, um das Ergebnis der Validierungsfunktion zu sehen
    ![validation-extraction](images/extraction4.png)
 
-## Einrichtung
+## Setup
 
 Bevor eine Interaktion zwischen der Axon Ivy Engine und den IDP-Diensten stattfinden kann, müssen die folgenden Schritte durchgeführt werden:
 
