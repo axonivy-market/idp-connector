@@ -1,9 +1,3 @@
-<!--
-Dear developer!   
-
-When you create your very valuable documentation, please be aware that this Readme.md is not only published on github. This documentation is also processed automatically and published on our website. For this to work, the two headings "Demo" and "Setup" must not be changed
--->
-
 # Axon Ivy IDP Connector
 
 Axon Ivy IDP ist eine Lösung für intelligentes Dokumentenmanagement (Intelligent Document Processing), die die Extraktion, Klassifizierung und Analyse von unstrukturierten Daten automatisiert. Sie optimiert dokumentenintensive Prozesse wie Rechnungsverwaltung, Schadensbearbeitung und Kunden-Onboarding durch den Einsatz von KI-gestützter OCR, Handschrifttext-Erkennung (HTR) und maschinellen Lernalgorithmen, um die Genauigkeit und Effizienz im Datenmanagement zu erhöhen. Dieser Connector:
@@ -36,7 +30,7 @@ Axon Ivy IDP ist eine Lösung für intelligentes Dokumentenmanagement (Intellige
 4. Überprüfe das letzte Protokoll, um das Ergebnis der Validierungsfunktion zu sehen
    ![validation-extraction](images/extraction4.png)
 
-## Einrichtung
+## Setup
 
 Bevor eine Interaktion zwischen der Axon Ivy Engine und den IDP-Diensten stattfinden kann, müssen die folgenden Schritte durchgeführt werden:
 
