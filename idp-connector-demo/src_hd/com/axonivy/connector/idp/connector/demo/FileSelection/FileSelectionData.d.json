@@ -35,5 +35,8 @@
     "name" : "processingId",
     "type" : "java.util.UUID",
     "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "error",
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
   } ]
 }

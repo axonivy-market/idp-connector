@@ -66,7 +66,7 @@
       "type" : "DialogCall",
       "name" : "File Selection",
       "config" : {
-        "dialog" : "com.axonivy.connector.idp.connector.demo.FileSelection:start(com.axonivy.connector.idp.demo.Demo,String)",
+        "dialog" : "com.axonivy.connector.idp.connector.demo.FileSelection:start(com.axonivy.connector.idp.demo.Demo,String,com.fasterxml.jackson.databind.JsonNode,java.util.UUID)",
         "call" : {
           "map" : {
             "param.demo" : "com.axonivy.connector.idp.demo.Demo.SPLITTING_DOCUMENT",
@@ -81,7 +81,9 @@
         "output" : {
           "map" : {
             "out" : "in",
-            "out.file" : "result.file"
+            "out.file" : "result.file",
+            "out.processingId" : "result.processingId",
+            "out.processingResultNode" : "result.processingResultNode"
           }
         }
       },
@@ -231,7 +233,7 @@
       "type" : "DialogCall",
       "name" : "File Selection",
       "config" : {
-        "dialog" : "com.axonivy.connector.idp.connector.demo.FileSelection:start(com.axonivy.connector.idp.demo.Demo,String)",
+        "dialog" : "com.axonivy.connector.idp.connector.demo.FileSelection:start(com.axonivy.connector.idp.demo.Demo,String,com.fasterxml.jackson.databind.JsonNode,java.util.UUID)",
         "call" : {
           "map" : {
             "param.demo" : "com.axonivy.connector.idp.demo.Demo.EXTRACTION",
@@ -247,12 +249,14 @@
           "map" : {
             "out" : "in",
             "out.file" : "result.file",
+            "out.processingId" : "result.processingId",
+            "out.processingResultNode" : "result.processingResultNode",
             "out.sampleFile" : "result.selectedFile"
           }
         }
       },
       "visual" : {
-        "at" : { "x" : 407, "y" : 696 }
+        "at" : { "x" : 408, "y" : 696 }
       },
       "connect" : [
         { "id" : "f14", "to" : "f33" }

@@ -8,13 +8,15 @@
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",
-      "name" : "start(Demo,String)",
+      "name" : "start(Demo,String,JsonNode,UUID)",
       "config" : {
         "signature" : "start",
         "input" : {
           "params" : [
             { "name" : "demo", "type" : "com.axonivy.connector.idp.demo.Demo", "desc" : "" },
-            { "name" : "workflowId", "type" : "String", "desc" : "" }
+            { "name" : "workflowId", "type" : "String", "desc" : "" },
+            { "name" : "processingResultNode", "type" : "com.fasterxml.jackson.databind.JsonNode", "desc" : "" },
+            { "name" : "processingId", "type" : "java.util.UUID", "desc" : "" }
           ],
           "map" : {
             "out.demo" : "param.demo",
@@ -24,11 +26,15 @@
         "result" : {
           "params" : [
             { "name" : "file", "type" : "java.io.File", "desc" : "" },
-            { "name" : "selectedFile", "type" : "com.axonivy.connector.idp.demo.SampleFile", "desc" : "" }
+            { "name" : "selectedFile", "type" : "com.axonivy.connector.idp.demo.SampleFile", "desc" : "" },
+            { "name" : "processingId", "type" : "java.util.UUID", "desc" : "" },
+            { "name" : "processingResultNode", "type" : "com.fasterxml.jackson.databind.JsonNode", "desc" : "" }
           ],
           "map" : {
             "result.file" : "in.selectedSampleFile.getFile().getJavaFile()",
-            "result.selectedFile" : "in.selectedSampleFile"
+            "result.selectedFile" : "in.selectedSampleFile",
+            "result.processingId" : "in.processingId",
+            "result.processingResultNode" : "in.processingResultNode"
           }
         },
         "guid" : "19221E6F3FB595E2"
@@ -62,7 +68,7 @@
       "id" : "f4",
       "type" : "HtmlDialogExit",
       "visual" : {
-        "at" : { "x" : 448, "y" : 280 }
+        "at" : { "x" : 584, "y" : 280 }
       }
     }, {
       "id" : "f6",
@@ -95,13 +101,12 @@
             "import org.primefaces.context.RequestContext;",
             "import org.primefaces.component.inputtext.InputText;",
             "import javax.faces.context.FacesContext;",
-            "",
-            "FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, \"An unexpected error occured!!\", null));"
+            "FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, in.error.getErrorMessage(), null));"
           ]
         }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 280 }
+        "at" : { "x" : 360, "y" : 280 }
       },
       "connect" : [
         { "id" : "f11", "to" : "f9" }
@@ -110,7 +115,7 @@
       "id" : "f9",
       "type" : "HtmlDialogEnd",
       "visual" : {
-        "at" : { "x" : 360, "y" : 280 }
+        "at" : { "x" : 520, "y" : 280 }
       }
     }, {
       "id" : "f14",
@@ -126,8 +131,9 @@
         },
         "output" : {
           "code" : [
-            "out.processingId = result.processingId;",
-            "out.processingResultNode = result.processingResult;"
+            "out.processingId = result.#processingId;",
+            "out.processingResultNode = result.#processingResult;",
+            "out.error = result.#error;"
           ]
         }
       },
@@ -135,19 +141,8 @@
         "at" : { "x" : 224, "y" : 376 },
         "size" : { "width" : 120 }
       },
-      "boundaries" : [ {
-          "id" : "f8",
-          "type" : "ErrorBoundaryEvent",
-          "visual" : {
-            "at" : { "x" : 228, "y" : 346 },
-            "labelOffset" : { "x" : 13, "y" : 33 }
-          },
-          "connect" : [
-            { "id" : "f10", "to" : "f18" }
-          ]
-        } ],
       "connect" : [
-        { "id" : "f12", "to" : "f4" }
+        { "id" : "f12", "to" : "f8" }
       ]
     }, {
       "id" : "f44",
@@ -162,25 +157,17 @@
           }
         },
         "output" : {
-          "code" : "out.processingId = result.#processingId;"
+          "code" : [
+            "out.processingId = result.#processingId;",
+            "out.error = result.#error;"
+          ]
         }
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 176 }
       },
-      "boundaries" : [ {
-          "id" : "f19",
-          "type" : "ErrorBoundaryEvent",
-          "visual" : {
-            "at" : { "x" : 224, "y" : 210 },
-            "labelOffset" : { "x" : 13, "y" : 33 }
-          },
-          "connect" : [
-            { "id" : "f20", "to" : "f18" }
-          ]
-        } ],
       "connect" : [
-        { "id" : "f17", "to" : "f4" }
+        { "id" : "f17", "to" : "f19" }
       ]
     }, {
       "id" : "f13",
@@ -195,8 +182,40 @@
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [
-        { "id" : "f15", "to" : "f44" },
-        { "id" : "f16", "to" : "f14" }
+        { "id" : "f15", "to" : "f44", "via" : [ { "x" : 112, "y" : 176 } ] },
+        { "id" : "f16", "to" : "f14", "via" : [ { "x" : 112, "y" : 376 } ] }
+      ]
+    }, {
+      "id" : "f19",
+      "type" : "Alternative",
+      "config" : {
+        "conditions" : {
+          "f20" : "in.#error == null"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 360, "y" : 176 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f20", "to" : "f4", "via" : [ { "x" : 584, "y" : 176 } ], "color" : "default" },
+        { "id" : "f21", "to" : "f18" }
+      ]
+    }, {
+      "id" : "f8",
+      "type" : "Alternative",
+      "config" : {
+        "conditions" : {
+          "f10" : "in.#error == null"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 360, "y" : 376 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f10", "to" : "f4", "via" : [ { "x" : 584, "y" : 376 } ], "color" : "default" },
+        { "id" : "f22", "to" : "f18" }
       ]
     } ]
 }
