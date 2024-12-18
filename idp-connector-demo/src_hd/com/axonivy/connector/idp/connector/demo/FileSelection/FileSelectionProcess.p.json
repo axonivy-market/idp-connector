@@ -8,15 +8,17 @@
   "elements" : [ {
       "id" : "f0",
       "type" : "HtmlDialogStart",
-      "name" : "start(Demo)",
+      "name" : "start(Demo,String)",
       "config" : {
         "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "demo", "type" : "com.axonivy.connector.idp.demo.Demo", "desc" : "" }
+            { "name" : "demo", "type" : "com.axonivy.connector.idp.demo.Demo", "desc" : "" },
+            { "name" : "workflowId", "type" : "String", "desc" : "" }
           ],
           "map" : {
-            "out.demo" : "param.demo"
+            "out.demo" : "param.demo",
+            "out.workflowId" : "param.workflowId"
           }
         },
         "result" : {
@@ -32,7 +34,7 @@
         "guid" : "19221E6F3FB595E2"
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 64 }
+        "at" : { "x" : 32, "y" : 64 }
       },
       "connect" : [
         { "id" : "f7", "to" : "f6" }
@@ -51,16 +53,16 @@
         "guid" : "19221E6F42C59C6F"
       },
       "visual" : {
-        "at" : { "x" : 96, "y" : 160 }
+        "at" : { "x" : 32, "y" : 280 }
       },
       "connect" : [
-        { "id" : "f5", "to" : "f4" }
+        { "id" : "f5", "to" : "f13" }
       ]
     }, {
       "id" : "f4",
       "type" : "HtmlDialogExit",
       "visual" : {
-        "at" : { "x" : 224, "y" : 160 }
+        "at" : { "x" : 448, "y" : 280 }
       }
     }, {
       "id" : "f6",
@@ -71,7 +73,6 @@
           "code" : [
             "import java.util.Arrays;",
             "import com.axonivy.connector.idp.demo.SampleFile;",
-            "",
             "in.sampleFiles = SampleFile.getDemo(in.demo);",
             "in.selectedSampleFile = in.sampleFiles.get(0);"
           ]
@@ -82,6 +83,120 @@
       },
       "connect" : [
         { "id" : "f2", "to" : "f1" }
+      ]
+    }, {
+      "id" : "f18",
+      "type" : "Script",
+      "name" : "Show error message",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import javax.faces.application.FacesMessage;",
+            "import org.primefaces.context.RequestContext;",
+            "import org.primefaces.component.inputtext.InputText;",
+            "import javax.faces.context.FacesContext;",
+            "",
+            "FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, \"An unexpected error occured!!\", null));"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 280 }
+      },
+      "connect" : [
+        { "id" : "f11", "to" : "f9" }
+      ]
+    }, {
+      "id" : "f9",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 360, "y" : 280 }
+      }
+    }, {
+      "id" : "f14",
+      "type" : "SubProcessCall",
+      "name" : "Extract file",
+      "config" : {
+        "processCall" : "ProcessingService:processing(String,java.io.File)",
+        "call" : {
+          "map" : {
+            "param.workfowId" : "in.workflowId",
+            "param.file" : "in.selectedSampleFile.getFile().getJavaFile()"
+          }
+        },
+        "output" : {
+          "code" : [
+            "out.processingId = result.processingId;",
+            "out.processingResultNode = result.processingResult;"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 376 },
+        "size" : { "width" : 120 }
+      },
+      "boundaries" : [ {
+          "id" : "f8",
+          "type" : "ErrorBoundaryEvent",
+          "visual" : {
+            "at" : { "x" : 228, "y" : 346 },
+            "labelOffset" : { "x" : 13, "y" : 33 }
+          },
+          "connect" : [
+            { "id" : "f10", "to" : "f18" }
+          ]
+        } ],
+      "connect" : [
+        { "id" : "f12", "to" : "f4" }
+      ]
+    }, {
+      "id" : "f44",
+      "type" : "SubProcessCall",
+      "name" : "Splitting file",
+      "config" : {
+        "processCall" : "ProcessingService:processing(String,java.io.File)",
+        "call" : {
+          "map" : {
+            "param.workfowId" : "in.workflowId",
+            "param.file" : "in.selectedSampleFile.getFile().getJavaFile()"
+          }
+        },
+        "output" : {
+          "code" : "out.processingId = result.#processingId;"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 176 }
+      },
+      "boundaries" : [ {
+          "id" : "f19",
+          "type" : "ErrorBoundaryEvent",
+          "visual" : {
+            "at" : { "x" : 224, "y" : 210 },
+            "labelOffset" : { "x" : 13, "y" : 33 }
+          },
+          "connect" : [
+            { "id" : "f20", "to" : "f18" }
+          ]
+        } ],
+      "connect" : [
+        { "id" : "f17", "to" : "f4" }
+      ]
+    }, {
+      "id" : "f13",
+      "type" : "Alternative",
+      "config" : {
+        "conditions" : {
+          "f15" : "in.sampleFiles.size() == 1"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 112, "y" : 280 },
+        "labelOffset" : { "x" : 14, "y" : 34 }
+      },
+      "connect" : [
+        { "id" : "f15", "to" : "f44" },
+        { "id" : "f16", "to" : "f14" }
       ]
     } ]
 }

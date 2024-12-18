@@ -23,5 +23,17 @@
     "name" : "selectedSampleFile",
     "type" : "com.axonivy.connector.idp.demo.SampleFile",
     "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "workflowId",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "processingResultNode",
+    "type" : "com.fasterxml.jackson.databind.JsonNode",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "processingId",
+    "type" : "java.util.UUID",
+    "modifiers" : [ "PERSISTENT" ]
   } ]
 }
