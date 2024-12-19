@@ -8,7 +8,7 @@
       "id" : "f1",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 1617, "y" : 312 }
+        "at" : { "x" : 1480, "y" : 416 }
       }
     }, {
       "id" : "f11",
@@ -29,7 +29,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1136, "y" : 312 }
+        "at" : { "x" : 944, "y" : 416 }
       },
       "connect" : [
         { "id" : "f24", "to" : "f23" }
@@ -56,7 +56,7 @@
         "demo"
       ],
       "visual" : {
-        "at" : { "x" : 304, "y" : 312 }
+        "at" : { "x" : 263, "y" : 416 }
       },
       "connect" : [
         { "id" : "f47", "to" : "f39" }
@@ -66,10 +66,11 @@
       "type" : "DialogCall",
       "name" : "File Selection",
       "config" : {
-        "dialog" : "com.axonivy.connector.idp.connector.demo.FileSelection:start(com.axonivy.connector.idp.demo.Demo)",
+        "dialog" : "com.axonivy.connector.idp.connector.demo.FileSelection:start(com.axonivy.connector.idp.demo.Demo,String,com.fasterxml.jackson.databind.JsonNode,java.util.UUID)",
         "call" : {
           "map" : {
-            "param.demo" : "com.axonivy.connector.idp.demo.Demo.SPLITTING_DOCUMENT"
+            "param.demo" : "com.axonivy.connector.idp.demo.Demo.SPLITTING_DOCUMENT",
+            "param.workflowId" : "in.workflowId"
           },
           "code" : [
             "// set taskname",
@@ -80,40 +81,13 @@
         "output" : {
           "map" : {
             "out" : "in",
-            "out.file" : "result.file"
+            "out.file" : "result.file",
+            "out.processingId" : "result.processingId"
           }
         }
       },
       "visual" : {
-        "at" : { "x" : 440, "y" : 312 }
-      },
-      "connect" : [
-        { "id" : "f45", "to" : "f44" }
-      ]
-    }, {
-      "id" : "f44",
-      "type" : "SubProcessCall",
-      "name" : "Splitting file",
-      "config" : {
-        "processCall" : "ProcessingService:processing(String,java.io.File)",
-        "call" : {
-          "map" : {
-            "param.workfowId" : "in.workflowId",
-            "param.file" : "in.file"
-          }
-        },
-        "output" : {
-          "code" : [
-            "",
-            "ivy.log.debug(\"processingid={0}\", result.processingId.toString());",
-            "",
-            "out.processingId = result.#processingId;",
-            "out.error = result.#error;"
-          ]
-        }
-      },
-      "visual" : {
-        "at" : { "x" : 616, "y" : 312 }
+        "at" : { "x" : 407, "y" : 416 }
       },
       "connect" : [
         { "id" : "f17", "to" : "f6" }
@@ -137,7 +111,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 792, "y" : 312 }
+        "at" : { "x" : 592, "y" : 416 }
       },
       "connect" : [
         { "id" : "f7", "to" : "f27" }
@@ -160,36 +134,10 @@
         "demo"
       ],
       "visual" : {
-        "at" : { "x" : 296, "y" : 592 }
+        "at" : { "x" : 263, "y" : 696 }
       },
       "connect" : [
         { "id" : "f16", "to" : "f10" }
-      ]
-    }, {
-      "id" : "f14",
-      "type" : "SubProcessCall",
-      "name" : "Extract file",
-      "config" : {
-        "processCall" : "ProcessingService:processing(String,java.io.File)",
-        "call" : {
-          "map" : {
-            "param.workfowId" : "in.workflowId",
-            "param.file" : "in.file"
-          }
-        },
-        "output" : {
-          "code" : [
-            "out.processingId = result.processingId;",
-            "out.processingResultNode = result.processingResult;"
-          ]
-        }
-      },
-      "visual" : {
-        "at" : { "x" : 616, "y" : 592 },
-        "size" : { "width" : 120 }
-      },
-      "connect" : [
-        { "id" : "f32", "to" : "f33" }
       ]
     }, {
       "id" : "f19",
@@ -212,7 +160,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1136, "y" : 591 },
+        "at" : { "x" : 951, "y" : 696 },
         "size" : { "width" : 124, "height" : 63 }
       },
       "connect" : [
@@ -222,7 +170,7 @@
       "id" : "f20",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 1617, "y" : 592 }
+        "at" : { "x" : 1479, "y" : 696 }
       }
     }, {
       "id" : "f33",
@@ -246,7 +194,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 792, "y" : 592 }
+        "at" : { "x" : 584, "y" : 696 }
       },
       "connect" : [
         { "id" : "f26", "to" : "f9" }
@@ -273,7 +221,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 975, "y" : 591 },
+        "at" : { "x" : 758, "y" : 696 },
         "size" : { "width" : 127, "height" : 63 }
       },
       "connect" : [
@@ -284,10 +232,11 @@
       "type" : "DialogCall",
       "name" : "File Selection",
       "config" : {
-        "dialog" : "com.axonivy.connector.idp.connector.demo.FileSelection:start(com.axonivy.connector.idp.demo.Demo)",
+        "dialog" : "com.axonivy.connector.idp.connector.demo.FileSelection:start(com.axonivy.connector.idp.demo.Demo,String,com.fasterxml.jackson.databind.JsonNode,java.util.UUID)",
         "call" : {
           "map" : {
-            "param.demo" : "com.axonivy.connector.idp.demo.Demo.EXTRACTION"
+            "param.demo" : "com.axonivy.connector.idp.demo.Demo.EXTRACTION",
+            "param.workflowId" : "in.workflowId"
           },
           "code" : [
             "// set taskname",
@@ -299,15 +248,17 @@
           "map" : {
             "out" : "in",
             "out.file" : "result.file",
+            "out.processingId" : "result.processingId",
+            "out.processingResultNode" : "result.processingResultNode",
             "out.sampleFile" : "result.selectedFile"
           }
         }
       },
       "visual" : {
-        "at" : { "x" : 440, "y" : 592 }
+        "at" : { "x" : 408, "y" : 696 }
       },
       "connect" : [
-        { "id" : "f30", "to" : "f14" }
+        { "id" : "f14", "to" : "f33" }
       ]
     }, {
       "id" : "f34",
@@ -325,7 +276,7 @@
         "demo"
       ],
       "visual" : {
-        "at" : { "x" : 296, "y" : 864 }
+        "at" : { "x" : 263, "y" : 968 }
       },
       "connect" : [
         { "id" : "f38", "to" : "f36" }
@@ -334,7 +285,7 @@
       "id" : "f35",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 760, "y" : 864 }
+        "at" : { "x" : 727, "y" : 968 }
       }
     }, {
       "id" : "f36",
@@ -363,7 +314,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 440, "y" : 864 }
+        "at" : { "x" : 407, "y" : 968 }
       },
       "connect" : [
         { "id" : "f42", "to" : "f40" }
@@ -385,7 +336,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 616, "y" : 864 }
+        "at" : { "x" : 583, "y" : 968 }
       },
       "connect" : [
         { "id" : "f37", "to" : "f35" }
@@ -413,7 +364,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 975, "y" : 312 },
+        "at" : { "x" : 759, "y" : 416 },
         "size" : { "width" : 127, "height" : 63 }
       },
       "connect" : [
@@ -427,7 +378,7 @@
         "or your custom workflow(UUID format)"
       ],
       "visual" : {
-        "at" : { "x" : 456, "y" : 463 },
+        "at" : { "x" : 407, "y" : 567 },
         "size" : { "width" : 378, "height" : 51 }
       },
       "connect" : [
@@ -454,7 +405,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1496, "y" : 311 },
+        "at" : { "x" : 1303, "y" : 416 },
         "size" : { "width" : 127, "height" : 63 }
       },
       "connect" : [
@@ -480,7 +431,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1496, "y" : 591 },
+        "at" : { "x" : 1302, "y" : 696 },
         "size" : { "width" : 127, "height" : 63 }
       },
       "connect" : [
@@ -507,7 +458,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1328, "y" : 312 },
+        "at" : { "x" : 1120, "y" : 416 },
         "size" : { "width" : 120 }
       },
       "connect" : [
@@ -534,7 +485,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1336, "y" : 592 },
+        "at" : { "x" : 1119, "y" : 696 },
         "size" : { "width" : 120 }
       },
       "connect" : [

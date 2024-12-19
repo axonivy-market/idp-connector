@@ -9,20 +9,17 @@
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "resultNode",
-    "type" : "com.fasterxml.jackson.databind.JsonNode",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.fasterxml.jackson.databind.JsonNode"
   }, {
     "name" : "extractionsNode",
-    "type" : "com.fasterxml.jackson.databind.JsonNode",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.fasterxml.jackson.databind.JsonNode"
   }, {
     "name" : "prettyJson",
     "type" : "String",
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "extractions",
-    "type" : "java.util.List<com.axonivy.connector.idp.demo.dto.Extraction>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.util.List<com.axonivy.connector.idp.demo.dto.Extraction>"
   }, {
     "name" : "lineItemHeader",
     "type" : "java.util.List<String>",
@@ -33,7 +30,6 @@
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "selectedSampleFile",
-    "type" : "com.axonivy.connector.idp.demo.SampleFile",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.idp.demo.SampleFile"
   } ]
 }
