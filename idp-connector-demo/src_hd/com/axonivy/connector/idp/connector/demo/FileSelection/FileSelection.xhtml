@@ -26,9 +26,6 @@
 					</p:selectOneRadio>
 					</h:panelGroup>
 					<h:panelGroup width="100%" rendered="#{data.selectedSampleFile ne null}">
-						<!-- <object data="#{ivy.cms.cr(data.selectedSampleFile.cms)}" type="application/pdf"
-									width="100%" style="height:80vh;">
-						</object> -->
 						<pe:documentViewer 
 							value="#{data.selectedSampleFile.streamedContent}"
 							style="height:80vh; border: 0;" >
@@ -40,7 +37,7 @@
 					<p:commandLink id="cancel"
 						actionListener="#{ivyWorkflowView.cancel()}" process="@this"
 						value="Cancel" />
-					<p:commandButton id="proceed" actionListener="#{logic.close}"
+					<p:commandButton id="proceed" actionListener="#{logic.proceed}"
 						value="Proceed" update="form" icon="pi pi-check" />
 				</div>
 			</h:form>

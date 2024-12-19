@@ -82,8 +82,7 @@
           "map" : {
             "out" : "in",
             "out.file" : "result.file",
-            "out.processingId" : "result.processingId",
-            "out.processingResultNode" : "result.processingResultNode"
+            "out.processingId" : "result.processingId"
           }
         }
       },
@@ -195,7 +194,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 583, "y" : 696 }
+        "at" : { "x" : 584, "y" : 696 }
       },
       "connect" : [
         { "id" : "f26", "to" : "f9" }

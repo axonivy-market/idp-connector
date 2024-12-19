@@ -5,36 +5,29 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "demo",
-    "type" : "com.axonivy.connector.idp.demo.Demo",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.idp.demo.Demo"
   }, {
     "name" : "uploadedFile",
-    "type" : "org.primefaces.model.file.UploadedFile",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "org.primefaces.model.file.UploadedFile"
   }, {
     "name" : "sampleFiles",
-    "type" : "java.util.List<com.axonivy.connector.idp.demo.SampleFile>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.util.List<com.axonivy.connector.idp.demo.SampleFile>"
   }, {
     "name" : "file",
     "type" : "File",
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "selectedSampleFile",
-    "type" : "com.axonivy.connector.idp.demo.SampleFile",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.idp.demo.SampleFile"
   }, {
     "name" : "workflowId",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "String"
   }, {
     "name" : "processingResultNode",
-    "type" : "com.fasterxml.jackson.databind.JsonNode",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.fasterxml.jackson.databind.JsonNode"
   }, {
     "name" : "processingId",
-    "type" : "java.util.UUID",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.util.UUID"
   }, {
     "name" : "error",
     "type" : "ch.ivyteam.ivy.bpm.error.BpmError"

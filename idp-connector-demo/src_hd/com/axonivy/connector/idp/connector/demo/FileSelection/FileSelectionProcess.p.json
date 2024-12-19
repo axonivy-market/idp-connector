@@ -54,7 +54,7 @@
     }, {
       "id" : "f3",
       "type" : "HtmlDialogEventStart",
-      "name" : "close",
+      "name" : "proceed",
       "config" : {
         "guid" : "19221E6F42C59C6F"
       },
@@ -130,11 +130,12 @@
           }
         },
         "output" : {
-          "code" : [
-            "out.processingId = result.#processingId;",
-            "out.processingResultNode = result.#processingResult;",
-            "out.error = result.#error;"
-          ]
+          "map" : {
+            "out" : "in",
+            "out.error" : "result.#error",
+            "out.processingId" : "result.#processingId",
+            "out.processingResultNode" : "result.#processingResult"
+          }
         }
       },
       "visual" : {
@@ -157,10 +158,11 @@
           }
         },
         "output" : {
-          "code" : [
-            "out.processingId = result.#processingId;",
-            "out.error = result.#error;"
-          ]
+          "map" : {
+            "out" : "in",
+            "out.error" : "result.#error",
+            "out.processingId" : "result.#processingId"
+          }
         }
       },
       "visual" : {

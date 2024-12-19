@@ -9,32 +9,26 @@
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "subDocuments",
-    "type" : "java.util.List<com.axonivy.connector.idp.demo.dto.SubDocument>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.util.List<com.axonivy.connector.idp.demo.dto.SubDocument>"
   }, {
     "name" : "file",
-    "type" : "java.io.File",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.io.File"
   }, {
     "name" : "subDocument",
-    "type" : "com.axonivy.connector.idp.connector.model.SubDocument",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.idp.connector.model.SubDocument"
   }, {
     "name" : "streamedContent",
-    "type" : "org.primefaces.model.StreamedContent",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "org.primefaces.model.StreamedContent"
   }, {
     "name" : "prettyJson",
     "type" : "String",
     "modifiers" : [ "PERSISTENT" ]
   }, {
     "name" : "processingResult",
-    "type" : "com.fasterxml.jackson.databind.JsonNode",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.fasterxml.jackson.databind.JsonNode"
   }, {
     "name" : "genericSplitting",
-    "type" : "com.axonivy.connector.idp.connector.model.GenericSplittingProcessingCompleted",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.idp.connector.model.GenericSplittingProcessingCompleted"
   }, {
     "name" : "selectedSubDocumentIndex",
     "type" : "Integer",

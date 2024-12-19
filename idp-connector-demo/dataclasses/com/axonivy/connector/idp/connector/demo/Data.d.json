@@ -41,7 +41,6 @@
     "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
   }, {
     "name" : "sampleFile",
-    "type" : "com.axonivy.connector.idp.demo.SampleFile",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.idp.demo.SampleFile"
   } ]
 }

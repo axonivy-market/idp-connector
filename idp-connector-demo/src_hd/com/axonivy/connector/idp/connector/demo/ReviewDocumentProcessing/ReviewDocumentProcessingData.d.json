@@ -14,7 +14,6 @@
   }, {
     "name" : "workflowType",
     "type" : "com.axonivy.connector.idp.connector.WorkflowType",
-    "comment" : "document-splitting or extraction",
-    "modifiers" : [ "PERSISTENT" ]
+    "comment" : "document-splitting or extraction"
   } ]
 }
