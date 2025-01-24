@@ -38,10 +38,5 @@ Bevor eine Interaktion zwischen der Axon Ivy Engine und den IDP-Diensten stattfi
 2. Überschreibe die globale Variable für `apiKeySecret` im Demoprojekt, wie im folgenden Beispiel gezeigt.
    
    ```
-   Variables:
-     idpConnector:
-      # The proxy server URL
-      apiProxyUrl: 'https://idp.api.axonivy.com'
-      # API Key for "IDP Document Capturing API"
-      apiKeySecret: ''
+   @variables.yaml@
    ```

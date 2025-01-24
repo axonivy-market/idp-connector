@@ -37,13 +37,7 @@ Before any interaction between the Axon Ivy Engine and the IDP services can take
 
 1. Get a working Axon Ivy IDP `API Key` by contacting support@axonivy.com - this is required to call the REST API services.
 2. Override the global variable for `apiKeySecret` in the demo project as shown in the example below.
-   
-   ```
-   Variables:
-     idpConnector:
-      # The proxy server URL
-      apiProxyUrl: 'https://idp.api.axonivy.com'
-      # API Key for "IDP Document Capturing API"
-      apiKeySecret: ''
-   ```
 
+```
+@variables.yaml@
+```
