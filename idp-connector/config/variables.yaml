@@ -7,6 +7,6 @@ Variables:
     apiKeySecret: ${decrypt:}
     # Number of seconds to wait for the completion of document processing.
     # If processing doesn't finish in this time, a URL for retrieving the results will be returned.
-    waitFor: "120"
+    waitFor: 120
     # The default value for validation processing result's confidence values  
     confidenceMinValue: 0.8
