@@ -9,4 +9,4 @@
 Variables:
   idpConnector:
     waitFor: 120
-    apiKeySecret: ''
+    apiKeySecret: ${decrypt:}
