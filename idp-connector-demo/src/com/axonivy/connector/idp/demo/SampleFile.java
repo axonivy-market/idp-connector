@@ -48,7 +48,7 @@ public enum SampleFile {
 	}
 	
 	public String getCms() {
-		return "/Files/" + this.toString();
+		return "Files/" + this.toString();
 	}
 	
 	public StreamedContent getStreamedContent() {
