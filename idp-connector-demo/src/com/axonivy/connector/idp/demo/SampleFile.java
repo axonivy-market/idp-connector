@@ -33,7 +33,7 @@ public enum SampleFile {
 	
 	public File getFile() {
 		try {
-			String filePath = "/Files/" + this.toString();
+			String filePath = "Files/" + this.toString();
 			File file = new File(filePath + ".pdf", true);
 			if(!file.exists()) {
 				return IDPDemoService.exportIvyFileFromCMS(filePath, "pdf");
@@ -48,7 +48,7 @@ public enum SampleFile {
 	}
 	
 	public String getCms() {
-		return "/Files/" + this.toString();
+		return "Files/" + this.toString();
 	}
 	
 	public StreamedContent getStreamedContent() {
