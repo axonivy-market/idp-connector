@@ -6,23 +6,18 @@
   "fields" : [ {
     "name" : "workflowType",
     "type" : "com.axonivy.connector.idp.connector.WorkflowType",
-    "comment" : "the document's workflow type: document-spliting OR extraction",
-    "modifiers" : [ "PERSISTENT" ]
+    "comment" : "the document's workflow type: document-spliting OR extraction"
   }, {
     "name" : "documentId",
-    "type" : "java.util.UUID",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.util.UUID"
   }, {
     "name" : "shareInfo",
-    "type" : "com.axonivy.connector.idp.connector.model.DocShareTokenInfo",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.connector.idp.connector.model.DocShareTokenInfo"
   }, {
     "name" : "sharingUrl",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "String"
   }, {
     "name" : "apiProxyUrl",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "String"
   } ]
 }
