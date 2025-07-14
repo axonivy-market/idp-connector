@@ -31,7 +31,7 @@ public class TesValidationService {
 	private static final BpmElement testeeValidation =
 			BpmProcess.path("ValidationService").elementName("validate(UUID,Double)");
 	private static final String REST_UUID = "c316f4d1-daa6-4ca2-b3e0-68133e54eb99";
-	private static final BpmElement UI_PATH_RPA_READ_JOB = BpmElement.pid("191351D442CAD7E7-f12");
+	private static final BpmElement RETRIEVE_RESULT_ERROR = BpmElement.pid("191351D442CAD7E7-f12");
 
 	@BeforeEach
 	void beforeEach(ExtensionContext context, AppFixture fixture, IApplication app) {
@@ -51,7 +51,7 @@ public class TesValidationService {
 				.withParam("confidenceMinValue", 0.3).execute();
 		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			ProcessingServiceData processingServiceData =
-					(ProcessingServiceData) result.data().lastOnElement(UI_PATH_RPA_READ_JOB);
+					(ProcessingServiceData) result.data().lastOnElement(RETRIEVE_RESULT_ERROR);
 			assertThat(processingServiceData.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			ValidationServiceData data = result.data().last();
@@ -66,7 +66,7 @@ public class TesValidationService {
 				.withParam("confidenceMinValue", 1.0).execute();
 		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			ProcessingServiceData processingServiceData =
-					(ProcessingServiceData) result.data().lastOnElement(UI_PATH_RPA_READ_JOB);
+					(ProcessingServiceData) result.data().lastOnElement(RETRIEVE_RESULT_ERROR);
 			assertThat(processingServiceData.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			ValidationServiceData data = result.data().last();
@@ -81,7 +81,7 @@ public class TesValidationService {
 				.withParam("confidenceMinValue", 0.5).execute();
 		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			ProcessingServiceData processingServiceData =
-					(ProcessingServiceData) result.data().lastOnElement(UI_PATH_RPA_READ_JOB);
+					(ProcessingServiceData) result.data().lastOnElement(RETRIEVE_RESULT_ERROR);
 			assertThat(processingServiceData.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			ValidationServiceData data = result.data().last();
@@ -97,7 +97,7 @@ public class TesValidationService {
 				.withParam("confidenceMinValue", 1.0).execute();
 		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			ProcessingServiceData processingServiceData =
-					(ProcessingServiceData) result.data().lastOnElement(UI_PATH_RPA_READ_JOB);
+					(ProcessingServiceData) result.data().lastOnElement(RETRIEVE_RESULT_ERROR);
 			assertThat(processingServiceData.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			ValidationServiceData data = result.data().last();
