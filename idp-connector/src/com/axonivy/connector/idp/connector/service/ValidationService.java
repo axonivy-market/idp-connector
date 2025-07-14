@@ -1,6 +1,5 @@
 package com.axonivy.connector.idp.connector.service;
 
-import java.util.Iterator;
 import java.util.Map.Entry;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -11,7 +10,7 @@ public class ValidationService {
 	private static final String VALIDATION_PROBLEM = "validation_problem";
 	private static final String DOCUMENT_SPLITTING = "document_splitting";
 	private static final String SPLIT_POINT_CONFIDENCES = "split_point_confidences";
-	
+
 	/**
 	 * Recursive function to check if  the object only needs to have 1 field that does not satisfy the condition.
 	 * then return false (doesn't pass the validate of confidence)
@@ -20,9 +19,7 @@ public class ValidationService {
 	 */
 	public static boolean validate(JsonNode extractionsNode, double confidenceNumber) {
 		if (extractionsNode.isObject()) {
-			Iterator<Entry<String, JsonNode>> fields = extractionsNode.fields();
-			while(fields.hasNext()) {
-				Entry<String, JsonNode> field = fields.next();
+			for (Entry<String, JsonNode> field : extractionsNode.properties()) {
 				String fieldName = field.getKey();
 				JsonNode fieldValue = field.getValue();
 				if (CONFIDENCE.equals(fieldName) && fieldValue.asDouble() < confidenceNumber) {
@@ -41,7 +38,7 @@ public class ValidationService {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Recursive function to check if confidence less than confidence_number
 	 * then update validation_problem to true
@@ -50,9 +47,7 @@ public class ValidationService {
 	 */
 	public static void validateAndUpdateValidationProblem(JsonNode jsonNode, double confidenceNumber) {
 		if (jsonNode.isObject()) {
-			Iterator<Entry<String, JsonNode>> fields = jsonNode.fields();
-			while(fields.hasNext()) {
-				Entry<String, JsonNode> field = fields.next();
+			for (Entry<String, JsonNode> field : jsonNode.properties()) {
 				String fieldName = field.getKey();
 				JsonNode fieldValue = field.getValue();
 				if (CONFIDENCE.equals(fieldName) && jsonNode.has(VALIDATION_PROBLEM)) {
