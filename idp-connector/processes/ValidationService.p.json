@@ -78,7 +78,7 @@
         "output" : {
           "code" : [
             "import org.apache.commons.lang3.ObjectUtils;",
-            "import com.sun.org.apache.xalan.internal.xsltc.compiler.If;",
+            "",
             "import com.axonivy.connector.idp.connector.service.ValidationService;",
             "if(ObjectUtils.isNotEmpty(in.jsonNode)) {",
             "  if(in.jsonNode.has(\"extractions\")) {",
