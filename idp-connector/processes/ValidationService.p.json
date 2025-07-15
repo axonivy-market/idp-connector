@@ -77,14 +77,17 @@
       "config" : {
         "output" : {
           "code" : [
-            "import com.axonivy.connector.idp.connector.service.ValidationService;",
+            "import org.apache.commons.lang3.ObjectUtils;",
             "",
-            "if(in.jsonNode.has(\"extractions\")) {",
-            "  in.confidencePassed = ValidationService.validate(in.jsonNode, in.confidenceMinValue);",
-            "} else if(in.jsonNode.has(\"document_splitting\")) {",
-            "  in.confidencePassed = ValidationService.checkSplitPointConfidences(in.jsonNode, in.confidenceMinValue);",
-            "} else {",
-            "  ivy.log.warn(\"Not found 'extractions' or 'document_splitting' in processing.\");",
+            "import com.axonivy.connector.idp.connector.service.ValidationService;",
+            "if(ObjectUtils.isNotEmpty(in.jsonNode)) {",
+            "  if(in.jsonNode.has(\"extractions\")) {",
+            "    in.confidencePassed = ValidationService.validate(in.jsonNode, in.confidenceMinValue);",
+            "  } else if(in.jsonNode.has(\"document_splitting\")) {",
+            "    in.confidencePassed = ValidationService.checkSplitPointConfidences(in.jsonNode, in.confidenceMinValue);",
+            "  } else {",
+            "    ivy.log.warn(\"Not found 'extractions' or 'document_splitting' in processing.\");",
+            "  }",
             "}"
           ]
         }
