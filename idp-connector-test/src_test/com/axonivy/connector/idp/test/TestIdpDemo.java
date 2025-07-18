@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 import com.axonivy.connector.idp.test.context.MultiEnvironmentContextProvider;
-import com.axonivy.connector.idp.test.utils.IdpUtils;
+import com.axonivy.connector.idp.test.utils.IdpTestUtils;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
@@ -23,7 +23,7 @@ public class TestIdpDemo {
 
 	@BeforeEach
 	void beforeEach(ExtensionContext context, AppFixture fixture, IApplication app) {
-		IdpUtils.setUpConfigForContext(context.getDisplayName(), fixture, app, REST_UUID);
+		IdpTestUtils.setUpConfigForContext(context.getDisplayName(), fixture, app, REST_UUID);
 	}
 
 	@TestTemplate

@@ -12,9 +12,9 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 import com.axonivy.connector.idp.connector.ProcessingServiceData;
 import com.axonivy.connector.idp.connector.ValidationServiceData;
-import com.axonivy.connector.idp.test.constants.IdpConstant;
+import com.axonivy.connector.idp.test.constants.IdpTestConstants;
 import com.axonivy.connector.idp.test.context.MultiEnvironmentContextProvider;
-import com.axonivy.connector.idp.test.utils.IdpUtils;
+import com.axonivy.connector.idp.test.utils.IdpTestUtils;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
@@ -35,7 +35,7 @@ public class TesValidationService {
 
 	@BeforeEach
 	void beforeEach(ExtensionContext context, AppFixture fixture, IApplication app) {
-		IdpUtils.setUpConfigForContext(context.getDisplayName(), fixture, app, REST_UUID);
+		IdpTestUtils.setUpConfigForContext(context.getDisplayName(), fixture, app, REST_UUID);
 	}
 
 	@AfterEach
@@ -49,7 +49,7 @@ public class TesValidationService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeValidation)
 				.withParam("processingId", UUID.fromString("11111111-1111-1111-1111-111111111111"))
 				.withParam("confidenceMinValue", 0.3).execute();
-		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			ProcessingServiceData processingServiceData =
 					(ProcessingServiceData) result.data().lastOnElement(RETRIEVE_RESULT_ERROR);
 			assertThat(processingServiceData.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
@@ -64,7 +64,7 @@ public class TesValidationService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeValidation)
 				.withParam("processingId", UUID.fromString("11111111-1111-1111-1111-111111111111"))
 				.withParam("confidenceMinValue", 1.0).execute();
-		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			ProcessingServiceData processingServiceData =
 					(ProcessingServiceData) result.data().lastOnElement(RETRIEVE_RESULT_ERROR);
 			assertThat(processingServiceData.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
@@ -79,7 +79,7 @@ public class TesValidationService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeValidation)
 				.withParam("processingId", UUID.fromString("22222222-2222-2222-2222-222222222222"))
 				.withParam("confidenceMinValue", 0.5).execute();
-		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			ProcessingServiceData processingServiceData =
 					(ProcessingServiceData) result.data().lastOnElement(RETRIEVE_RESULT_ERROR);
 			assertThat(processingServiceData.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
@@ -95,7 +95,7 @@ public class TesValidationService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeValidation)
 				.withParam("processingId", UUID.fromString("22222222-2222-2222-2222-222222222222"))
 				.withParam("confidenceMinValue", 1.0).execute();
-		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			ProcessingServiceData processingServiceData =
 					(ProcessingServiceData) result.data().lastOnElement(RETRIEVE_RESULT_ERROR);
 			assertThat(processingServiceData.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
