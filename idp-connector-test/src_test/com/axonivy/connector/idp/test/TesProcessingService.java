@@ -16,9 +16,9 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 import com.axonivy.connector.idp.connector.ProcessingServiceData;
 import com.axonivy.connector.idp.connector.utils.IDPUtils;
-import com.axonivy.connector.idp.test.constants.IdpConstant;
+import com.axonivy.connector.idp.test.constants.IdpTestConstants;
 import com.axonivy.connector.idp.test.context.MultiEnvironmentContextProvider;
-import com.axonivy.connector.idp.test.utils.IdpUtils;
+import com.axonivy.connector.idp.test.utils.IdpTestUtils;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
@@ -46,7 +46,7 @@ public class TesProcessingService {
 
 	@BeforeEach
 	void beforeEach(ExtensionContext context, AppFixture fixture, IApplication app) {
-		IdpUtils.setUpConfigForContext(context.getDisplayName(), fixture, app, REST_UUID);
+		IdpTestUtils.setUpConfigForContext(context.getDisplayName(), fixture, app, REST_UUID);
 	}
 
 	@AfterEach
@@ -80,7 +80,7 @@ public class TesProcessingService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeRetrieveResult)
 				.withParam("processingId", UUID.fromString("11111111-1111-1111-1111-111111111111")).execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getJsonNode()).isNotNull();
@@ -93,7 +93,7 @@ public class TesProcessingService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeRetrieveResult)
 				.withParam("processingId", UUID.fromString("22222222-2222-2222-2222-222222222222")).execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getJsonNode()).isNotNull();
@@ -107,7 +107,7 @@ public class TesProcessingService {
 				.withParam("processingId", UUID.fromString("22222222-2222-2222-2222-222222222222")).withParam("index", 0)
 				.withParam("fileName", "yourSubPDF").execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getFile()).isNotNull();
@@ -121,7 +121,7 @@ public class TesProcessingService {
 				.withParam("processing_id", UUID.fromString("11111111-1111-1111-1111-111111111111"))
 				.withParam("expires_at", IDPUtils.formatDate(LocalDate.now().plusDays(2))).execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getDocShareTokenInfo()).isNotNull();
@@ -135,7 +135,7 @@ public class TesProcessingService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeRevokeShareToken)
 				.withParam("tokenUUID", UUID.fromString("01c90b84-243e-4d39-abf1-bda890fc5129")).execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpConstant.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getError()).isNull();
