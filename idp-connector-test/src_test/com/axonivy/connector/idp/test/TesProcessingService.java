@@ -9,16 +9,13 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 import com.axonivy.connector.idp.connector.ProcessingServiceData;
 import com.axonivy.connector.idp.connector.utils.IDPUtils;
-import com.axonivy.connector.idp.test.constants.IdpTestConstants;
-import com.axonivy.connector.idp.test.context.MultiEnvironmentContextProvider;
-import com.axonivy.connector.idp.test.utils.IdpTestUtils;
+import com.axonivy.utils.e2etest.context.MultiEnvironmentContextProvider;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
@@ -31,7 +28,7 @@ import ch.ivyteam.ivy.rest.client.RestClients;
 
 @IvyProcessTest(enableWebServer = true)
 @ExtendWith(MultiEnvironmentContextProvider.class)
-public class TesProcessingService {
+public class TesProcessingService extends BaseSetup {
 	private static final BpmElement testeeProcessing =
 			BpmProcess.path("ProcessingService").elementName("processing(String,File)");
 	private static final BpmElement testeeRetrieveResult =
@@ -43,11 +40,6 @@ public class TesProcessingService {
 	private static final BpmElement testeeRevokeShareToken =
 			BpmProcess.path("ProcessingService").elementName("revokeToken(UUID)");
 	private static final String REST_UUID = "c316f4d1-daa6-4ca2-b3e0-68133e54eb99";
-
-	@BeforeEach
-	void beforeEach(ExtensionContext context, AppFixture fixture, IApplication app) {
-		IdpTestUtils.setUpConfigForContext(context.getDisplayName(), fixture, app, REST_UUID);
-	}
 
 	@AfterEach
 	void afterEach(AppFixture fixture, IApplication app) {
@@ -80,7 +72,7 @@ public class TesProcessingService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeRetrieveResult)
 				.withParam("processingId", UUID.fromString("11111111-1111-1111-1111-111111111111")).execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (isRealTest) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getJsonNode()).isNotNull();
@@ -93,7 +85,7 @@ public class TesProcessingService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeRetrieveResult)
 				.withParam("processingId", UUID.fromString("22222222-2222-2222-2222-222222222222")).execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (isRealTest) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getJsonNode()).isNotNull();
@@ -107,7 +99,7 @@ public class TesProcessingService {
 				.withParam("processingId", UUID.fromString("22222222-2222-2222-2222-222222222222")).withParam("index", 0)
 				.withParam("fileName", "yourSubPDF").execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (isRealTest) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getFile()).isNotNull();
@@ -121,7 +113,7 @@ public class TesProcessingService {
 				.withParam("processing_id", UUID.fromString("11111111-1111-1111-1111-111111111111"))
 				.withParam("expires_at", IDPUtils.formatDate(LocalDate.now().plusDays(2))).execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (isRealTest) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getDocShareTokenInfo()).isNotNull();
@@ -135,7 +127,7 @@ public class TesProcessingService {
 		ExecutionResult result = bpmClient.start().subProcess(testeeRevokeShareToken)
 				.withParam("tokenUUID", UUID.fromString("01c90b84-243e-4d39-abf1-bda890fc5129")).execute();
 		ProcessingServiceData data = result.data().last();
-		if (context.getDisplayName().equals(IdpTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME)) {
+		if (isRealTest) {
 			assertThat(data.getError().getAttribute("RestClientResponseStatusCode")).isEqualTo(404);
 		} else {
 			assertThat(data.getError()).isNull();
@@ -149,5 +141,10 @@ public class TesProcessingService {
 		} else {
 			throw new RuntimeException("Failed to get resource file : " + path);
 		}
+	}
+
+	@Override
+	public String getUuid() {
+		return REST_UUID;
 	}
 }
