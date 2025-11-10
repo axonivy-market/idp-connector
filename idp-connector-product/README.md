@@ -9,7 +9,7 @@ Axon Ivy IDP is an Intelligent Document Processing solution that automates the e
 
 ## Demo
 
-#### Document Splitting
+### Document Splitting
 
 1. Start 'DocumentSplitting'
    ![splitting-start](images/splitting-document-1.png)
@@ -20,7 +20,7 @@ Axon Ivy IDP is an Intelligent Document Processing solution that automates the e
 4. Check the last log to see the result of the validation function
    ![validation-splitting](images/splitting-document-4.png)
 
-#### Extraction
+### Extraction
 
 1. Start 'Extraction'
    ![extraction-start](images/extraction1.png)

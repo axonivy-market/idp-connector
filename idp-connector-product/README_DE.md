@@ -8,7 +8,7 @@ Axon Ivy IDP ist eine Lösung für intelligentes Dokumentenmanagement (Intellige
 
 ## Demo
 
-#### Dokumentensplitting
+### Dokumentensplitting
 
 1. Starte 'DocumentSplitting'
    ![splitting-start](images/splitting-document-1.png)
@@ -19,7 +19,7 @@ Axon Ivy IDP ist eine Lösung für intelligentes Dokumentenmanagement (Intellige
 4. Überprüfe das letzte Protokoll, um das Ergebnis der Validierungsfunktion zu sehen
    ![validation-splitting](images/splitting-document-4.png)
 
-#### Extraktion
+### Extraktion
 
 1. Starte 'Extraction'
    ![extraction-start](images/extraction1.png)
