@@ -34,7 +34,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1136, "y" : 312 }
+        "at" : { "x" : 1152, "y" : 312 }
       },
       "connect" : { "id" : "f24", "to" : "f23" }
     }, {
@@ -151,12 +151,12 @@
     }, {
       "id" : "f13",
       "type" : "RequestStart",
-      "name" : "exaction.ivp",
+      "name" : "extraction.ivp",
       "config" : {
         "callSignature" : "exaction",
         "outLink" : "exaction.ivp",
         "input" : {
-          "code" : "out.workflowId = \"39a96761-93c4-4100-856f-36e7a90453ff\";"
+          "code" : "out.workflowId = ivy.var.idpConnectorDemo_workflowId;"
         },
         "startName" : "Document Extraction",
         "tags" : "demo",
@@ -221,7 +221,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 1136, "y" : 591 },
+        "at" : { "x" : 1152, "y" : 591 },
         "size" : { "width" : 124, "height" : 63 }
       },
       "connect" : { "id" : "f29", "to" : "f28" }
@@ -235,7 +235,7 @@
       "id" : "f33",
       "type" : "DialogCall",
       "name" : [
-        "open Shared Document ",
+        "open",
         "Standalone UI"
       ],
       "config" : {
@@ -425,12 +425,13 @@
       "id" : "f0",
       "type" : "ProcessAnnotation",
       "name" : [
-        "you can replace worflowId by other prebuilt ex. 'invoice_extraction' ",
-        "or your custom workflow(UUID format)"
+        "You can change the workflow that processes the document in:",
+        " - variables.yaml",
+        " - Engine Cockpit > Configuration > Variables"
       ],
       "visual" : {
-        "at" : { "x" : 456, "y" : 463 },
-        "size" : { "width" : 378, "height" : 51 }
+        "at" : { "x" : 347, "y" : 483 },
+        "size" : { "width" : 381, "height" : 73 }
       },
       "connect" : { "id" : "f3", "to" : "f13" }
     }, {
@@ -493,7 +494,7 @@
     }, {
       "id" : "f23",
       "type" : "Script",
-      "name" : "set confidenceMinValue",
+      "name" : "Set confidenceMinValue",
       "config" : {
         "output" : {
           "map" : {
@@ -518,7 +519,7 @@
     }, {
       "id" : "f28",
       "type" : "Script",
-      "name" : "set confidenceMinValue",
+      "name" : "Set confidenceMinValue",
       "config" : {
         "output" : {
           "map" : {
