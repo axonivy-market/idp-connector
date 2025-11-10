@@ -20,7 +20,7 @@
 	<c:if test="#{data.sharingUrl != null and data.sharingUrl ne ''}">
 		<!-- call revokeShareToken() when leave the page -->
 		<p:remoteCommand name="revokeShareToken" actionListener="#{logic.revokeShareToken()}"/>
-		<iframe id="#{cc.id}IdpFrame" src="#{data.sharingUrl}" style="#{cc.attrs.style}"/>
+		<iframe id="#{cc.id}IdpFrame" src="#{data.sharingUrl}" scrolling="no" frameborder="0" style="#{cc.attrs.style}"/>
 		<p:panel widgetVar="#{cc.attrs.widgetVar}" style="display:none;"/>
 		<script type="text/javascript">
 			function idpSubmit() {
