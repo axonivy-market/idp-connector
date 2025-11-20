@@ -1,54 +1,55 @@
-# #Axon Efeu IDP Anschluss
+# Axon Ivy IDP-Konnektor
 
-#Axon Efeu IDP ist ein Intelligentes Dokument Verarbeitung Lösung automatisiert
-jener die Gewinnung, Einordnung, und Auswertung von unstructured #Daten. Es
-#windschlüpfig machen Dokument-#verstärkend Arbeitsgänge wie Rechnung
-Management, Ansprüche verarbeitend, und Kundin onboarding benutzend
-AI-#ausrüsten optische Zeichenerkennung, Handschrift Text Bestätigung (HTR), und
-Maschine lernend Algorithmen zu erhöhen die Genauigkeit und Effizienz in Daten
-Management. Dieser Anschluss:
+Axon Ivy IDP ist eine intelligente Dokumentenverarbeitungslösung, die die
+Extraktion, Klassifizierung und Analyse unstrukturierter Daten automatisiert.
+Sie optimiert dokumentenintensive Prozesse wie Rechnungsmanagement,
+Schadenbearbeitung und Kundenonboarding mithilfe von KI-gestützter OCR,
+Handschrifterkennung (HTR) und Algorithmen für maschinelles Lernen, um die
+Genauigkeit und Effizienz der Datenverwaltung zu steigern. Dieser Konnektor:
 
-* Gibt du greifst zu zu den #Axon Efeus Fähigkeiten: pre Verarbeitung,
-  Einordnung und #Daten Gewinnung.
-* Hat ein #errichtet-in Bestätigung von verarbeiten Resultate.
-* Minimiert eure Integration Anstrengung mit ein eigenständiges UI Komponente.
-* Ist gegründet auf REST Web Bedienung, #Axon Efeu UI Komponente und SubCallable
-  Arbeitsgang Technologien.
+* Sie haben Zugriff auf die Funktionen von Axon Ivy: Vorverarbeitung,
+  Klassifizierung und Datenextraktion.
+* verfügt über eine integrierte Validierung der Verarbeitungsergebnisse.
+* Minimiert Ihren Integrationsaufwand mit einer eigenständigen UI-Komponente.
+* basiert auf REST-Webdienst, Axon Ivy UI Component und
+  SubCallable-Prozesstechnologien.
 
 ## Demo
 
-### Dokument #Aufspaltung
+### Dokumentaufteilung
 
-1. Start 'DocumentSplittings
-   ![#Aufspaltung-starte](images/splitting-document-1.png)
-2. Klick 'Arbeitsgang' zu überprüfen das Resultat von die Dokument #Aufspaltung
-   Bedienung ![#Aufspaltung-überprüf](images/splitting-document-2.png)
-3. Klick 'Arbeitsgang' zu anschauen das Resultat Dokument #Aufspaltung und zu
-   herunterladen die individuellen Seiten
-   ![#Aufspaltung-resultier](images/splitting-document-3.png)
-4. Überprüf das letzte Log zu sehen das Resultat von die Bestätigung Aufgabe
-   ![Bestätigung-teilend](images/splitting-document-4.png)
+1. Starten Sie „DocumentSplitting“!
+   [splitting-start](images/splitting-document-1.png)
+2. Klicken Sie auf „Verarbeiten“, um das Ergebnis des
+   Dokumentaufteilungsdienstes zu überprüfen!
+   [splitting-review](images/splitting-document-2.png)
+3. Klicken Sie auf „Verarbeiten“, um das Ergebnis der Dokumentaufteilung
+   anzuzeigen und die einzelnen Seiten herunterzuladen.
+   ![splitting-result](images/splitting-document-3.png)
+4. Überprüfen Sie das letzte Protokoll, um das Ergebnis der Validierungsfunktion
+   zu sehen! [validation-splitting](images/splitting-document-4.png)
 
-### Gewinnung
+### Extraktion
 
-1. Starte 'Gewinnung' ![Gewinnung-starte](images/extraction1.png)
-2. Wähl aus ein Dokument von der Liste, dann klickt 'Arbeitsgang' zu überprüfen
-   das Resultat von der Gewinnung ![Gewinnung-überprüf](images/extraction2.png)
-3. Klick 'Arbeitsgang' zu anschauen das Gewinnung Resultat
-   ![Gewinnung-resultier](images/extraction3.png)
-4. Überprüf das letzte Log zu sehen das Resultat von die Bestätigung Aufgabe
-   ![Bestätigung-Gewinnung](images/extraction4.png)
+1. Starten Sie die „Extraktion“! [extraction-start](images/extraction1.png)
+2. Wählen Sie ein Dokument aus der Liste aus und klicken Sie dann auf
+   „Verarbeiten“, um das Ergebnis der Extraktion zu überprüfen.
+   ![extraction-review](images/extraction2.png)
+3. Klicken Sie auf „Verarbeiten“, um das Extraktionsergebnis anzuzeigen!
+   [extraction-result](images/extraction3.png)
+4. Überprüfen Sie das letzte Protokoll, um das Ergebnis der Validierungsfunktion
+   zu sehen! [validation-extraction](images/extraction4.png)
 
 ## Einrichtung
 
-Vor irgendwelche Interaktion zwischen den #Axon Efeu Motor und der IDP
-Bedienungen können stattfinden, die folgenden Stufen müssen sein gefolgt:
+Bevor eine Interaktion zwischen der Axon Ivy Engine und den IDP-Diensten
+stattfinden kann, müssen die folgenden Schritte durchgeführt werden:
 
-1. Bekomm ein arbeitend #Axon Efeu IDP `API Schlüssel` mal verbinden
-   Unterstützung@axonivy.com - Dies ist bedürft zu rufen den REST API
-   Bedienungen.
-2. Überbrückung die globale Variable für `apiKeySecret` in das Demo Projekt
-   gezeigt da in dem Beispiel unten.
+1. `Beziehen Sie einen funktionierenden Axon Ivy IDP-API-Schlüssel`, indem Sie
+   sich an support@axonivy.com wenden – dieser ist erforderlich, um die
+   REST-API-Dienste aufzurufen.
+2. Überschreiben Sie die globale Variable für „ `“ apiKeySecret` im Demo-Projekt
+   wie im folgenden Beispiel gezeigt.
 
 ```
 @variables.yaml@
