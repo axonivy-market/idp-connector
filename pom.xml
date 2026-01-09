@@ -9,15 +9,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<modules>
-		<module>${project.name}</module>
-		<module>${project.name}-demo</module>
-		<module>${project.name}-test</module>
-		<module>${project.name}-product</module>
+		<module>idp-connector</module>
+		<module>idp-connector-demo</module>
+		<module>idp-connector-test</module>
+		<module>idp-connector-product</module>
 	</modules>
 
 	<scm>
 		<developerConnection>
-			scm:git:https://github.com/axonivy-market/${project.name}.git</developerConnection>
+			scm:git:https://github.com/axonivy-market/idp-connector.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
