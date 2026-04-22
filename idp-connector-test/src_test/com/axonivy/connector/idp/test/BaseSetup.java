@@ -42,10 +42,10 @@ public abstract class BaseSetup {
 			RestClient restClient = RestClients.of(app).find(UUID.fromString(getUuid()));
 
 			restClient = restClient.toBuilder()
-	                .uri("http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.request.application}/api/idpMock")
-	                .description(restClient.description()).properties(restClient.properties())
-	                .features(List.of())
-	                .toRestClient();
+				.uri("http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.request.application}/api/idpMock")
+				.description(restClient.description()).properties(restClient.properties())
+				.features(List.of())
+				.toRestClient();
 
 			RestClients.of(app).set(restClient);
 		};
