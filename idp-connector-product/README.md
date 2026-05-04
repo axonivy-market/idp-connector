@@ -7,6 +7,14 @@ Axon Ivy IDP is an Intelligent Document Processing solution that automates the e
 * minimizes your integration effort with a standalone UI component.
 * is based on REST web service, Axon Ivy UI Component and SubCallable process technologies.
 
+### Key features
+
+- Pre-built workflows for document splitting and data extraction — ready to run out-of-the-box.
+- Standalone UI component to embed IDP workflows into Axon Ivy pages with minimal integration effort.
+- Secure REST integration with API key authentication and shareable result tokens for easy collaboration.
+- Built-in validation with configurable confidence thresholds to reduce false positives.
+- Utilities for thumbnails, sub-PDF retrieval and exporting results for downstream systems.
+
 ## Demo
 
 ### Document Splitting
@@ -40,4 +48,41 @@ Before any interaction between the Axon Ivy Engine and the IDP services can take
 
 ```
 @variables.yaml@
+```
+
+## Components
+
+### Callables
+
+- `ProcessingService.processing(String, java.io.File)` — Starts document processing and returns a `processingId` (UUID) and the processing result (JSON).
+- `ProcessingService.retrieveResult(java.util.UUID)` — Retrieves processing results (JSON) for a given processing id.
+- `ProcessingService.getSubPdf(java.util.UUID, Integer, String)` — Downloads a sub-PDF (split page) as a file.
+- `ProcessingService.retrieveThumbnail(java.util.UUID)` — Retrieves a preview thumbnail image for a processed document.
+- `ProcessingService.shareToken(java.util.UUID, String)` — Generates a temporary share token to view a processed document.
+- `ProcessingService.revokeToken(java.util.UUID)` — Revokes a previously issued share token.
+- `ValidationService.validate(java.util.UUID, Double)` — Validates processing results against a configurable confidence threshold and returns a boolean pass/fail.
+
+### Form components
+
+- `IDPStandaloneUI` — Composite JSF component that embeds the IDP standalone UI in an iframe.
+   - Attributes: `widgetVar` (required) — JSF widget variable used to trigger `save()`; `style` (optional) — CSS style for the iframe; `styleClass` (optional) — CSS class for the surrounding container.
+
+### Maven artifacts
+
+- Add the following artifacts to your Maven import (product IARs):
+
+```xml
+<dependency>
+   <groupId>com.axonivy.connector.idp</groupId>
+   <artifactId>idp-connector</artifactId>
+   <version>${version}</version>
+   <type>iar</type>
+</dependency>
+
+<dependency>
+   <groupId>com.axonivy.connector.idp</groupId>
+   <artifactId>idp-connector-demo</artifactId>
+   <version>${version}</version>
+   <type>iar</type>
+</dependency>
 ```

@@ -6,6 +6,14 @@ Axon Ivy IDP ist eine Lösung für intelligentes Dokumentenmanagement (Intellige
 * Minimiert Ihren Integrationsaufwand mit einer eigenständigen UI-Komponente.
 * Basiert auf REST-Webdiensten, der Axon Ivy UI-Komponente und SubCallable-Prozesstechnologien.
 
+### Key features
+
+- Vorgefertigte Workflows für Dokumentensplitting und Extraktion — sofort einsatzbereit.
+- Eigenständige UI-Komponente zur Einbettung der IDP-Workflows in Axon Ivy-Seiten mit minimalem Integrationsaufwand.
+- Sichere REST-Integration mit API-Key-Authentifizierung und teilbaren Ergebnis-Token für einfache Zusammenarbeit.
+- Integrierte Ergebnisvalidierung mit konfigurierbaren Konfidenzschwellen zur Verringerung von Fehlalarmen.
+- Hilfsfunktionen für Thumbnails, Sub-PDF-Abruf und den Export von Ergebnissen für nachgelagerte Systeme.
+
 ## Demo
 
 ### Dokumentensplitting
