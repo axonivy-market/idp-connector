@@ -118,20 +118,20 @@ UI dialog name: IDPStandaloneUI
 
 ### Maven artifacts
 
-1. idp-connector-demo
-```xml
-<dependency>
-  <groupId>com.axonivy.connector.idp</groupId>
-  <artifactId>idp-connector-demo</artifactId>
-  <type>iar</type>
-</dependency>
-```
-
-2. idp-connector
+1. idp-connector
 ```xml
 <dependency>
   <groupId>com.axonivy.connector.idp</groupId>
   <artifactId>idp-connector</artifactId>
+  <type>iar</type>
+</dependency>
+```
+
+2. idp-connector-demo
+```xml
+<dependency>
+  <groupId>com.axonivy.connector.idp</groupId>
+  <artifactId>idp-connector-demo</artifactId>
   <type>iar</type>
 </dependency>
 ```
