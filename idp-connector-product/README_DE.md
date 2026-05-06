@@ -51,11 +51,9 @@ Bevor die Axon Ivy Engine mit den IDP-Services interagieren kann, führe folgend
 
 ## Komponenten
 
-### Exponierte CALLABLE_SUB-Prozesse
+### Aufrufbare Subprozesse
 
-# Callable Sub Connector Starts
-
-## ./idp-connector/processes/ProcessingService.p.json
+#### ./idp-connector/processes/ProcessingService.p.json
 - Signatur: processing
    Eingabe: workfowId: String, file: java.io.File
    Ergebnis: processingId: java.util.UUID, processingResult: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
@@ -75,7 +73,7 @@ Bevor die Axon Ivy Engine mit den IDP-Services interagieren kann, führe folgend
    Eingabe: processingId: java.util.UUID
    Ergebnis: resultsNode: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
 
-## ./idp-connector/processes/ValidationService.p.json
+#### ./idp-connector/processes/ValidationService.p.json
 - Signatur: validate
    Eingabe: processingId: java.util.UUID, confidenceMinValue: Double
    Ergebnis: passed: Boolean
