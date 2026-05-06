@@ -89,7 +89,6 @@ Before the Axon Ivy Engine can interact with the IDP services, perform the follo
    - workflowType: com.axonivy.connector.idp.connector.WorkflowType — The document's workflow type: 'document-splitting' OR 'extraction' (default: EXTRACTION)
 - methods:
    - revokeShareToken(): revokes sharing token by calling ProcessingService:revokeToken(java.util.UUID) using `data.shareInfo.uuid`
-- main feature/logic: Embeds the IDP editing UI in an iframe using a generated sharing URL (ProcessingService:shareToken). Exposes a PrimeFaces widget save API (`PF('{widgetVar}').save()`) that posts "save-document" to the iframe via the configured `apiProxyUrl`; provides token revocation on leave (remote command calling `revokeShareToken()`); displays a CMS error when no sharingUrl is available.
 
 ### Open API resources
 
@@ -98,15 +97,21 @@ Before the Axon Ivy Engine can interact with the IDP services, perform the follo
 ### Maven artifacts
 
 1. idp-connector
-    <dependency>
-       <groupId>com.axonivy.connector.idp</groupId>
-       <artifactId>idp-connector</artifactId>
-       <type>iar</type>
-    </dependency>
+
+xml```
+<dependency>
+   <groupId>com.axonivy.connector.idp</groupId>
+   <artifactId>idp-connector</artifactId>
+   <type>iar</type>
+</dependency>
+```
 
 2. idp-connector-demo
-    <dependency>
-       <groupId>com.axonivy.connector.idp</groupId>
-       <artifactId>idp-connector-demo</artifactId>
-       <type>iar</type>
-    </dependency>
+
+xml```
+<dependency>
+   <groupId>com.axonivy.connector.idp</groupId>
+   <artifactId>idp-connector-demo</artifactId>
+   <type>iar</type>
+</dependency>
+```
