@@ -1,117 +1,172 @@
 # Axon Ivy IDP Connector
 
-Axon Ivy IDP is an Intelligent Document Processing connector that automates document splitting, classification and data extraction. It reduces manual work in document-heavy processes (for example invoices or claims) by providing prebuilt workflows, a standalone UI component and built-in validation of results.
+Axon Ivy IDP is a powerful Intelligent Document Processing solution that automates the extraction, classification, and analysis of unstructured data, transforming document-intensive processes into streamlined, efficient workflows.
 
-### Key features
-- Seamless connector for Intelligent Document Processing: supports document splitting and data extraction with prebuilt workflows.
-- Built-in validation of extraction results using configurable confidence thresholds to improve data quality.
-- Embeddable standalone UI component with secure sharing links and token revocation for collaborative review.
-- REST client integration with API-key authentication and multipart upload support for easy integration.
-- Utilities to retrieve thumbnails, sub-PDFs and parsed extraction results for downstream processing.
+Read our [documentation](idp-connector-product/README.md).
+
+## Key features
+
+- Automate document extraction and classification to reduce manual effort.
+- Identify and split documents reliably to streamline downstream processing.
+- Integrate processing results into Axon Ivy processes with ready-to-use callable subs.
+- Review and validate extraction results through demo dialogs for quality control.
+- Share processing results and thumbnails via secure, token-based links.
+- Scalable REST API integration for high-throughput batch and interactive use.
 
 ## Demo
 
-### Document Splitting
+Check the demo implementations provided. Visit the demo module to try sample workflows.
 
-1. Start 'Document Splitting' from the demo start list.
-   ![splitting-start](images/splitting-document-1.png)
-2. Select a file and click 'Process' to run the document splitting service and preview detected split points.
-   ![splitting-review](images/splitting-document-2.png)
-3. Review the split result and download individual pages if required.
-   ![splitting-result](images/splitting-document-3.png)
-4. Optionally inspect the logs to verify the validation outcome for the split operation.
-   ![validation-splitting](images/splitting-document-4.png)
+### Demo workflows
 
-### Extraction
+#### idp-connector-demo (idp-connector-demo)
 
-1. Start 'Document Extraction' from the demo start list.
-   ![extraction-start](images/extraction1.png)
-2. Choose a document and click 'Process' to run extraction and preview parsed fields.
-   ![extraction-review](images/extraction2.png)
-3. View the detailed extraction results and download any artifacts you need.
-   ![extraction-result](images/extraction3.png)
-4. Optionally inspect the logs to verify the validation outcome for the extraction.
-   ![validation-extraction](images/extraction4.png)
+##### Document Splitting
 
-### Log Workflow names (utility)
+1. Launch the "Document Splitting" demo from the demo menu.
+2. Select a file to be split in the file selection dialog.
+3. Review and confirm the suggested split points in the split review dialog.
+4. Receive the split documents and optionally download or preview the results.
 
-- What it does: Fetches available workflows from the configured IDP instance and writes them to the log for troubleshooting or inspection.
-- How to run: This utility is not shown in the public start list by default; run it from the Engine Cockpit or start it via the demo tooling when you need to inspect available workflows.
+	![Document Splitting Step 1](images/splitting-document-1.png)
+
+	![Document Splitting Step 2](images/splitting-document-2.png)
+
+	![Document Splitting Step 3](images/splitting-document-3.png)
+
+	![Document Splitting Step 4](images/splitting-document-4.png)
+
+##### Document Extraction
+
+1. Launch the "Document Extraction" demo from the demo menu.
+2. Use the file selection dialog to choose a sample document.
+3. The extraction result dialog shows detected fields and extracted data.
+4. Review the extracted data and download results if desired.
+
+	![Document Extraction Step 1](images/extraction1.png)
+
+	![Document Extraction Step 2](images/extraction2.png)
+
+	![Document Extraction Step 3](images/extraction3.png)
+
+	![Document Extraction Step 4](images/extraction4.png)
 
 ## Setup
 
-Before the Axon Ivy Engine can interact with the IDP services, perform the following steps:
+- **Roles:** Everybody (configured in config/roles.xml)
+- **OpenAPI:** `${ivy.var.idpConnector.apiProxyUrl}/api` — Namespace: `com.axonivy.connector.idp.connector.model`
 
-1. Obtain an Axon Ivy IDP API Key (contact support@axonivy.com). The API key is required to call the IDP REST services.
-2. Configure the connector variables (API URL, API key) in the project variables as shown below.
+### Variables
 
-```
-@variables.yaml@
-```
+Variables:
+  idpConnector:
+	# The proxy server URL
+	apiProxyUrl: https://idp.api.axonivy.com
+	# API Key for "IDP Document Capturing API"
+	#[password]
+	apiKeySecret: ${decrypt:}
+	# Number of seconds to wait for the completion of document processing.
+	# If processing doesn't finish in this time, a URL for retrieving the results will be returned.
+	waitFor: "120"
+	# The default value for validation processing result's confidence values  
+	confidenceMinValue: "0.8"
+
+- No information was detected for this section.
 
 ## Components
 
-### Callable Sub Processes
+### Connector processes
 
-#### ./idp-connector/processes/ProcessingService.p.json
-- Signature: processing
-   Input: workfowId: String, file: java.io.File
-   Result: processingId: java.util.UUID, processingResult: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
-- Signature: getSubPdf
-   Input: processingId: java.util.UUID, index: Integer, fileName: String
-   Result: file: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError
-- Signature: shareToken
-   Input: processing_id: java.util.UUID, expires_at: String
-   Result: docShareTokenInfo: com.axonivy.connector.idp.connector.model.DocShareTokenInfo, error: ch.ivyteam.ivy.bpm.error.BpmError
-- Signature: revokeToken
-   Input: tokenUUID: java.util.UUID
-   Result: error: ch.ivyteam.ivy.bpm.error.BpmError
-- Signature: retrieveThumbnail
-   Input: processingId: java.util.UUID
-   Result: thumbnail: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError
-- Signature: retrieveResult
-   Input: processingId: java.util.UUID
-   Result: resultsNode: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
+#### ProcessingService.p.json
 
-#### ./idp-connector/processes/ValidationService.p.json
-- Signature: validate
-   Input: processingId: java.util.UUID, confidenceMinValue: Double
-   Result: passed: Boolean
+- **processing(String workfowId, java.io.File file) -> processingId: java.util.UUID, processingResult: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError**
+	- Input:
+		- `workfowId` (String) - 
+		- `file` (java.io.File) - 
+	- Result:
+		- `processingId` (java.util.UUID) - 
+		- `processingResult` (com.fasterxml.jackson.databind.JsonNode) - 
+		- `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+
+- **getSubPdf(java.util.UUID processingId, Integer index, String fileName) -> file: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError**
+	- Input:
+		- `processingId` (java.util.UUID) - 
+		- `index` (Integer) - 
+		- `fileName` (String) - 
+	- Result:
+		- `file` (java.io.File) - 
+		- `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+
+- **shareToken(java.util.UUID processing_id, String expires_at) -> docShareTokenInfo: com.axonivy.connector.idp.connector.model.DocShareTokenInfo, error: ch.ivyteam.ivy.bpm.error.BpmError**
+	- Input:
+		- `processing_id` (java.util.UUID) - 
+		- `expires_at` (String) - 
+	- Result:
+		- `docShareTokenInfo` (com.axonivy.connector.idp.connector.model.DocShareTokenInfo) - 
+		- `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+
+- **revokeToken(java.util.UUID tokenUUID) -> error: ch.ivyteam.ivy.bpm.error.BpmError**
+	- Input:
+		- `tokenUUID` (java.util.UUID) - 
+	- Result:
+		- `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+
+- **retrieveThumbnail(java.util.UUID processingId) -> thumbnail: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError**
+	- Input:
+		- `processingId` (java.util.UUID) - 
+	- Result:
+		- `thumbnail` (java.io.File) - 
+		- `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+
+- **retrieveResult(java.util.UUID processingId) -> resultsNode: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError**
+	- Input:
+		- `processingId` (java.util.UUID) - 
+	- Result:
+		- `resultsNode` (com.fasterxml.jackson.databind.JsonNode) - 
+		- `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+
+#### ValidationService.p.json
+
+- **validate(java.util.UUID processingId, Double confidenceMinValue) -> passed: Boolean**
+	- Input:
+		- `processingId` (java.util.UUID) - 
+		- `confidenceMinValue` (Double) - 
+	- Result:
+		- `passed` (Boolean) - 
 
 ### Form components
 
-#### IDPStandaloneUI
-- namespace: com.axonivy.connector.idp.connector.IDPStandaloneUI
-- component type: HTML_DIALOG (process) + JSF composite component (cc:interface IvyComponent)
-- start parameter: start(documentId: java.util.UUID, workflowType: com.axonivy.connector.idp.connector.WorkflowType) — workflowType defaults to WorkflowType.EXTRACTION
-- parameter:
-   - documentId: java.util.UUID — The document Id
-   - workflowType: com.axonivy.connector.idp.connector.WorkflowType — The document's workflow type: 'document-splitting' OR 'extraction' (default: EXTRACTION)
-- methods:
-   - revokeShareToken(): revokes sharing token by calling ProcessingService:revokeToken(java.util.UUID) using `data.shareInfo.uuid`
-
-### Open API resources
-
-- No public OpenAPI specs are available for this product
+#### IDPStandaloneUIData — Standalone UI data for the IDP dialog
+- **Namespace:** com.axonivy.connector.idp.connector.IDPStandaloneUI
+- **Component type:** Data Class
+- **Fields:**
+   - `workflowType` (com.axonivy.connector.idp.connector.WorkflowType) — the document's workflow type: document-spliting OR extraction
+   - `documentId` (java.util.UUID) — 
+   - `shareInfo` (com.axonivy.connector.idp.connector.model.DocShareTokenInfo) — 
+   - `sharingUrl` (String) — 
+   - `apiProxyUrl` (String) — 
 
 ### Maven artifacts
 
-1. idp-connector
+1. idp-connector-demo
 
-xml```
+```xml
 <dependency>
-   <groupId>com.axonivy.connector.idp</groupId>
-   <artifactId>idp-connector</artifactId>
-   <type>iar</type>
+  <groupId>com.axonivy.connector.idp</groupId>
+  <artifactId>idp-connector-demo</artifactId>
+  <version>@version@</version>
+  <type>iar</type>
 </dependency>
 ```
 
-2. idp-connector-demo
+2. idp-connector
 
-xml```
+```xml
 <dependency>
-   <groupId>com.axonivy.connector.idp</groupId>
-   <artifactId>idp-connector-demo</artifactId>
-   <type>iar</type>
+  <groupId>com.axonivy.connector.idp</groupId>
+  <artifactId>idp-connector</artifactId>
+  <version>@version@</version>
+  <type>iar</type>
 </dependency>
 ```
+
