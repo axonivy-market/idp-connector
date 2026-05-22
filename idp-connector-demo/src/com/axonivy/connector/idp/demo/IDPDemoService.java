@@ -4,7 +4,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.UUID;
 
 import javax.ws.rs.core.Response;
 
@@ -23,8 +22,8 @@ import ch.ivyteam.ivy.scripting.objects.File;
 import ch.ivyteam.ivy.security.exec.Sudo;
 
 public class IDPDemoService {
-	private static final UUID IDP_REST_CLIENT = UUID.fromString("c316f4d1-daa6-4ca2-b3e0-68133e54eb99");
-	
+	private static final String REST_CLIENT_NAME = "IDP";
+
 	public static java.io.File exportFromCMS(String cmsUri, String ext) throws IOException {
 		String file = StringUtils.removeStart(cmsUri, "/") + "." + ext;
 		java.io.File tempFile = new File(file, true).getJavaFile();
@@ -59,7 +58,7 @@ public class IDPDemoService {
 	}
 	
 	public static void getPageImage(String processingId, Integer pageNum, String cmsPath) {
-		Response response = Ivy.rest().client(IDP_REST_CLIENT)
+		Response response = Ivy.rest().client(REST_CLIENT_NAME)
 				.path("/processing/results/{processing_id}/page-images/{page_num}")
 				.resolveTemplate("processing_id", processingId).resolveTemplate("page_num", pageNum)
 				.request().header("Authorization", "ApiKey " + Ivy.var().get("idpConnector.apiKeySecret"))
