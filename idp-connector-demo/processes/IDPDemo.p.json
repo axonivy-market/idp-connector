@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process.json",
   "id" : "1920E8120D5609FC",
   "config" : {
     "data" : "com.axonivy.connector.idp.connector.demo.Data"
@@ -304,7 +304,7 @@
       "name" : "Load Workflows",
       "config" : {
         "target" : {
-          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "clientId" : "IDP-Document-Capturing-API",
           "path" : "/processing/workflows",
           "templateParams" : {
             "processing_id" : ""

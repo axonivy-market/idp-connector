@@ -1,19 +1,16 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "ReviewDocumentProcessingData",
   "namespace" : "com.axonivy.connector.idp.connector.demo.ReviewDocumentProcessing",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "processingId",
-    "type" : "java.util.UUID",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.util.UUID"
   }, {
-    "name" : "sharingUrl",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "name" : "sharingUrl"
   }, {
     "name" : "workflowType",
     "type" : "com.axonivy.connector.idp.connector.WorkflowType",
-    "comment" : "document-splitting or extraction"
+    "comment" : "document-splitting or extraction",
+    "modifiers" : [ ]
   } ]
 }

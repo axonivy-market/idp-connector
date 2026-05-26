@@ -1,46 +1,50 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "Data",
   "namespace" : "com.axonivy.connector.idp.connector.demo",
-  "isBusinessCaseData" : false,
   "fields" : [ {
-    "name" : "workflowId",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "name" : "workflowId"
   }, {
     "name" : "statusCode",
-    "type" : "Integer"
+    "type" : "Integer",
+    "modifiers" : [ ]
   }, {
     "name" : "file",
-    "type" : "java.io.File"
+    "type" : "java.io.File",
+    "modifiers" : [ ]
   }, {
     "name" : "processingId",
-    "type" : "java.util.UUID",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "java.util.UUID"
   }, {
     "name" : "sharingUrl",
-    "type" : "String",
-    "comment" : "Sharing URL from share token, documentId"
+    "comment" : "Sharing URL from share token, documentId",
+    "modifiers" : [ ]
   }, {
     "name" : "processingResultNode",
-    "type" : "com.fasterxml.jackson.databind.JsonNode"
+    "type" : "com.fasterxml.jackson.databind.JsonNode",
+    "modifiers" : [ ]
   }, {
     "name" : "subDocuments",
-    "type" : "java.util.List<com.axonivy.connector.idp.connector.model.SubDocument>"
+    "type" : "java.util.List<com.axonivy.connector.idp.connector.model.SubDocument>",
+    "modifiers" : [ ]
   }, {
     "name" : "docShareToken",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "workflows",
-    "type" : "java.util.List<com.axonivy.connector.idp.connector.model.AvailableWorkflowResponse>"
+    "type" : "java.util.List<com.axonivy.connector.idp.connector.model.AvailableWorkflowResponse>",
+    "modifiers" : [ ]
   }, {
     "name" : "confidenceMinValue",
-    "type" : "Double"
+    "type" : "Double",
+    "modifiers" : [ ]
   }, {
     "name" : "error",
-    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError",
+    "modifiers" : [ ]
   }, {
     "name" : "sampleFile",
-    "type" : "com.axonivy.connector.idp.demo.SampleFile"
+    "type" : "com.axonivy.connector.idp.demo.SampleFile",
+    "modifiers" : [ ]
   } ]
 }
