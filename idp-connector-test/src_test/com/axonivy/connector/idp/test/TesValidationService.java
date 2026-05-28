@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.UUID;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -13,28 +12,18 @@ import com.axonivy.connector.idp.connector.ProcessingServiceData;
 import com.axonivy.connector.idp.connector.ValidationServiceData;
 import com.axonivy.utils.e2etest.context.MultiEnvironmentContextProvider;
 
-import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
-import ch.ivyteam.ivy.environment.AppFixture;
-import ch.ivyteam.ivy.rest.client.RestClients;
 
 @IvyProcessTest(enableWebServer = true)
 @ExtendWith(MultiEnvironmentContextProvider.class)
 public class TesValidationService extends BaseSetup {
 	private static final BpmElement testeeValidation =
 			BpmProcess.path("ValidationService").elementName("validate(UUID,Double)");
-	private static final String REST_UUID = "c316f4d1-daa6-4ca2-b3e0-68133e54eb99";
 	private static final BpmElement RETRIEVE_RESULT_ERROR = BpmElement.pid("191351D442CAD7E7-f12");
-
-	@AfterEach
-	void afterEach(AppFixture fixture, IApplication app) {
-		RestClients clients = RestClients.of(app);
-		clients.remove("IDP (Document Capturing API)");
-	}
 
 	@TestTemplate
 	public void testValidation(BpmClient bpmClient, ExtensionContext context) throws NoSuchFieldException {
@@ -95,10 +84,5 @@ public class TesValidationService extends BaseSetup {
 			ValidationServiceData data = result.data().last();
 			assertThat(data.getConfidencePassed()).isFalse();
 		}
-	}
-
-	@Override
-	public String getUuid() {
-		return REST_UUID;
 	}
 }
