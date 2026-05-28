@@ -22,7 +22,7 @@ import ch.ivyteam.ivy.scripting.objects.File;
 import ch.ivyteam.ivy.security.exec.Sudo;
 
 public class IDPDemoService {
-	private static final String REST_CLIENT_NAME = "IDP";
+	private static final String REST_CLIENT_NAME = "IDP-Document-Capturing-API";
 
 	public static java.io.File exportFromCMS(String cmsUri, String ext) throws IOException {
 		String file = StringUtils.removeStart(cmsUri, "/") + "." + ext;

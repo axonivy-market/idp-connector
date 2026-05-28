@@ -17,8 +17,7 @@ import ch.ivyteam.ivy.rest.client.RestClient;
 import ch.ivyteam.ivy.rest.client.RestClients;
 
 public abstract class BaseSetup {
-	public abstract String getUuid();
-
+	protected static final String CLIENT_NAME = "IDP-Document-Capturing-API";
 	protected boolean isRealTest;
 
 	@BeforeEach
