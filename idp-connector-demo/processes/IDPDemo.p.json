@@ -8,7 +8,7 @@
       "id" : "f1",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 1480, "y" : 416 }
+        "at" : { "x" : 1264, "y" : 416 }
       }
     }, {
       "id" : "f11",
@@ -33,7 +33,7 @@
         "size" : { "width" : 124, "height" : 63 }
       },
       "connect" : [
-        { "id" : "f24", "to" : "f23" }
+        { "id" : "f24", "to" : "f4" }
       ]
     }, {
       "id" : "f2",
@@ -411,13 +411,13 @@
         },
         "output" : {
           "code" : [
-            "String resultStr = result.passed ? \"NOT PASSED\" : \"PASSED\" ;",
+            "String resultStr = result.passed ? \"PASSED\" : \"NOT PASSED\" ;",
             "ivy.log.info(\"Validation processingId={0}, confidenceMinValue={1} : result={2}\", out.processingId, out.confidenceMinValue, resultStr);"
           ]
         }
       },
       "visual" : {
-        "at" : { "x" : 1351, "y" : 415 },
+        "at" : { "x" : 1135, "y" : 415 },
         "size" : { "width" : 127, "height" : 63 }
       },
       "connect" : [
@@ -437,7 +437,7 @@
         },
         "output" : {
           "code" : [
-            "String resultStr = result.passed ? \"NOT PASSED\" : \"PASSED\" ;",
+            "String resultStr = result.passed ? \"PASSED\" : \"NOT PASSED\" ;",
             "ivy.log.info(\"Validation processingId={0}, confidenceMinValue={1} : result={2}\", in.processingId, in.confidenceMinValue, resultStr);"
           ]
         }
@@ -450,42 +450,11 @@
         { "id" : "f22", "to" : "f20" }
       ]
     }, {
-      "id" : "f23",
-      "type" : "Script",
-      "name" : "Set confidenceMinValue",
-      "config" : {
-        "output" : {
-          "map" : {
-            "out" : "in",
-            "out.confidenceMinValue" : "0.9"
-          },
-          "code" : [
-            "import com.axonivy.connector.idp.connector.model.AvailableWorkflowResponse;",
-            "",
-            "ivy.log.info(\"Found workflows: {0}\", in.workflows.size());",
-            "for(AvailableWorkflowResponse wf : in.workflows) {",
-            "  ivy.log.info(\"Workflow: {0} ({1})\", wf.name, wf.workflowId);",
-            "}"
-          ]
-        }
-      },
-      "visual" : {
-        "at" : { "x" : 1152, "y" : 416 },
-        "size" : { "width" : 160, "height" : 62 }
-      },
-      "connect" : [
-        { "id" : "f5", "to" : "f4" }
-      ]
-    }, {
       "id" : "f28",
       "type" : "Script",
-      "name" : "Set confidenceMinValue",
+      "name" : "Log workflow info",
       "config" : {
         "output" : {
-          "map" : {
-            "out" : "in",
-            "out.confidenceMinValue" : "0.9"
-          },
           "code" : [
             "import com.axonivy.connector.idp.connector.model.AvailableWorkflowResponse;",
             "",

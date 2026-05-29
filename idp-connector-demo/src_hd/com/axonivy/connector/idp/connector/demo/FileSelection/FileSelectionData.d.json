@@ -1,8 +1,7 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/data-class/13.2.0/data-class.json",
   "simpleName" : "FileSelectionData",
   "namespace" : "com.axonivy.connector.idp.connector.demo.FileSelection",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "demo",
     "type" : "com.axonivy.connector.idp.demo.Demo"
@@ -14,14 +13,12 @@
     "type" : "java.util.List<com.axonivy.connector.idp.demo.SampleFile>"
   }, {
     "name" : "file",
-    "type" : "File",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "File"
   }, {
     "name" : "selectedSampleFile",
     "type" : "com.axonivy.connector.idp.demo.SampleFile"
   }, {
-    "name" : "workflowId",
-    "type" : "String"
+    "name" : "workflowId"
   }, {
     "name" : "processingResultNode",
     "type" : "com.fasterxml.jackson.databind.JsonNode"
@@ -31,5 +28,11 @@
   }, {
     "name" : "error",
     "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+  }, {
+    "name" : "retry",
+    "type" : "Boolean"
+  }, {
+    "name" : "retryTime",
+    "type" : "java.lang.Integer"
   } ]
 }
