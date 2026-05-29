@@ -41,11 +41,6 @@ public class TesProcessingService extends BaseSetup {
 			BpmProcess.path("ProcessingService").elementName("revokeToken(UUID)");
 	private static final String REST_UUID = "c316f4d1-daa6-4ca2-b3e0-68133e54eb99";
 
-	@AfterEach
-	void afterEach(AppFixture fixture, IApplication app) {
-		RestClients clients = RestClients.of(app);
-		clients.remove("IDP (Document Capturing API)");
-	}
 
 	@TestTemplate
 	public void testProcessing(BpmClient bpmClient) throws IOException {
@@ -141,10 +136,5 @@ public class TesProcessingService extends BaseSetup {
 		} else {
 			throw new RuntimeException("Failed to get resource file : " + path);
 		}
-	}
-
-	@Override
-	public String getUuid() {
-		return REST_UUID;
 	}
 }
