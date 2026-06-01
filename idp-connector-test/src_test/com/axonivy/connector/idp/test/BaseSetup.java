@@ -3,8 +3,8 @@ package com.axonivy.connector.idp.test;
 import static com.axonivy.utils.e2etest.enums.E2EEnvironment.REAL_SERVER;
 
 import java.util.List;
-import java.util.UUID;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
@@ -17,8 +17,7 @@ import ch.ivyteam.ivy.rest.client.RestClient;
 import ch.ivyteam.ivy.rest.client.RestClients;
 
 public abstract class BaseSetup {
-	public abstract String getUuid();
-
+	protected static final String CLIENT_NAME = "IDP-Document-Capturing-API";
 	protected boolean isRealTest;
 
 	@BeforeEach
@@ -39,7 +38,7 @@ public abstract class BaseSetup {
 			fixture.var("idpConnector.apiProxyUrl", "TESTHOSTURL");
 			fixture.var("idpConnector.apiKeySecret", "TESTKEY");
 			fixture.var("idpConnector.waitFor", "120");
-			RestClient restClient = RestClients.of(app).find(UUID.fromString(getUuid()));
+			RestClient restClient = RestClients.of(app).find(CLIENT_NAME);
 
 			restClient = restClient.toBuilder()
 				.uri("http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.request.application}/api/idpMock")
@@ -49,5 +48,11 @@ public abstract class BaseSetup {
 
 			RestClients.of(app).set(restClient);
 		};
+	}
+
+	@AfterEach
+	void afterEach(AppFixture fixture, IApplication app) {
+		RestClients clients = RestClients.of(app);
+		clients.remove(CLIENT_NAME);
 	}
 }
