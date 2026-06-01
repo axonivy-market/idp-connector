@@ -60,7 +60,6 @@ Check the demo implementations provided in the included demo module. The demos s
 @variables.yaml@
 ```
 
-
 ## Components
 
 ### Callable Subprocesses
@@ -69,71 +68,76 @@ Check the demo implementations provided in the included demo module. The demos s
 
 - **Signature**: processing(String workfowId, java.io.File file) -> processingId: java.util.UUID, processingResult: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
     - Input:
-        - `workfowId` (String) - 
-        - `file` (java.io.File) - 
+        - `workfowId` (String)
+        - `file` (java.io.File)
     - Result:
-        - `processingId` (java.util.UUID) - 
-        - `processingResult` (com.fasterxml.jackson.databind.JsonNode) - 
-        - `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+        - `processingId` (java.util.UUID)
+        - `processingResult` (com.fasterxml.jackson.databind.JsonNode)
+        - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signature**: getSubPdf(java.util.UUID index, String fileName) -> file: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError
+- **Signature**: getSubPdf(java.util.UUID processingId, Integer index, String fileName) -> file: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError
     - Input:
-        - `processingId` (java.util.UUID) - 
-        - `index` (Integer) - 
-        - `fileName` (String) - 
+        - `processingId` (java.util.UUID)
+        - `index` (Integer)
+        - `fileName` (String)
     - Result:
-        - `file` (java.io.File) - 
-        - `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+        - `file` (java.io.File)
+        - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
 - **Signature**: shareToken(java.util.UUID processing_id, String expires_at) -> docShareTokenInfo: com.axonivy.connector.idp.connector.model.DocShareTokenInfo, error: ch.ivyteam.ivy.bpm.error.BpmError
     - Input:
-        - `processing_id` (java.util.UUID) - 
-        - `expires_at` (String) - 
+        - `processing_id` (java.util.UUID)
+        - `expires_at` (String)
     - Result:
-        - `docShareTokenInfo` (com.axonivy.connector.idp.connector.model.DocShareTokenInfo) - 
-        - `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+        - `docShareTokenInfo` (com.axonivy.connector.idp.connector.model.DocShareTokenInfo)
+        - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
 - **Signature**: revokeToken(java.util.UUID tokenUUID) -> error: ch.ivyteam.ivy.bpm.error.BpmError
     - Input:
-        - `tokenUUID` (java.util.UUID) - 
+        - `tokenUUID` (java.util.UUID)
     - Result:
-        - `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+        - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
 - **Signature**: retrieveThumbnail(java.util.UUID processingId) -> thumbnail: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError
     - Input:
-        - `processingId` (java.util.UUID) - 
+        - `processingId` (java.util.UUID)
     - Result:
-        - `thumbnail` (java.io.File) - 
-        - `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+        - `thumbnail` (java.io.File)
+        - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
 - **Signature**: retrieveResult(java.util.UUID processingId) -> resultsNode: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
     - Input:
-        - `processingId` (java.util.UUID) - 
+        - `processingId` (java.util.UUID)
     - Result:
-        - `resultsNode` (com.fasterxml.jackson.databind.JsonNode) - 
-        - `error` (ch.ivyteam.ivy.bpm.error.BpmError) - 
+        - `resultsNode` (com.fasterxml.jackson.databind.JsonNode)
+        - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
 #### ValidationService.p.json
 
 - **Signature**: validate(java.util.UUID processingId, Double confidenceMinValue) -> passed: Boolean
+    - Description: validate all values have confident >= confidentThreshold or NOT
     - Input:
-        - `processingId` (java.util.UUID) - 
-        - `confidenceMinValue` (Double) - 
+        - `processingId` (java.util.UUID)
+        - `confidenceMinValue` (Double)
     - Result:
-        - `passed` (Boolean) - 
+        - `passed` (Boolean)
 
 ### Dialog Components
 
 #### IDPStandaloneUI — Embed IDP iframe and share-token UI
 - **Namespace:** com.axonivy.connector.idp.connector.IDPStandaloneUI
-- **Component type:** Component
+- **Component type:** Component dialog
 - **Fields:**
    - `workflowType` (com.axonivy.connector.idp.connector.WorkflowType) — the document's workflow type: document-spliting OR extraction
-   - `documentId` (java.util.UUID)
-   - `shareInfo` (com.axonivy.connector.idp.connector.model.DocShareTokenInfo)
-   - `sharingUrl` (String)
-   - `apiProxyUrl` (String)
-- **Purpose:** Embeds an IDP iframe to display processed documents and provides share/revoke token functionality for the demo UI.
+    - `documentId` (java.util.UUID)
+    - `shareInfo` (com.axonivy.connector.idp.connector.model.DocShareTokenInfo)
+    - `sharingUrl` (String)
+    - `apiProxyUrl` (String)
+- **UI attributes:**
+   - `widgetVar` (required) — widgetvar. Use to save the form data: PF('{widgetvar}').save();
+   - `style` (java.lang.String) — style for the component itself (default: width:100%;height:85vh;border:0;)
+   - `styleClass` (String) — styleClasses for the div surrounding the iframe
+- **Purpose:** Embeds an IDP iframe to display processed documents and provides share/revoke token functionality for demos.
 
 ### Web Services
 
@@ -151,7 +155,7 @@ Check the demo implementations provided in the included demo module. The demos s
 </dependency>
 ```
 
-2. idp-connector-demo *(optional)*
+2. idp-connector-demo
 
 ```xml
 <dependency>
@@ -160,3 +164,4 @@ Check the demo implementations provided in the included demo module. The demos s
   <type>iar</type>
 </dependency>
 ```
+
