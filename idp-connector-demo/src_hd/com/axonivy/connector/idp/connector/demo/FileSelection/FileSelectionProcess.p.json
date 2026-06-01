@@ -98,7 +98,6 @@
         "output" : {
           "code" : [
             "import javax.faces.application.FacesMessage;",
-            "import org.primefaces.context.RequestContext;",
             "import org.primefaces.component.inputtext.InputText;",
             "import javax.faces.context.FacesContext;",
             "FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, in.error.getErrorMessage(), null));"
