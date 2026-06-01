@@ -85,9 +85,23 @@
           "entity" : {
             "type" : "com.fasterxml.jackson.databind.JsonNode",
             "code" : [
+              "import com.axonivy.connector.idp.connector.utils.ErrorHandlingUtils;",
               "import java.util.UUID;",
               "out.statusCode = response.getStatus();",
               "",
+              "if (!ErrorHandlingUtils.is2xxStatus(out.statusCode)) {",
+              "  String errorMessage = \"\";",
+              "  if (out.statusCode == 400 || out.statusCode == 415) {",
+              "    errorMessage = \"Unsupported file type\";",
+              "  }",
+              "  if (out.statusCode == 413) {",
+              "    errorMessage = \"Exceed Page Limit\";",
+              "  }",
+              "  if (out.statusCode == 429) {",
+              "    errorMessage = \"Too many requests\";",
+              "  }",
+              "  out.restException = ErrorHandlingUtils.buildRestException(response, in.workflowId, errorMessage);",
+              "}",
               "if(out.statusCode == 200 || out.statusCode == 201 || out.statusCode == 202) {",
               "  out.processingId = UUID.fromString(result.at(\"/processing_id\").asText());",
               "  ",
@@ -96,7 +110,8 @@
               "  }",
               "}"
             ]
-          }
+          },
+          "statusError" : ">> Ignore error"
         }
       },
       "visual" : {
@@ -186,12 +201,14 @@
       "name" : "in-progress ?",
       "config" : {
         "conditions" : {
-          "f37" : "in.statusCode == 202"
+          "f37" : "in.statusCode == 202",
+          "f15" : "com.axonivy.connector.idp.connector.utils.ErrorHandlingUtils.is2xxStatus(in.statusCode) == false",
+          "f32" : ""
         }
       },
       "visual" : {
         "at" : { "x" : 464, "y" : 152 },
-        "labelOffset" : { "y" : -24 }
+        "labelOffset" : { "x" : -24, "y" : 24 }
       },
       "connect" : [
         { "id" : "f37", "to" : "f28", "via" : [ { "x" : 464, "y" : 232 } ], "label" : {
@@ -202,7 +219,8 @@
         { "id" : "f32", "to" : "f1", "label" : {
             "name" : "no",
             "offset" : { "x" : -171, "y" : -10 }
-          } }
+          } },
+        { "id" : "f15", "to" : "f14" }
       ]
     }, {
       "id" : "f34",
@@ -697,5 +715,25 @@
       "visual" : {
         "at" : { "x" : 472, "y" : 408 }
       }
+    }, {
+      "id" : "f14",
+      "type" : "Script",
+      "name" : "Handle Status Code not successful (2xx)",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.ivyteam.ivy.bpm.error.BpmError;",
+            "",
+            "in.error = BpmError.create(\"idp:error\").withCause(in.#restException).build();"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 676, "y" : 65 },
+        "size" : { "width" : 152, "height" : 62 }
+      },
+      "connect" : [
+        { "id" : "f16", "to" : "f1" }
+      ]
     } ]
 }
