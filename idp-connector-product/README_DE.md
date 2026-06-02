@@ -131,11 +131,11 @@ Sieh dir die Demo-Implementierungen im mitgelieferten Demo-Modul an. Die Demos z
 - **Felder:**
    - `documentId` (java.util.UUID) — The document Id
    - `workflowType` (com.axonivy.connector.idp.connector.WorkflowType) — The document's workflow type: 'document-splitting' OR 'extraction'. Default is 'extraction'.
-- **Zweck:** Error when getting the sharing url
 - **UI attributes:**
    - `widgetVar` (required) — widgetvar. Use to save the form data: PF('{widgetvar}').save();
    - `style` (java.lang.String) (default: width:100%;height:85vh;border:0;) — style for the component itself
    - `styleClass` — styleClasses for the div surrounding the iframe
+- **Zweck:** Error when getting the sharing url
 ### Web-Services
 
 - Es wurden keine Informationen für diesen Abschnitt geliefert.
