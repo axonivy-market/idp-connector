@@ -67,8 +67,8 @@ Sieh dir die Demo-Implementierungen im mitgelieferten Demo-Modul an. Die Demos z
 
 #### ProcessingService.p.json
 
-- **Signatur**: processing(String workfowId, java.io.File file) -> processingId: java.util.UUID, processingResult: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
-    - Eingabe:
+- **Signature**: processing(String workfowId, java.io.File file) -> processingId: java.util.UUID
+    - Eingaben:
         - `workfowId` (String)
         - `file` (java.io.File)
     - Ergebnis:
@@ -76,8 +76,8 @@ Sieh dir die Demo-Implementierungen im mitgelieferten Demo-Modul an. Die Demos z
         - `processingResult` (com.fasterxml.jackson.databind.JsonNode)
         - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signatur**: getSubPdf(java.util.UUID processingId, Integer index, String fileName) -> file: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError
-    - Eingabe:
+- **Signature**: getSubPdf(java.util.UUID processingId, Integer index, String fileName) -> file: java.io.File
+    - Eingaben:
         - `processingId` (java.util.UUID)
         - `index` (Integer)
         - `fileName` (String)
@@ -85,29 +85,29 @@ Sieh dir die Demo-Implementierungen im mitgelieferten Demo-Modul an. Die Demos z
         - `file` (java.io.File)
         - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signatur**: shareToken(java.util.UUID processing_id, String expires_at) -> docShareTokenInfo: com.axonivy.connector.idp.connector.model.DocShareTokenInfo, error: ch.ivyteam.ivy.bpm.error.BpmError
-    - Eingabe:
+- **Signature**: shareToken(java.util.UUID processing_id, String expires_at) -> docShareTokenInfo: com.axonivy.connector.idp.connector.model.DocShareTokenInfo
+    - Eingaben:
         - `processing_id` (java.util.UUID)
         - `expires_at` (String)
     - Ergebnis:
         - `docShareTokenInfo` (com.axonivy.connector.idp.connector.model.DocShareTokenInfo)
         - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signatur**: revokeToken(java.util.UUID tokenUUID) -> error: ch.ivyteam.ivy.bpm.error.BpmError
-    - Eingabe:
+- **Signature**: revokeToken(java.util.UUID tokenUUID) -> error: ch.ivyteam.ivy.bpm.error.BpmError
+    - Eingaben:
         - `tokenUUID` (java.util.UUID)
     - Ergebnis:
         - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signatur**: retrieveThumbnail(java.util.UUID processingId) -> thumbnail: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError
-    - Eingabe:
+- **Signature**: retrieveThumbnail(java.util.UUID processingId) -> thumbnail: java.io.File
+    - Eingaben:
         - `processingId` (java.util.UUID)
     - Ergebnis:
         - `thumbnail` (java.io.File)
         - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signatur**: retrieveResult(java.util.UUID processingId) -> resultsNode: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
-    - Eingabe:
+- **Signature**: retrieveResult(java.util.UUID processingId) -> resultsNode: com.fasterxml.jackson.databind.JsonNode
+    - Eingaben:
         - `processingId` (java.util.UUID)
     - Ergebnis:
         - `resultsNode` (com.fasterxml.jackson.databind.JsonNode)
@@ -115,32 +115,30 @@ Sieh dir die Demo-Implementierungen im mitgelieferten Demo-Modul an. Die Demos z
 
 #### ValidationService.p.json
 
-- **Signatur**: validate(java.util.UUID processingId, Double confidenceMinValue) -> passed: Boolean
-    - Eingabe:
+- **Signature**: validate(java.util.UUID processingId, Double confidenceMinValue) -> passed: Boolean
+    - Eingaben:
         - `processingId` (java.util.UUID)
         - `confidenceMinValue` (Double)
     - Ergebnis:
         - `passed` (Boolean)
-    - Beschreibung:
-        - Prüft, ob alle Werte die Konfidenz >= Konfidenzschwelle erfüllen oder nicht
-
+    - Beschreibung: validate all values have confident >= confidentThreshold or NOT
 ### Dialogkomponenten
 
-#### IDPStandaloneUI — Einbettung des IDP-IFrame und Share-Token UI
+#### IDPStandaloneUI — Wiederverwendbare Formularkomponente
+
 - **Namespace:** com.axonivy.connector.idp.connector.IDPStandaloneUI
 - **Komponententyp:** Component dialog
 - **Felder:**
-   - `workflowType` (com.axonivy.connector.idp.connector.WorkflowType) — der Workflow-Typ des Dokuments: document-spliting ODER extraction
-    - `documentId` (java.util.UUID)
-    - `shareInfo` (com.axonivy.connector.idp.connector.model.DocShareTokenInfo)
-    - `sharingUrl` (String)
-    - `apiProxyUrl` (String)
-- **Zweck:** Betten ein IDP-IFrame ein, um verarbeitete Dokumente anzuzeigen, und bieten Share-/Revoke-Token-Funktionen für Demos.
-
+   - `documentId` (java.util.UUID) — The document Id
+   - `workflowType` (com.axonivy.connector.idp.connector.WorkflowType) — The document's workflow type: 'document-splitting' OR 'extraction'. Default is 'extraction'.
+- **Zweck:** Error when getting the sharing url
+- **UI attributes:**
+   - `widgetVar` (required) — widgetvar. Use to save the form data: PF('{widgetvar}').save();
+   - `style` (java.lang.String) (default: width:100%;height:85vh;border:0;) — style for the component itself
+   - `styleClass` — styleClasses for the div surrounding the iframe
 ### Web-Services
 
 - Es wurden keine Informationen für diesen Abschnitt geliefert.
-
 ### Maven-Artefakte
 
 1. idp-connector

@@ -66,7 +66,7 @@ Check the demo implementations provided in the included demo module. The demos s
 
 #### ProcessingService.p.json
 
-- **Signature**: processing(String workfowId, java.io.File file) -> processingId: java.util.UUID, processingResult: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
+- **Signature**: processing(String workfowId, java.io.File file) -> processingId: java.util.UUID
     - Input:
         - `workfowId` (String)
         - `file` (java.io.File)
@@ -75,7 +75,7 @@ Check the demo implementations provided in the included demo module. The demos s
         - `processingResult` (com.fasterxml.jackson.databind.JsonNode)
         - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signature**: getSubPdf(java.util.UUID processingId, Integer index, String fileName) -> file: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError
+- **Signature**: getSubPdf(java.util.UUID processingId, Integer index, String fileName) -> file: java.io.File
     - Input:
         - `processingId` (java.util.UUID)
         - `index` (Integer)
@@ -84,7 +84,7 @@ Check the demo implementations provided in the included demo module. The demos s
         - `file` (java.io.File)
         - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signature**: shareToken(java.util.UUID processing_id, String expires_at) -> docShareTokenInfo: com.axonivy.connector.idp.connector.model.DocShareTokenInfo, error: ch.ivyteam.ivy.bpm.error.BpmError
+- **Signature**: shareToken(java.util.UUID processing_id, String expires_at) -> docShareTokenInfo: com.axonivy.connector.idp.connector.model.DocShareTokenInfo
     - Input:
         - `processing_id` (java.util.UUID)
         - `expires_at` (String)
@@ -98,14 +98,14 @@ Check the demo implementations provided in the included demo module. The demos s
     - Result:
         - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signature**: retrieveThumbnail(java.util.UUID processingId) -> thumbnail: java.io.File, error: ch.ivyteam.ivy.bpm.error.BpmError
+- **Signature**: retrieveThumbnail(java.util.UUID processingId) -> thumbnail: java.io.File
     - Input:
         - `processingId` (java.util.UUID)
     - Result:
         - `thumbnail` (java.io.File)
         - `error` (ch.ivyteam.ivy.bpm.error.BpmError)
 
-- **Signature**: retrieveResult(java.util.UUID processingId) -> resultsNode: com.fasterxml.jackson.databind.JsonNode, error: ch.ivyteam.ivy.bpm.error.BpmError
+- **Signature**: retrieveResult(java.util.UUID processingId) -> resultsNode: com.fasterxml.jackson.databind.JsonNode
     - Input:
         - `processingId` (java.util.UUID)
     - Result:
@@ -115,34 +115,29 @@ Check the demo implementations provided in the included demo module. The demos s
 #### ValidationService.p.json
 
 - **Signature**: validate(java.util.UUID processingId, Double confidenceMinValue) -> passed: Boolean
-    - Description: validate all values have confident >= confidentThreshold or NOT
     - Input:
         - `processingId` (java.util.UUID)
         - `confidenceMinValue` (Double)
     - Result:
         - `passed` (Boolean)
-
+    - Description: validate all values have confident >= confidentThreshold or NOT
 ### Dialog Components
 
-#### IDPStandaloneUI — Embed IDP iframe and share-token UI
+#### IDPStandaloneUI — Reusable form component
+
 - **Namespace:** com.axonivy.connector.idp.connector.IDPStandaloneUI
 - **Component type:** Component dialog
 - **Fields:**
-   - `workflowType` (com.axonivy.connector.idp.connector.WorkflowType) — the document's workflow type: document-spliting OR extraction
-    - `documentId` (java.util.UUID)
-    - `shareInfo` (com.axonivy.connector.idp.connector.model.DocShareTokenInfo)
-    - `sharingUrl` (String)
-    - `apiProxyUrl` (String)
+   - `documentId` (java.util.UUID) — The document Id
+   - `workflowType` (com.axonivy.connector.idp.connector.WorkflowType) — The document's workflow type: 'document-splitting' OR 'extraction'. Default is 'extraction'.
+- **Purpose:** Error when getting the sharing url
 - **UI attributes:**
    - `widgetVar` (required) — widgetvar. Use to save the form data: PF('{widgetvar}').save();
-   - `style` (java.lang.String) — style for the component itself (default: width:100%;height:85vh;border:0;)
-   - `styleClass` (String) — styleClasses for the div surrounding the iframe
-- **Purpose:** Embeds an IDP iframe to display processed documents and provides share/revoke token functionality for demos.
-
+   - `style` (java.lang.String) (default: width:100%;height:85vh;border:0;) — style for the component itself
+   - `styleClass` — styleClasses for the div surrounding the iframe
 ### Web Services
 
 - No information was delivered for this section.
-
 ### Maven Artifacts
 
 1. idp-connector
@@ -164,4 +159,3 @@ Check the demo implementations provided in the included demo module. The demos s
   <type>iar</type>
 </dependency>
 ```
-
