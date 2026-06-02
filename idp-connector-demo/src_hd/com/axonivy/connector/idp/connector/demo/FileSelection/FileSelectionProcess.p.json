@@ -93,7 +93,7 @@
     }, {
       "id" : "f18",
       "type" : "Script",
-      "name" : "Show error message",
+      "name" : "Show error message or retry",
       "config" : {
         "output" : {
           "code" : [
@@ -120,7 +120,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 392, "y" : 280 }
+        "at" : { "x" : 448, "y" : 280 }
       },
       "connect" : [
         { "id" : "f11", "to" : "f23" }
@@ -210,7 +210,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 392, "y" : 176 },
+        "at" : { "x" : 448, "y" : 176 },
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [
@@ -226,7 +226,7 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 392, "y" : 464 },
+        "at" : { "x" : 448, "y" : 464 },
         "labelOffset" : { "x" : 14, "y" : 34 }
       },
       "connect" : [

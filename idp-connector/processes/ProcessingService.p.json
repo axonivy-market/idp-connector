@@ -85,6 +85,8 @@
           "entity" : {
             "type" : "com.fasterxml.jackson.databind.JsonNode",
             "code" : [
+              "import com.axonivy.connector.idp.connector.exception.RestException;",
+              "import ch.ivyteam.ivy.bpm.error.BpmError;",
               "import com.axonivy.connector.idp.connector.utils.ErrorHandlingUtils;",
               "import java.util.UUID;",
               "out.statusCode = response.getStatus();",
@@ -100,7 +102,8 @@
               "  if (out.statusCode == 429) {",
               "    errorMessage = \"Too many requests\";",
               "  }",
-              "  out.restException = ErrorHandlingUtils.buildRestException(response, in.workflowId, errorMessage);",
+              "  RestException restException = ErrorHandlingUtils.buildRestException(response, in.workflowId, errorMessage);",
+              "  in.error = BpmError.create(\"idp:error\").withCause(restException).build();",
               "}",
               "if(out.statusCode == 200 || out.statusCode == 201 || out.statusCode == 202) {",
               "  out.processingId = UUID.fromString(result.at(\"/processing_id\").asText());",
@@ -201,9 +204,7 @@
       "name" : "in-progress ?",
       "config" : {
         "conditions" : {
-          "f37" : "in.statusCode == 202",
-          "f15" : "com.axonivy.connector.idp.connector.utils.ErrorHandlingUtils.is2xxStatus(in.statusCode) == false",
-          "f32" : ""
+          "f37" : "in.statusCode == 202"
         }
       },
       "visual" : {
@@ -219,8 +220,7 @@
         { "id" : "f32", "to" : "f1", "label" : {
             "name" : "no",
             "offset" : { "x" : -171, "y" : -10 }
-          } },
-        { "id" : "f15", "to" : "f14" }
+          } }
       ]
     }, {
       "id" : "f34",
@@ -715,25 +715,5 @@
       "visual" : {
         "at" : { "x" : 472, "y" : 408 }
       }
-    }, {
-      "id" : "f14",
-      "type" : "Script",
-      "name" : "Handle Status Code not successful (2xx)",
-      "config" : {
-        "output" : {
-          "code" : [
-            "import ch.ivyteam.ivy.bpm.error.BpmError;",
-            "",
-            "in.error = BpmError.create(\"idp:error\").withCause(in.#restException).build();"
-          ]
-        }
-      },
-      "visual" : {
-        "at" : { "x" : 676, "y" : 65 },
-        "size" : { "width" : 152, "height" : 62 }
-      },
-      "connect" : [
-        { "id" : "f16", "to" : "f1" }
-      ]
     } ]
 }

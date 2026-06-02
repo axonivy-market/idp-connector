@@ -48,8 +48,5 @@
   }, {
     "name" : "tokenUUID",
     "type" : "java.util.UUID"
-  }, {
-    "name" : "restException",
-    "type" : "com.axonivy.connector.idp.connector.exception.RestException"
   } ]
 }
