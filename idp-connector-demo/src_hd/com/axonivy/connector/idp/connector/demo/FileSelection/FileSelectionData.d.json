@@ -1,35 +1,40 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "FileSelectionData",
   "namespace" : "com.axonivy.connector.idp.connector.demo.FileSelection",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "demo",
-    "type" : "com.axonivy.connector.idp.demo.Demo"
+    "type" : "com.axonivy.connector.idp.demo.Demo",
+    "modifiers" : [ ]
   }, {
     "name" : "uploadedFile",
-    "type" : "org.primefaces.model.file.UploadedFile"
+    "type" : "org.primefaces.model.file.UploadedFile",
+    "modifiers" : [ ]
   }, {
     "name" : "sampleFiles",
-    "type" : "java.util.List<com.axonivy.connector.idp.demo.SampleFile>"
+    "type" : "java.util.List<com.axonivy.connector.idp.demo.SampleFile>",
+    "modifiers" : [ ]
   }, {
     "name" : "file",
-    "type" : "File",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "File"
   }, {
     "name" : "selectedSampleFile",
-    "type" : "com.axonivy.connector.idp.demo.SampleFile"
+    "type" : "com.axonivy.connector.idp.demo.SampleFile",
+    "modifiers" : [ ]
   }, {
     "name" : "workflowId",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "processingResultNode",
-    "type" : "com.fasterxml.jackson.databind.JsonNode"
+    "type" : "com.fasterxml.jackson.databind.JsonNode",
+    "modifiers" : [ ]
   }, {
     "name" : "processingId",
-    "type" : "java.util.UUID"
+    "type" : "java.util.UUID",
+    "modifiers" : [ ]
   }, {
     "name" : "error",
-    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError",
+    "modifiers" : [ ]
   } ]
 }

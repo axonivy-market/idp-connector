@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process.json",
   "id" : "191351D442CAD7E7",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -57,7 +57,7 @@
       "config" : {
         "method" : "POST",
         "target" : {
-          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "clientId" : "IDP",
           "path" : "/processing/{workflow_id}",
           "templateParams" : {
             "workflow_id" : "in.workflowId"
@@ -129,7 +129,7 @@
       "name" : "Processing Result",
       "config" : {
         "target" : {
-          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "clientId" : "IDP",
           "path" : "/processing/results/{processing_id}",
           "templateParams" : {
             "processing_id" : "in.processingId"
@@ -235,7 +235,7 @@
       "name" : "Retrieve sub-pdf for splitting processing result",
       "config" : {
         "target" : {
-          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "clientId" : "IDP",
           "path" : "/processing/results/{processing_id}/sub-pdfs/{index}",
           "templateParams" : {
             "processing_id" : "in.processingId",
@@ -386,7 +386,7 @@
       "config" : {
         "method" : "POST",
         "target" : {
-          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "clientId" : "IDP",
           "path" : "/share-tokens/documents"
         },
         "body" : {
@@ -478,7 +478,7 @@
       "config" : {
         "method" : "DELETE",
         "target" : {
-          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "clientId" : "IDP",
           "path" : "/share-tokens/documents",
           "queryParams" : {
             "token_uuid" : "in.tokenUUID"
@@ -557,7 +557,7 @@
       "name" : "thumbnail",
       "config" : {
         "target" : {
-          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "clientId" : "IDP",
           "path" : "/processing/results/{processing_id}/thumbnail",
           "templateParams" : {
             "processing_id" : "in.processingId"
@@ -651,7 +651,7 @@
       "name" : "Processing Result",
       "config" : {
         "target" : {
-          "clientId" : "c316f4d1-daa6-4ca2-b3e0-68133e54eb99",
+          "clientId" : "IDP",
           "path" : "/processing/results/{processing_id}",
           "templateParams" : {
             "processing_id" : "in.processingId"

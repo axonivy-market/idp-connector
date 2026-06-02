@@ -1,52 +1,63 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "ProcessingServiceData",
   "namespace" : "com.axonivy.connector.idp.connector",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "workflowId",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "file",
-    "type" : "java.io.File"
+    "type" : "java.io.File",
+    "modifiers" : [ ]
   }, {
     "name" : "fileName",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "include",
-    "type" : "java.util.List<String>"
+    "type" : "java.util.List<String>",
+    "modifiers" : [ ]
   }, {
     "name" : "processingId",
-    "type" : "java.util.UUID"
+    "type" : "java.util.UUID",
+    "modifiers" : [ ]
   }, {
     "name" : "jsonNode",
-    "type" : "com.fasterxml.jackson.databind.JsonNode"
+    "type" : "com.fasterxml.jackson.databind.JsonNode",
+    "modifiers" : [ ]
   }, {
     "name" : "response",
-    "type" : "javax.ws.rs.core.Response"
+    "type" : "javax.ws.rs.core.Response",
+    "modifiers" : [ ]
   }, {
     "name" : "waitFor",
-    "type" : "Integer"
+    "type" : "Integer",
+    "modifiers" : [ ]
   }, {
     "name" : "statusCode",
-    "type" : "Integer"
+    "type" : "Integer",
+    "modifiers" : [ ]
   }, {
     "name" : "error",
-    "type" : "ch.ivyteam.ivy.bpm.error.BpmError"
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError",
+    "modifiers" : [ ]
   }, {
     "name" : "subDocuments",
-    "type" : "java.util.List<com.axonivy.connector.idp.connector.model.SubDocument>"
+    "type" : "java.util.List<com.axonivy.connector.idp.connector.model.SubDocument>",
+    "modifiers" : [ ]
   }, {
     "name" : "index",
-    "type" : "Integer"
+    "type" : "Integer",
+    "modifiers" : [ ]
   }, {
     "name" : "expires_at",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "docShareTokenInfo",
-    "type" : "com.axonivy.connector.idp.connector.model.DocShareTokenInfo"
+    "type" : "com.axonivy.connector.idp.connector.model.DocShareTokenInfo",
+    "modifiers" : [ ]
   }, {
     "name" : "tokenUUID",
-    "type" : "java.util.UUID"
+    "type" : "java.util.UUID",
+    "modifiers" : [ ]
   } ]
 }
