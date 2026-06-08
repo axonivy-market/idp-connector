@@ -14,11 +14,7 @@ public class RestException extends RuntimeException {
 		this.operation = operation;
 		if (response != null) {
 			this.statusCode = response.getStatus();
-			if (StringUtils.isNotBlank(errorMessage)) {
-				this.errorMessage = errorMessage;
-			} else {
-				this.errorMessage = "Calling IDP API Failed";
-			}
+			this.errorMessage = StringUtils.defaultIfBlank(errorMessage, "Calling IDP API Failed");
 		}
 
 	}
