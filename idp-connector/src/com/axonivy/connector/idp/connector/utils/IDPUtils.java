@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import javax.ws.rs.core.Response;
 
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.axonivy.connector.idp.connector.WorkflowType;
 
@@ -54,10 +55,16 @@ public class IDPUtils {
 	 * @return
 	 */
 	public static String getSharingUrl(UUID documentId, WorkflowType workflowType, String token) {
-		String url = STAND_ALONE_URL.replace("{baseUrl}", Ivy.var().get("idpConnector.apiProxyUrl"))
+		String url = STAND_ALONE_URL.replace("{baseUrl}", Ivy.var().get("idpConnector.standAloneUrl"))
 				.replace("{workflowType}", workflowType.getValue())
 				.replace("{documentId}", documentId.toString())
 				.replace("{token}", token);
+		
+		String confidenceMinValueStr = Ivy.var().get("idpConnector.confidenceMinValue");
+		if (WorkflowType.EXTRACTION.equals(workflowType) && StringUtils.isNotBlank(confidenceMinValueStr)) {
+			double confidenceMinValue = Double.parseDouble(confidenceMinValueStr);
+			url += "&extraction_confidence=" + confidenceMinValue;
+		}
 		return url;
 	}
 
