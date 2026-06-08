@@ -411,7 +411,7 @@
         },
         "output" : {
           "code" : [
-            "String resultStr = result.passed ? \"NOT PASSED\" : \"PASSED\" ;",
+            "String resultStr = result.passed ? \"PASSED\" : \"NOT PASSED\" ;",
             "ivy.log.info(\"Validation processingId={0}, confidenceMinValue={1} : result={2}\", out.processingId, out.confidenceMinValue, resultStr);"
           ]
         }
@@ -437,7 +437,7 @@
         },
         "output" : {
           "code" : [
-            "String resultStr = result.passed ? \"NOT PASSED\" : \"PASSED\" ;",
+            "String resultStr = result.passed ? \"PASSED\" : \"NOT PASSED\" ;",
             "ivy.log.info(\"Validation processingId={0}, confidenceMinValue={1} : result={2}\", in.processingId, in.confidenceMinValue, resultStr);"
           ]
         }
@@ -455,10 +455,6 @@
       "name" : "Set confidenceMinValue",
       "config" : {
         "output" : {
-          "map" : {
-            "out" : "in",
-            "out.confidenceMinValue" : "0.9"
-          },
           "code" : [
             "import com.axonivy.connector.idp.connector.model.AvailableWorkflowResponse;",
             "",
@@ -482,10 +478,6 @@
       "name" : "Set confidenceMinValue",
       "config" : {
         "output" : {
-          "map" : {
-            "out" : "in",
-            "out.confidenceMinValue" : "0.9"
-          },
           "code" : [
             "import com.axonivy.connector.idp.connector.model.AvailableWorkflowResponse;",
             "",
