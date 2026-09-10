@@ -27,7 +27,7 @@
     "modifiers" : [ ]
   }, {
     "name" : "processingResultNode",
-    "type" : "com.fasterxml.jackson.databind.JsonNode",
+    "type" : "tools.jackson.databind.JsonNode",
     "modifiers" : [ ]
   }, {
     "name" : "processingId",
@@ -35,6 +35,7 @@
     "modifiers" : [ ]
   }, {
     "name" : "error",
+    "type" : "ch.ivyteam.ivy.bpm.error.BpmError",
     "modifiers" : [ ]
   }, {
     "name" : "retry",
